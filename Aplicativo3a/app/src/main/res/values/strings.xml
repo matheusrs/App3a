@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Aplicativo3a</string>
+    <string name="app_name">Acorde Administrativo</string>
+    <string name="opc_avisos">Avisos</string>
+    <string name="opc_calendario">Calendário</string>
+    <string name="opc_assistidos">Assistidos</string>
+    <string name="opc_parceiros">Parceiros</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
 </resources>
