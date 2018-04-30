@@ -1,6 +1,7 @@
 package com.example.bruno.aplicativo3a.ListagemAssistidos;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,11 @@ public class FragmentoAssistidosAdapter extends RecyclerView.Adapter<FragmentoAs
     OnRecyclerViewSelected onRecyclerViewSelected;
     private Context context;
 
+    FragmentoAssistidosAdapter(List<AssistidoEntity> list, Context context){
+        this.assistidoList=list;
+        this.context = context;
+    }
+
     //infla o componente view
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -36,7 +42,6 @@ public class FragmentoAssistidosAdapter extends RecyclerView.Adapter<FragmentoAs
         AssistidoEntity assistidoEntity = assistidoList.get(position);
         holder.txNomeAssistido.setText(assistidoEntity.getNome());
         holder.txTelefoneAssistido.setText(assistidoEntity.getTelefone());
-        holder.txTelefoneAssistido2.setText(assistidoEntity.getTelefone2());
     }
 
     //retorna o tamanho da lista

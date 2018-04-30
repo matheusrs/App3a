@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edTxtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/edTxtSobrenome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sobrenome"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/edTxtTelefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Telefone"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:inputType="phone"/>
+
+        <EditText
+            android:id="@+id/edTxtDeficiencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Deficiência"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:inputType="text"/>
+
+
+        <EditText
+            android:id="@+id/edTxtObservacoes"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="Observações"
+            android:lines="10"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:inputType="text"
+            android:gravity="top"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salvar"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"/>
+
+    </LinearLayout>
+</ScrollView>
