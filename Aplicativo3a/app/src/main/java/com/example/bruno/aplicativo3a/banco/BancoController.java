@@ -37,12 +37,10 @@ public class BancoController {
 
     public Cursor carregaAssistidos(){
         Cursor cursor;
-        String [] campos = {criaBD.ID,criaBD.NOME,criaBD.SOBRENOME,criaBD.TELEFONE,criaBD.DEFICIENCIA,criaBD.OBSERVACOES};
+        String sql = "SELECT NOME,SOBRENOME,TELEFONE,DEFICIENCIA,OBSERVACOES FROM ASSISTIDOS";
         db = criaBD.getReadableDatabase();
-        cursor = db.query(criaBD.TABASSISTIDOS,campos,null,null,null,null,null,null);
-        if(cursor!=null)
-            cursor.moveToFirst();
-        db.close();
+        cursor = db.rawQuery(sql,null);
+        //db.close();
         return cursor;
     }
 }

@@ -2,11 +2,13 @@ package com.example.bruno.aplicativo3a.ListagemAssistidos;
 
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import android.widget.SearchView;
 import com.example.bruno.aplicativo3a.CadastroAssistidos.CadastroAssistidos;
 import com.example.bruno.aplicativo3a.R;
 import com.example.bruno.aplicativo3a.banco.BancoController;
+import com.example.bruno.aplicativo3a.banco.CriaBD;
 import com.example.bruno.aplicativo3a.entitiy.AssistidoEntity;
 
 import java.util.List;

@@ -9,7 +9,7 @@ public class CriaBD extends SQLiteOpenHelper {
     public static final String NOME_BANCO = "banco.db";
     public static final String TABASSISTIDOS = "assistidos";
     public static final String ID = "_id";
-    public static final String NOME = "titulo";
+    public static final String NOME = "nome";
     public static final String SOBRENOME = "sobrenome";
     public static final String TELEFONE = "telefone";
     public static final String DEFICIENCIA = "deficiencia";
@@ -35,10 +35,9 @@ public class CriaBD extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "DROP TABLE IF EXISTS " + TABASSISTIDOS;
-        db.execSQL(sql);
-        onCreate(db);
+//        String sql = "DROP TABLE IF EXISTS " + TABASSISTIDOS;
+//        db.execSQL(sql);
+//        onCreate(db);
     }
-
 
 }

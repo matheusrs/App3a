@@ -64,6 +64,7 @@
             android:gravity="top"/>
 
         <Button
+            android:id="@+id/btnSalvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Salvar"
