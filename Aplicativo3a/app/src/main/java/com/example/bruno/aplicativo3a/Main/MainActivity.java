@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
-import com.example.bruno.aplicativo3a.ListagemAssistidos.FragmentoAssistidos;
+import com.example.bruno.aplicativo3a.ListagemAssistidos.FragmentoListarAssistidos;
 import com.example.bruno.aplicativo3a.R;
 
 import butterknife.BindView;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragmentoAssistidos(), "Assistidos");
+        adapter.addFragment(new FragmentoListarAssistidos(), "Assistidos");
         viewPager.setAdapter(adapter);
     }
 

@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.bruno.aplicativo3a.R;
 import com.example.bruno.aplicativo3a.banco.BancoController;
@@ -34,6 +35,7 @@ public class CadastroAssistidos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_assistidos);
         ButterKnife.bind(this);
@@ -43,11 +45,14 @@ public class CadastroAssistidos extends AppCompatActivity {
         salvar.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            BancoController banco = new BancoController(getBaseContext());
-                                            if(banco.insereAssistido(nome.getText().toString(),sobrenome.getText().toString(),telefone.getText().toString(),deficiencia.getText().toString(),observacoes.getText().toString()))
-                                                Log.i("Script","Inserido");
-                                            else  Log.i("Script","Erro");
-                                            finish();
+            String message;
+            BancoController banco = new BancoController(getBaseContext());
+            if(banco.insereAssistido(nome.getText().toString(),sobrenome.getText().toString(),telefone.getText().toString(),deficiencia.getText().toString(),observacoes.getText().toString()))
+                message = "Assistido cadastrado!";
+            else
+                message =  "Erro ao gravar assistido";
+            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+            finish();
                                         }
        }
 

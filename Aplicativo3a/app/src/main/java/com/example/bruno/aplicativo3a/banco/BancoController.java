@@ -20,11 +20,11 @@ public class BancoController {
 
         db = criaBD.getWritableDatabase();
         valores = new ContentValues();
-        valores.put(CriaBD.NOME, nome);
-        valores.put(CriaBD.SOBRENOME, sobrenome);
-        valores.put(CriaBD.TELEFONE, telefone);
-        valores.put(CriaBD.DEFICIENCIA, deficiencia);
-        valores.put(CriaBD.OBSERVACOES, observacoes);
+        valores.put(CriaBD.TABASSISTIDOS_NOME, nome);
+        valores.put(CriaBD.TABASSISTIDOS_SOBRENOME, sobrenome);
+        valores.put(CriaBD.TABASSISTIDOS_TELEFONE, telefone);
+        valores.put(CriaBD.TABASSISTIDOS_DEFICIENCIA, deficiencia);
+        valores.put(CriaBD.TABASSISTIDOS_OBSERVACOES, observacoes);
 
         resultado = db.insert(CriaBD.TABASSISTIDOS, null, valores);
         db.close();
@@ -35,12 +35,37 @@ public class BancoController {
             return true;
     }
 
-    public Cursor carregaAssistidos(){
+    /*public Cursor carregaAssistidos(){
         Cursor cursor;
         String sql = "SELECT NOME,SOBRENOME,TELEFONE,DEFICIENCIA,OBSERVACOES FROM ASSISTIDOS";
         db = criaBD.getReadableDatabase();
         cursor = db.rawQuery(sql,null);
         //db.close();
+        return cursor;
+    }*/
+
+    public Cursor carregaAssistidos(){
+        Cursor cursor;
+        String[] campos =  {criaBD.TABASSISTIDOS_ID, criaBD.TABASSISTIDOS_NOME, criaBD.TABASSISTIDOS_SOBRENOME, criaBD.TABASSISTIDOS_TELEFONE, criaBD.TABASSISTIDOS_DEFICIENCIA, criaBD.TABASSISTIDOS_OBSERVACOES};
+        db = criaBD.getReadableDatabase();
+        cursor = db.query(criaBD.TABASSISTIDOS, campos, null, null, null, null, null, null);
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
+
+    public Cursor carregaAssistidos(String nome) {
+        Cursor cursor;
+        String [] campos = {criaBD.TABASSISTIDOS_ID,criaBD.TABASSISTIDOS_NOME,criaBD.TABASSISTIDOS_SOBRENOME,criaBD.TABASSISTIDOS_TELEFONE,criaBD.TABASSISTIDOS_DEFICIENCIA,criaBD.TABASSISTIDOS_OBSERVACOES};
+        String where = CriaBD.TABASSISTIDOS_NOME + "like %" + nome + "%";
+        db = criaBD.getReadableDatabase();
+        cursor = db.query(criaBD.TABASSISTIDOS,campos, where, null,null,null,null,null);
+        if(cursor!=null)
+            cursor.moveToFirst();
+        db.close();
         return cursor;
     }
 }
