@@ -64,7 +64,6 @@ public class FragmentoListarAssistidosAdapter extends RecyclerView.Adapter<Fragm
         void onItemClick(View view){
             if(onRecyclerViewSelected != null)
                 onRecyclerViewSelected.onClick(view, getAdapterPosition());
-            Log.i("Script", "Passou no clique" + getAdapterPosition());
         }
 
     }
