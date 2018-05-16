@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
 import com.example.bruno.aplicativo3a.ListagemAssistidos.FragmentoAssistidos;
+import com.example.bruno.aplicativo3a.ListagemParceiros.FragmentoParceiros;
 import com.example.bruno.aplicativo3a.R;
 
 import butterknife.BindView;
@@ -45,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new FragmentoAssistidos(), "Avisos");
+        adapter.addFragment(new FragmentoAssistidos(), "Calendário");
         adapter.addFragment(new FragmentoAssistidos(), "Assistidos");
+        adapter.addFragment(new FragmentoParceiros(), "Parceiros");
         viewPager.setAdapter(adapter);
     }
 
