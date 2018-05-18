@@ -1,12 +1,11 @@
 package com.example.bruno.aplicativo3a.ListagemAssistidos;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.bruno.aplicativo3a.R;
@@ -19,12 +18,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FragmentoAssistidosAdapter extends RecyclerView.Adapter<FragmentoAssistidosAdapter.ViewHolder> {
+public class FragmentoListarAssistidosAdapter extends RecyclerView.Adapter<FragmentoListarAssistidosAdapter.ViewHolder> {
     private List<AssistidoEntity> assistidoList;
     OnRecyclerViewSelected onRecyclerViewSelected;
     private Context context;
 
-    FragmentoAssistidosAdapter(List<AssistidoEntity> list, Context context){
+    FragmentoListarAssistidosAdapter(List<AssistidoEntity> list, Context context){
         this.assistidoList=list;
         this.context = context;
     }
@@ -41,7 +40,6 @@ public class FragmentoAssistidosAdapter extends RecyclerView.Adapter<FragmentoAs
     public void onBindViewHolder(ViewHolder holder, int position) {
         AssistidoEntity assistidoEntity = assistidoList.get(position);
         holder.txNomeAssistido.setText(assistidoEntity.getNome());
-        holder.txTelefoneAssistido.setText(assistidoEntity.getTelefone());
     }
 
     //retorna o tamanho da lista
@@ -56,16 +54,8 @@ public class FragmentoAssistidosAdapter extends RecyclerView.Adapter<FragmentoAs
         @BindView(R.id.nome_assistido)
         TextView txNomeAssistido;
 
-        @BindView(R.id.telefone_assistido)
-        TextView txTelefoneAssistido;
 
-        @BindView(R.id.telefone_assistido2)
-        TextView txTelefoneAssistido2;
-
-        @BindView(R.id.foto_assistindo)
-        ImageView fotoAssistido;
-
-        public ViewHolder(View itemView) {
+       public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
@@ -74,7 +64,6 @@ public class FragmentoAssistidosAdapter extends RecyclerView.Adapter<FragmentoAs
         void onItemClick(View view){
             if(onRecyclerViewSelected != null)
                 onRecyclerViewSelected.onClick(view, getAdapterPosition());
-
         }
 
     }

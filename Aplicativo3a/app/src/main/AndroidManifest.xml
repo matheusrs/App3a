@@ -17,11 +17,12 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
-        <activity
-            android:name=".CadastroAssistidos.CadastroAssistidos"
-            android:theme="@style/Actionbar" />
-        <activity android:name=".CadastroParceiros.CadastroParceiros"></activity>
+            </intent-filter>
+        </activity>
+        <activity android:name=".CadastroAssistidos.CadastroAssistidos"
+            android:theme="@style/Actionbar"></activity>
+	<activity android:name=".CadastroParceiros.CadastroParceiros"
+	    android:theme="@style/Actionbar"></activity>
     </application>
 
 </manifest>

@@ -1,8 +1,14 @@
+.gitignore
 *.iml
 .gradle
 /local.properties
+<<<<<<< HEAD
 /.idea
+=======
+>>>>>>> develop
 .DS_Store
 /build
 /captures
 .externalNativeBuild
+/.idea/
+app/build.gradle

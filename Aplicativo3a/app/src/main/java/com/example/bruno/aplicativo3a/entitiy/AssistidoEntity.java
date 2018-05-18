@@ -1,7 +1,7 @@
 package com.example.bruno.aplicativo3a.entitiy;
 
 public class AssistidoEntity {
-    String id,nome,sobrenome,telefone,deficiencia,observacoes;
+    String id,nome,sobrenome,telefone, datanascimento,deficiencia,observacoes;
 
     public String getId() {
         return id;
@@ -27,12 +27,18 @@ public class AssistidoEntity {
         this.sobrenome = sobrenome;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
+    public String getTelefone() { return telefone; }
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getDataNascimento() {
+        return datanascimento;
+    }
+
+    public void setDataNascimento(String datanascimento) {
+        this.datanascimento = datanascimento;
     }
 
     public String getDeficiencia() {
