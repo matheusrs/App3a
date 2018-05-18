@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".CadastroAssistidos.CadastroAssistidos"
             android:theme="@style/Actionbar"></activity>
+        <activity android:name=".CadastroAssistidos.ExibirAssistido"
+            android:theme="@style/Actionbar"></activity>
     </application>
 
 </manifest>

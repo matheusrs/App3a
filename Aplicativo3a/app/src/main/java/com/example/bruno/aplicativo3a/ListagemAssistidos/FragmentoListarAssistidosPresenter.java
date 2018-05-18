@@ -2,6 +2,7 @@ package com.example.bruno.aplicativo3a.ListagemAssistidos;
 
 import android.database.Cursor;
 
+import com.example.bruno.aplicativo3a.banco.CriaBD;
 import com.example.bruno.aplicativo3a.entitiy.AssistidoEntity;
 
 import java.util.ArrayList;
@@ -20,12 +21,13 @@ public class FragmentoListarAssistidosPresenter {
         while(cursorAssistidos.moveToNext())
         {
             AssistidoEntity assistido = new AssistidoEntity();
-            assistido.setId(cursorAssistidos.getString(cursorAssistidos.getColumnIndex("_id")));
-            assistido.setNome(cursorAssistidos.getString(cursorAssistidos.getColumnIndex("nome")));
-            assistido.setSobrenome(cursorAssistidos.getString(cursorAssistidos.getColumnIndex("sobrenome")));
-            assistido.setTelefone(cursorAssistidos.getString(cursorAssistidos.getColumnIndex("telefone")));
-            assistido.setDeficiencia(cursorAssistidos.getString(cursorAssistidos.getColumnIndex("deficiencia")));
-            assistido.setObservacoes(cursorAssistidos.getString(cursorAssistidos.getColumnIndex("observacoes")));
+            assistido.setId(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_ID)));
+            assistido.setNome(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_NOME)));
+            assistido.setSobrenome(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_SOBRENOME)));
+            assistido.setDataNascimento(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_DATANASCIMENTO)));
+            assistido.setTelefone(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_TELEFONE)));
+            assistido.setDeficiencia(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_DEFICIENCIA)));
+            assistido.setObservacoes(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_OBSERVACOES)));
             assistidos.add(assistido);
         }
 
