@@ -17,22 +17,24 @@ import butterknife.ButterKnife;
 
 public class ExibirAssistido extends AppCompatActivity {
 
-    @BindView(R.id.btnEdit)
-    Button editar;
-    @BindView(R.id.hiddenId)
-    TextView id;
-    @BindView(R.id.valueNome)
-    TextView nome;
-    @BindView(R.id.valueDeficiencia)
-    TextView deficiencia;
-    @BindView(R.id.valueObservacoes)
-    TextView observacoes;
-    @BindView(R.id.valueSobrenome)
-    TextView sobrenome;
-    @BindView(R.id.valueTelefone)
-    TextView telefone;
-    @BindView(R.id.valueDataNascimento)
-    TextView datanascimento;
+    @BindView(R.id.btnEditAssistido)
+    Button editarAssistido;
+    @BindView(R.id.hiddenIdAssistido)
+    TextView idAssistido;
+    @BindView(R.id.valueCPFAssistido)
+    TextView cpfAssistido;
+    @BindView(R.id.valueNomeAssistido)
+    TextView nomeAssistido;
+    @BindView(R.id.valueDeficienciaAssistido)
+    TextView deficienciaAssistido;
+    @BindView(R.id.valueObservacoesAssistido)
+    TextView observacoesAssistido;
+    @BindView(R.id.valueSobrenomeAssistido)
+    TextView sobrenomeAssistido;
+    @BindView(R.id.valueTelefoneAssistido)
+    TextView telefoneAssistido;
+    @BindView(R.id.valueDataNascimentoAssistido)
+    TextView datanascimentoAssistido;
 
     public ExibirAssistido() {
         // Required empty public constructor
@@ -50,26 +52,28 @@ public class ExibirAssistido extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Detalhes do Assistido");
 
-        id.setText(extras.getString("assistido_id"));
-        nome.setText(extras.getString("assistido_nome"));
-        sobrenome.setText(extras.getString("assistido_sobrenome"));
-        telefone.setText(extras.getString("assistido_telefone"));
-        datanascimento.setText(extras.getString("assistido_datanascimento"));
-        deficiencia.setText(extras.getString("assistido_deficiencia"));
-        observacoes.setText(extras.getString("assistido_observacoes"));
+        idAssistido.setText(extras.getString("assistido_id"));
+        cpfAssistido.setText(extras.getString("assistido_cpf"));
+        nomeAssistido.setText(extras.getString("assistido_nome"));
+        sobrenomeAssistido.setText(extras.getString("assistido_sobrenome"));
+        telefoneAssistido.setText(extras.getString("assistido_telefone"));
+        datanascimentoAssistido.setText(extras.getString("assistido_datanascimento"));
+        deficienciaAssistido.setText(extras.getString("assistido_deficiencia"));
+        observacoesAssistido.setText(extras.getString("assistido_observacoes"));
 
-        editar.setOnClickListener(new View.OnClickListener() {
+        editarAssistido.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent editarAssistido = new Intent(getBaseContext(), CadastroAssistidos.class);
-                    editarAssistido.putExtra("edit_mode", true);
-                    editarAssistido.putExtra("assistido_id", id.getText());
-                    editarAssistido.putExtra("assistido_nome", nome.getText());
-                    editarAssistido.putExtra("assistido_sobrenome", sobrenome.getText());
-                    editarAssistido.putExtra("assistido_telefone", telefone.getText());
-                    editarAssistido.putExtra("assistido_datanascimento", datanascimento.getText());
-                    editarAssistido.putExtra("assistido_deficiencia", deficiencia.getText());
-                    editarAssistido.putExtra("assistido_observacoes", observacoes.getText());
+                    editarAssistido.putExtra("assistido_edit_mode", "true");
+                    editarAssistido.putExtra("assistido_id", idAssistido.getText());
+                    editarAssistido.putExtra("assistido_cpf", cpfAssistido.getText());
+                    editarAssistido.putExtra("assistido_nome", nomeAssistido.getText());
+                    editarAssistido.putExtra("assistido_sobrenome", sobrenomeAssistido.getText());
+                    editarAssistido.putExtra("assistido_telefone", telefoneAssistido.getText());
+                    editarAssistido.putExtra("assistido_datanascimento", datanascimentoAssistido.getText());
+                    editarAssistido.putExtra("assistido_deficiencia", deficienciaAssistido.getText());
+                    editarAssistido.putExtra("assistido_observacoes", observacoesAssistido.getText());
                     startActivity(editarAssistido);
                 }
             }

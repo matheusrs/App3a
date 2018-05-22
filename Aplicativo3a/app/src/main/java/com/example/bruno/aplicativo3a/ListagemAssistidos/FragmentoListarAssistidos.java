@@ -30,14 +30,14 @@ import butterknife.ButterKnife;
 public class FragmentoListarAssistidos extends Fragment implements FragmentoListarAssistidosView {
 
 
-    @BindView(R.id.searchView)
+    @BindView(R.id.searchViewAssistidos)
     SearchView searchView;
 
     @BindView(R.id.recycler_view_assistidos)
     RecyclerView recyclerView;
 
-    @BindView(R.id.buttonAdd)
-    Button botaoAdd;
+    @BindView(R.id.buttonAddAssistidos)
+    Button botaoAddAssistidos;
 
     FragmentoListarAssistidosPresenter presenter;
     private static OnRecyclerViewSelected itemListener;
@@ -61,13 +61,14 @@ public class FragmentoListarAssistidos extends Fragment implements FragmentoList
 
         presenter.listarAssistidos(cursorAssistidos);
 
-        botaoAdd.setOnClickListener(new View.OnClickListener() {
+        botaoAddAssistidos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                Intent adicionarAssistido = new Intent(getActivity(), CadastroAssistidos.class);
-                startActivity(adicionarAssistido);
-                }
+            Intent adicionarAssistido = new Intent(getActivity(), CadastroAssistidos.class);
+            adicionarAssistido.putExtra("assistido_edit_mode", "false");
+            startActivity(adicionarAssistido);
             }
+        }
 
         );
 
@@ -96,6 +97,7 @@ public class FragmentoListarAssistidos extends Fragment implements FragmentoList
                 AssistidoEntity objAssistido = assistidoEntityList.get(position);
                 Intent exibirAssistido = new Intent(getActivity(), ExibirAssistido.class);
                 exibirAssistido.putExtra("assistido_id", objAssistido.getId());
+                exibirAssistido.putExtra("assistido_cpf", objAssistido.getCPF());
                 exibirAssistido.putExtra("assistido_nome", objAssistido.getNome());
                 exibirAssistido.putExtra("assistido_sobrenome", objAssistido.getSobrenome());
                 exibirAssistido.putExtra("assistido_telefone", objAssistido.getTelefone());

@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/hiddenIdAssistido"
+                android:id="@+id/hiddenIdParceiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="invisible"
@@ -26,29 +26,29 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/labelCPFAssistido"
+                android:id="@+id/labelCnpjCpf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CPF:"
+                android:text="CNPJ/CPF:"
                 android:textSize="18sp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"  />
             <TextView
-                android:id="@+id/valueCPFAssistido"
+                android:id="@+id/valueCnpjCpfParceiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
+                android:textSize="18sp"
                 android:singleLine="true"
-                android:textSize="18sp" />
+                android:gravity="right"/>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/labelNomeAssistido"
+                android:id="@+id/labelNomeParceiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nome:"
@@ -56,7 +56,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/valueNomeAssistido"
+                android:id="@+id/valueNomeParceiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -64,42 +64,19 @@
                 android:textSize="18sp" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/labelSobrenomeAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sobrenome:"
-                android:textSize="18sp"
-                android:textStyle="bold"  />
-            <TextView
-                android:id="@+id/valueSobrenomeAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:singleLine="true"
-                android:gravity="right"/>
-
-        </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/labelTelefoneAssistido"
+                android:id="@+id/labelTelefoneParceiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Telefone:"
                 android:textSize="18sp"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/valueTelefoneAssistido"
+                android:id="@+id/valueTelefoneParceiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -112,14 +89,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/labelDataNascimentoAssistido"
+                android:id="@+id/labelDataVinculoParceiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Data de Nascimento:"
+                android:text="Parceiro desde:"
                 android:textSize="18sp"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/valueDataNascimentoAssistido"
+                android:id="@+id/valueDataVinculoParceiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -132,27 +109,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/labelDeficienciaAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Deficiência:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/valueDeficienciaAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:singleLine="true"
-                android:gravity="right"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/labelObservacoesAssistido"
+                android:id="@+id/labelObservacoesParceiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Observações:"
@@ -160,7 +117,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/valueObservacoesAssistido"
+                android:id="@+id/valueObservacoesParceiro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -173,7 +130,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btnEditAssistido"
+                android:id="@+id/btnEditParceiro"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:textSize="30sp"

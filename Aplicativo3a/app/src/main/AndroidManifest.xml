@@ -21,8 +21,20 @@
         </activity>
         <activity android:name=".CadastroAssistidos.CadastroAssistidos"
             android:theme="@style/Actionbar"></activity>
-	<activity android:name=".CadastroParceiros.CadastroParceiros"
-	    android:theme="@style/Actionbar"></activity>
+        <activity android:name=".CadastroParceiros.CadastroParceiros"
+	        android:theme="@style/Actionbar"></activity>
+        <activity android:name=".CadastroAvisos.CadastroAvisos"
+            android:theme="@style/Actionbar"></activity>
+        <activity android:name=".CadastroEventos.CadastroEventos"
+            android:theme="@style/Actionbar"></activity>
+        <activity android:name=".CadastroAssistidos.ExibirAssistido"
+            android:theme="@style/Actionbar"></activity>
+        <activity android:name=".CadastroParceiros.ExibirParceiro"
+            android:theme="@style/Actionbar"></activity>
+        <activity android:name=".CadastroAvisos.ExibirAviso"
+            android:theme="@style/Actionbar"></activity>
+        <activity android:name=".CadastroEventos.ExibirEvento"
+            android:theme="@style/Actionbar"></activity>
     </application>
 
 </manifest>

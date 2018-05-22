@@ -1,7 +1,7 @@
 package com.example.bruno.aplicativo3a.entitiy;
 
 public class ParceiroEntity {
-    String id,nome,sobrenome,telefone,deficiencia,observacoes;
+    String id,cpfcnpj,nome,telefone,datavinculo,observacoes;
 
     public String getId() {
         return id;
@@ -9,6 +9,14 @@ public class ParceiroEntity {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getCnpjCpf() {
+        return cpfcnpj;
+    }
+
+    public void setCnpjCpf(String cpfcnpj) {
+        this.cpfcnpj = cpfcnpj;
     }
 
     public String getNome() {
@@ -19,14 +27,6 @@ public class ParceiroEntity {
         this.nome = nome;
     }
 
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
     public String getTelefone() {
         return telefone;
     }
@@ -35,12 +35,12 @@ public class ParceiroEntity {
         this.telefone = telefone;
     }
 
-    public String getDeficiencia() {
-        return deficiencia;
+    public String getDatavinculo() {
+        return datavinculo;
     }
 
-    public void setDeficiencia(String deficiencia) {
-        this.deficiencia = deficiencia;
+    public void setDatavinculo(String datavinculo) {
+        this.datavinculo = datavinculo;
     }
 
     public String getObservacoes() {

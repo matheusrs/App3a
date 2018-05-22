@@ -9,9 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <TextView
+            android:id="@+id/hiddenIdParceiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            />
 
         <EditText
-            android:id="@+id/edTxtNome"
+            android:id="@+id/edTxtNomeParceiro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome/Empresa"
@@ -21,7 +27,7 @@
             android:inputType="text"/>
 
         <EditText
-            android:id="@+id/edTxtCNPJ"
+            android:id="@+id/edTxtCnpjCpfParceiro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="CNPJ/CPF"
@@ -31,17 +37,7 @@
             android:inputType="datetime"/>
 
         <EditText
-            android:id="@+id/edTxtData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Data da Doação"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:inputType="datetime"/>
-
-        <EditText
-            android:id="@+id/edTxtTelefone"
+            android:id="@+id/edTxtTelefoneParceiro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefone"
@@ -51,10 +47,10 @@
             android:inputType="phone"/>
 
         <EditText
-            android:id="@+id/edTxtDoacao"
+            android:id="@+id/edTxtDataVinculoParceiro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Doação"
+            android:hint="Parceiro desde"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
@@ -62,7 +58,7 @@
 
 
         <EditText
-            android:id="@+id/edTxtObservacoes"
+            android:id="@+id/edTxtObservacoesParceiro"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:hint="Observações"
@@ -73,13 +69,27 @@
             android:inputType="text"
             android:gravity="top"/>
 
-        <Button
-            android:id="@+id/btnSalvar"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Salvar"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"/>
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnSalvarParceiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salvar"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"/>
+
+            <Button
+                android:id="@+id/btnAtualizarParceiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Atualizar"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:visibility="invisible"/>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListagemParceiros.FragmentoParceiros">
+    tools:context=".ListagemParceiros.FragmentoListarParceiros">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <SearchView
-            android:id="@+id/searchView"
+            android:id="@+id/searchViewParceiros"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:queryHint="Buscar Parceiro"
@@ -33,15 +33,12 @@
                 android:layout_weight="9"
                 /></ScrollView>
             <Button
-                android:id="@+id/buttonAdd"
+                android:id="@+id/buttonAddParceiro"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:text="+"
                 android:textSize="30sp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="50dp"
                 android:background="@drawable/botao_redondo"/>
         </RelativeLayout>
     </LinearLayout>

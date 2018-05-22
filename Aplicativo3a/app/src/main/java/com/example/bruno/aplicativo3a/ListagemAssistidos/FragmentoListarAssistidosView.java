@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface FragmentoListarAssistidosView {
 
-    public void updateListAssistidos(final List<AssistidoEntity> assistidoEntityList);
+    void updateListAssistidos(final List<AssistidoEntity> assistidoEntityList);
 
 }

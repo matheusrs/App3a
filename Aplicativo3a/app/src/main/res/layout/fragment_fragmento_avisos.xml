@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListagemAssistidos.FragmentoListarAssistidos">
+    tools:context=".ListagemAvisos.FragmentoListarAvisos">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,10 +11,10 @@
         android:orientation="vertical">
 
         <SearchView
-            android:id="@+id/searchViewAssistidos"
+            android:id="@+id/searchViewAvisos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Buscar Assistido"
+            android:queryHint="Buscar Aviso"
             android:iconifiedByDefault="false"
             />
 
@@ -22,11 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            xmlns:android="http://schemas.android.com/apk/res/android" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:android="http://schemas.android.com/apk/res/android" >
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_view_assistidos"
+                    android:id="@+id/recycler_view_avisos"
                     android:scrollbars="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -35,7 +35,7 @@
             </ScrollView>
 
             <Button
-                android:id="@+id/buttonAddAssistidos"
+                android:id="@+id/buttonAddAvisos"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_alignParentBottom="true"

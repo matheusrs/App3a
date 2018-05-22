@@ -8,7 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
 import com.example.bruno.aplicativo3a.ListagemAssistidos.FragmentoListarAssistidos;
-import com.example.bruno.aplicativo3a.ListagemParceiros.FragmentoParceiros;
+import com.example.bruno.aplicativo3a.ListagemAvisos.FragmentoListarAvisos;
+import com.example.bruno.aplicativo3a.ListagemEventos.FragmentoListarEventos;
+import com.example.bruno.aplicativo3a.ListagemParceiros.FragmentoListarParceiros;
 import com.example.bruno.aplicativo3a.R;
 
 import butterknife.BindView;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
@@ -46,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragmentoListarAssistidos(), "Avisos");
-        adapter.addFragment(new FragmentoListarAssistidos(), "Calendário");
+        adapter.addFragment(new FragmentoListarAvisos(), "Avisos");
+        adapter.addFragment(new FragmentoListarEventos(), "Eventos");
         adapter.addFragment(new FragmentoListarAssistidos(), "Assistidos");
-        adapter.addFragment(new FragmentoListarAssistidos(), "Parceiros");
+        adapter.addFragment(new FragmentoListarParceiros(), "Parceiros");
         viewPager.setAdapter(adapter);
     }
 

@@ -22,24 +22,26 @@ import butterknife.ButterKnife;
 public class CadastroAssistidos extends AppCompatActivity {
 
 
-    @BindView(R.id.btnSalvar)
+    @BindView(R.id.btnSalvarAssistido)
     Button salvar;
-    @BindView(R.id.btnAtualizar)
+    @BindView(R.id.btnAtualizarAssistido)
     Button atualizar;
-    @BindView(R.id.hiddenId)
-    TextView id;
-    @BindView(R.id.edTxtNome)
-    EditText nome;
-    @BindView(R.id.edTxtDeficiencia)
-    EditText deficiencia;
-    @BindView(R.id.edTxtObservacoes)
-    EditText observacoes;
-    @BindView(R.id.edTxtSobrenome)
-    EditText sobrenome;
-    @BindView(R.id.edTxtTelefone)
-    EditText telefone;
-    @BindView(R.id.edTxtDataNascimento)
-    EditText datanascimento;
+    @BindView(R.id.hiddenIdAssistido)
+    TextView idAssistido;
+    @BindView(R.id.edTxtCPFAssistido)
+    EditText cpfAssistido;
+    @BindView(R.id.edTxtNomeAssistido)
+    EditText nomeAssistido;
+    @BindView(R.id.edTxtDeficienciaAssistido)
+    EditText deficienciaAssistido;
+    @BindView(R.id.edTxtObservacoesAssistido)
+    EditText observacoesAssistido;
+    @BindView(R.id.edTxtSobrenomeAssistido)
+    EditText sobrenomeAssistido;
+    @BindView(R.id.edTxtTelefoneAssistido)
+    EditText telefoneAssistido;
+    @BindView(R.id.edTxtDataNascimentoAssistido)
+    EditText datanascimentoAssistido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +51,18 @@ public class CadastroAssistidos extends AppCompatActivity {
             ButterKnife.bind(this);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
             getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
-            final Bundle extras = getIntent().getExtras();
-            boolean edit_mode = (Boolean.valueOf(extras.getString("edit_mode")) != null ? true : false);
+            Bundle extras = getIntent().getExtras();
+            boolean edit_mode = Boolean.valueOf(extras.getString("assistido_edit_mode"));
 
             if (edit_mode == true){
-                id.setText(extras.getString("assistido_id"));
-                nome.setText(extras.getString("assistido_nome"));
-                sobrenome.setText(extras.getString("assistido_sobrenome"));
-                telefone.setText(extras.getString("assistido_telefone"));
-                datanascimento.setText(extras.getString("assistido_datanascimento"));
-                deficiencia.setText(extras.getString("assistido_deficiencia"));
-                observacoes.setText(extras.getString("assistido_observacoes"));
+                idAssistido.setText(extras.getString("assistido_id"));
+                cpfAssistido.setText(extras.getString("assistido_cpf"));
+                nomeAssistido.setText(extras.getString("assistido_nome"));
+                sobrenomeAssistido.setText(extras.getString("assistido_sobrenome"));
+                telefoneAssistido.setText(extras.getString("assistido_telefone"));
+                datanascimentoAssistido.setText(extras.getString("assistido_datanascimento"));
+                deficienciaAssistido.setText(extras.getString("assistido_deficiencia"));
+                observacoesAssistido.setText(extras.getString("assistido_observacoes"));
                 getSupportActionBar().setTitle("Atualizar Assistido");
                 atualizar.setVisibility(View.VISIBLE);
                 salvar.setVisibility(View.GONE);
@@ -73,13 +76,14 @@ public class CadastroAssistidos extends AppCompatActivity {
                 public void onClick(View v) {
                     String message;
                     BancoController banco = new BancoController(getBaseContext());
-                    if (banco.insereAssistido(nome.getText().toString(), sobrenome.getText().toString(), telefone.getText().toString(), datanascimento.getText().toString(), deficiencia.getText().toString(), observacoes.getText().toString()))
+                    if (banco.insereAssistido(cpfAssistido.getText().toString() , nomeAssistido.getText().toString(), sobrenomeAssistido.getText().toString(), telefoneAssistido.getText().toString(), datanascimentoAssistido.getText().toString(), deficienciaAssistido.getText().toString(), observacoesAssistido.getText().toString()))
                         message = "Assistido cadastrado!";
                     else
                         message = "Erro ao gravar assistido";
                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(CadastroAssistidos.this, MainActivity.class);
-                    startActivity(i);
+                    finish();
+                    //Intent i = new Intent(CadastroAssistidos.this, MainActivity.class);
+                    //startActivity(i);
                 }
             });
 
@@ -88,13 +92,12 @@ public class CadastroAssistidos extends AppCompatActivity {
                 public void onClick(View v) {
                     String message;
                     BancoController banco = new BancoController(getBaseContext());
-                    if (banco.atualizaAssistido(id.getText().toString(), nome.getText().toString(), sobrenome.getText().toString(), telefone.getText().toString(), datanascimento.getText().toString(), deficiencia.getText().toString(), observacoes.getText().toString()))
+                    if (banco.atualizaAssistido(idAssistido.getText().toString(),cpfAssistido.getText().toString(), nomeAssistido.getText().toString(), sobrenomeAssistido.getText().toString(), telefoneAssistido.getText().toString(), datanascimentoAssistido.getText().toString(), deficienciaAssistido.getText().toString(), observacoesAssistido.getText().toString()))
                         message = "Assistido atualizado!";
                     else
                         message = "Erro ao atualizar assistido";
                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(CadastroAssistidos.this, MainActivity.class);
-                    startActivity(i);
+                    finish();
                 }
             });
     }
