@@ -21,6 +21,8 @@ public class ExibirAssistido extends AppCompatActivity {
     Button editarAssistido;
     @BindView(R.id.hiddenIdAssistido)
     TextView idAssistido;
+    @BindView(R.id.hiddenStatusAssistido)
+    TextView statusAssistido;
     @BindView(R.id.valueCPFAssistido)
     TextView cpfAssistido;
     @BindView(R.id.valueNomeAssistido)
@@ -35,6 +37,9 @@ public class ExibirAssistido extends AppCompatActivity {
     TextView telefoneAssistido;
     @BindView(R.id.valueDataNascimentoAssistido)
     TextView datanascimentoAssistido;
+    @BindView(R.id.labelStatusAtivo)
+    TextView labelStatusAssistido;
+
 
     public ExibirAssistido() {
         // Required empty public constructor
@@ -53,6 +58,7 @@ public class ExibirAssistido extends AppCompatActivity {
         getSupportActionBar().setTitle("Detalhes do Assistido");
 
         idAssistido.setText(extras.getString("assistido_id"));
+        statusAssistido.setText(extras.getString("assistido_statusativo"));
         cpfAssistido.setText(extras.getString("assistido_cpf"));
         nomeAssistido.setText(extras.getString("assistido_nome"));
         sobrenomeAssistido.setText(extras.getString("assistido_sobrenome"));
@@ -60,6 +66,10 @@ public class ExibirAssistido extends AppCompatActivity {
         datanascimentoAssistido.setText(extras.getString("assistido_datanascimento"));
         deficienciaAssistido.setText(extras.getString("assistido_deficiencia"));
         observacoesAssistido.setText(extras.getString("assistido_observacoes"));
+        if (Boolean.valueOf(extras.getString("assistido_statusativo")))
+            labelStatusAssistido.setText("Cadastro Ativo");
+        else
+            labelStatusAssistido.setText("CAdastro Inativo");
 
         editarAssistido.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,6 +84,7 @@ public class ExibirAssistido extends AppCompatActivity {
                     editarAssistido.putExtra("assistido_datanascimento", datanascimentoAssistido.getText());
                     editarAssistido.putExtra("assistido_deficiencia", deficienciaAssistido.getText());
                     editarAssistido.putExtra("assistido_observacoes", observacoesAssistido.getText());
+                    editarAssistido.putExtra("assistido_statusativo", statusAssistido.getText());
                     startActivity(editarAssistido);
                 }
             }

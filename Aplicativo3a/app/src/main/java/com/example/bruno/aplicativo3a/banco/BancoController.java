@@ -20,7 +20,9 @@ public class BancoController {
             criaBD.TABASSISTIDOS_TELEFONE,
             criaBD.TABASSISTIDOS_DATANASCIMENTO,
             criaBD.TABASSISTIDOS_DEFICIENCIA,
-            criaBD.TABASSISTIDOS_OBSERVACOES};
+            criaBD.TABASSISTIDOS_OBSERVACOES,
+            criaBD.TABASSISTIDOS_STATUSATIVO
+    };
 
     String[] camposParceiros =  {
             criaBD.TABPARCEIROS_ID,
@@ -198,6 +200,23 @@ public class BancoController {
         valores.put(CriaBD.TABASSISTIDOS_OBSERVACOES, observacoes);
 
         resultado = db.update(CriaBD.TABASSISTIDOS, valores, "_id="+id, null);
+        db.close();
+
+        if (resultado ==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean atualizaStatusAssistido(int id_assistido, boolean status) {
+        ContentValues valores;
+        long resultado;
+
+        db = criaBD.getWritableDatabase();
+        valores = new ContentValues();
+        valores.put(CriaBD.TABASSISTIDOS_STATUSATIVO, String.valueOf(status));
+
+        resultado = db.update(CriaBD.TABASSISTIDOS, valores, "_id="+id_assistido, null);
         db.close();
 
         if (resultado ==-1)

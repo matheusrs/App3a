@@ -108,6 +108,16 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
                 android:visibility="invisible"/>
+
+            <Switch
+                android:id="@+id/switchAtivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:text="Cadastro ativo"
+                android:checked="true"
+                android:visibility="invisible"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

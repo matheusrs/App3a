@@ -8,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +44,8 @@ public class CadastroAssistidos extends AppCompatActivity {
     EditText telefoneAssistido;
     @BindView(R.id.edTxtDataNascimentoAssistido)
     EditText datanascimentoAssistido;
+    @BindView(R.id.switchAtivo)
+    Switch switchAtivo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +69,14 @@ public class CadastroAssistidos extends AppCompatActivity {
                 observacoesAssistido.setText(extras.getString("assistido_observacoes"));
                 getSupportActionBar().setTitle("Atualizar Assistido");
                 atualizar.setVisibility(View.VISIBLE);
+                switchAtivo.setVisibility(View.VISIBLE);
+                if (Boolean.valueOf(extras.getString("assistido_statusativo"))) {
+                    alteraTextoSwitchAtivo(true);
+                    switchAtivo.setChecked(true);
+                } else {
+                    alteraTextoSwitchAtivo(false);
+                    switchAtivo.setChecked(false);
+                }
                 salvar.setVisibility(View.GONE);
             }
             else {
@@ -100,6 +112,23 @@ public class CadastroAssistidos extends AppCompatActivity {
                     finish();
                 }
             });
+
+            switchAtivo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    BancoController banco = new BancoController(getBaseContext());
+                    if (isChecked) {
+                        if (banco.atualizaStatusAssistido(Integer.valueOf(idAssistido.getText().toString()), true)) {
+                            alteraTextoSwitchAtivo(true);
+                            Toast.makeText(getApplicationContext(), "Cadastro Ativado", Toast.LENGTH_LONG).show();
+                        }
+                    } else {
+                        if (banco.atualizaStatusAssistido(Integer.valueOf(idAssistido.getText().toString()), false)) {
+                            alteraTextoSwitchAtivo(false);
+                            Toast.makeText(getApplicationContext(), "Cadastro Inativado", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+            });
     }
 
     @Override
@@ -119,5 +148,12 @@ public class CadastroAssistidos extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void alteraTextoSwitchAtivo(boolean status) {
+        if (status)
+            switchAtivo.setText("Cadastro Ativo");
+        else
+            switchAtivo.setText("Cadastro Inativo");
     }
 }
