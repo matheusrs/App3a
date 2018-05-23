@@ -27,6 +27,11 @@ public class CriaBD extends SQLiteOpenHelper {
     public static final String TABPARCEIROS_DATAVINCULO= "datavinculo";
     public static final String TABPARCEIROS_OBSERVACOES = "observacoes";
 
+    public static final String TABDOACOES = "doacoes";
+    public static final String TABDOACOES_ID = "_id";
+    public static final String TABDOACOES_PARCEIROID = "id_parceiro";
+    public static final String TABDOACOES_DATADOACAO = "datadoacao";
+    public static final String TABDOACOES_DESCRICAO = "descricao";
 
     public static final int VERSAO = 4;
 
@@ -54,9 +59,18 @@ public class CriaBD extends SQLiteOpenHelper {
                 + TABPARCEIROS_DATAVINCULO + " text,"
                 + TABPARCEIROS_OBSERVACOES + " text"
                 +"); ";
+        String table_doacoes = "CREATE TABLE "+ TABDOACOES +"("
+                + TABDOACOES_ID + " integer primary key autoincrement,"
+                + TABDOACOES_PARCEIROID + " integer,"
+                + TABDOACOES_DATADOACAO + " text,"
+                + TABDOACOES_DESCRICAO + " text,"
+                +"FOREIGN KEY(" +TABDOACOES_PARCEIROID + ") REFERENCES "+ TABPARCEIROS+"(" +TABPARCEIROS_ID+ ")"
+                +")";
         String sql = table_assistidos;
         db.execSQL(sql);
         sql = table_parceiros;
+        db.execSQL(sql);
+        sql = table_doacoes;
         db.execSQL(sql);
     }
 
@@ -65,7 +79,8 @@ public class CriaBD extends SQLiteOpenHelper {
         Log.i("versões", oldVersion + ", " + newVersion);
         String sqlAssistidos = "DROP TABLE IF EXISTS " + TABASSISTIDOS;
         String sqlParceiros = " DROP TABLE IF EXISTS " + TABPARCEIROS;
-        db.execSQL(sqlAssistidos + "; "+ sqlParceiros );
+        String sqlDoacoes = " DROP TABLE IF EXISTS " + TABDOACOES;
+        db.execSQL(sqlAssistidos + "; "+ sqlParceiros  + "; " + sqlDoacoes);
         onCreate(db);
     }
 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroDoacoes.CadastroDoacoes">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtParceiroDoacao"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtParceiroID"
+            android:visibility="invisible"/>
+        <EditText
+            android:id="@+id/edTxtItensDoados"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="Itens Doados"
+            android:lines="10"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:inputType="text"
+            android:gravity="top"/>
+
+    <EditText
+        android:id="@+id/edTxtDataDoacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data de Doação"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:inputType="date"/>
+        <Button
+            android:id="@+id/btnAdicionarDoacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar doacao"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
