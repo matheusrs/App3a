@@ -104,7 +104,7 @@ public class FragmentoListarAssistidos extends Fragment implements FragmentoList
                 exibirAssistido.putExtra("assistido_datanascimento", objAssistido.getDataNascimento());
                 exibirAssistido.putExtra("assistido_deficiencia", objAssistido.getDeficiencia());
                 exibirAssistido.putExtra("assistido_observacoes", objAssistido.getObservacoes());
-
+                exibirAssistido.putExtra("assistido_statusativo", objAssistido.getStatusAtivo());
                 startActivity(exibirAssistido);
             }
         });

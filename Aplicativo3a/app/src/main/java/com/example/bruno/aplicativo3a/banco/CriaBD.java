@@ -18,6 +18,7 @@ public class CriaBD extends SQLiteOpenHelper {
     public static final String TABASSISTIDOS_DATANASCIMENTO= "datanascimento";
     public static final String TABASSISTIDOS_DEFICIENCIA = "deficiencia";
     public static final String TABASSISTIDOS_OBSERVACOES = "observacoes";
+    public static final String TABASSISTIDOS_STATUSATIVO = "status_ativo";
 
     public static final String TABPARCEIROS = "parceiros";
     public static final String TABPARCEIROS_ID = "_id";
@@ -33,7 +34,7 @@ public class CriaBD extends SQLiteOpenHelper {
     public static final String TABDOACOES_DATADOACAO = "datadoacao";
     public static final String TABDOACOES_DESCRICAO = "descricao";
 
-    public static final int VERSAO = 4;
+    public static final int VERSAO = 5;
 
     public CriaBD(Context context){
         super(context,NOME_BANCO,null,VERSAO);
@@ -49,7 +50,8 @@ public class CriaBD extends SQLiteOpenHelper {
                + TABASSISTIDOS_TELEFONE + " text,"
                + TABASSISTIDOS_DATANASCIMENTO + " text,"
                + TABASSISTIDOS_DEFICIENCIA + " text,"
-               + TABASSISTIDOS_OBSERVACOES + " text"
+               + TABASSISTIDOS_OBSERVACOES + " text,"
+               + TABASSISTIDOS_STATUSATIVO + " text default 'true'"
                +"); ";
         String table_parceiros = "CREATE TABLE "+TABPARCEIROS+"("
                 + TABPARCEIROS_ID + " integer primary key autoincrement,"
