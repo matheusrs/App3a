@@ -62,7 +62,6 @@ public class FragmentoListarParceirosAdapter extends RecyclerView.Adapter<Fragme
         void onItemClick(View view){
             if(onRecyclerViewSelected != null)
                 onRecyclerViewSelected.onClick(view, getAdapterPosition());
-
         }
 
     }

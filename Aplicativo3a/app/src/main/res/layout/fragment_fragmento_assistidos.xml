@@ -8,7 +8,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <SearchView
             android:id="@+id/searchViewAssistidos"
@@ -42,7 +44,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="50dp"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/botao_redondo"
+                android:background="@drawable/botao_plus"
                 android:textSize="30sp" />
         </RelativeLayout>
     </LinearLayout>

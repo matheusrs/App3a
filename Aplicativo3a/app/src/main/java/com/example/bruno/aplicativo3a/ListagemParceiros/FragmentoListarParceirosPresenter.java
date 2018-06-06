@@ -18,7 +18,8 @@ public class FragmentoListarParceirosPresenter {
     public void listarParceiros(Cursor cursorParceiros){
 
         List<ParceiroEntity> parceiros = new ArrayList<>();
-        while(cursorParceiros.moveToNext())
+        if (cursorParceiros.getCount() > 0)
+        do
         {
             ParceiroEntity parceiro = new ParceiroEntity();
             parceiro.setId(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_ID)));
@@ -28,7 +29,7 @@ public class FragmentoListarParceirosPresenter {
             parceiro.setDatavinculo(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_DATAVINCULO)));
             parceiro.setObservacoes(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_OBSERVACOES)));
             parceiros.add(parceiro);
-        }
+        } while(cursorParceiros.moveToNext());
 
         view.updateListParceiros(parceiros);
     }

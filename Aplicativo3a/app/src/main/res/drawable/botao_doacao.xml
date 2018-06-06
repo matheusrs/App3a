@@ -8,7 +8,7 @@
     </item>
     <item android:width="70sp" android:height="70sp" >
         <bitmap
-            android:src="@drawable/transparent"
+            android:src="@drawable/donate"
             android:gravity="center"
             android:dither="true"
             />
@@ -16,4 +16,3 @@
 
 
 </layer-list>
-

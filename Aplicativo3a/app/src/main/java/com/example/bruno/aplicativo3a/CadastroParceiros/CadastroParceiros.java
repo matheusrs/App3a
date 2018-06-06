@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.bruno.aplicativo3a.Main.MainActivity;
 import com.example.bruno.aplicativo3a.R;
-import com.example.bruno.aplicativo3a.banco.BancoController;
+import com.example.bruno.aplicativo3a.banco.ParceirosController;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,10 +49,10 @@ public class CadastroParceiros extends AppCompatActivity {
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
-        final Bundle extras = getIntent().getExtras();
+        Bundle extras = getIntent().getExtras();
         boolean edit_mode = Boolean.valueOf(extras.getString("parceiro_edit_mode"));
 
-        if (edit_mode == true){
+        if (edit_mode){
             idParceiro.setText(extras.getString("parceiro_id"));
             cnpjCpfParceiro.setText(extras.getString("parceiro_cnpjcpf"));
             nomeParceiro.setText(extras.getString("parceiro_nome"));
@@ -71,15 +71,13 @@ public class CadastroParceiros extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String message;
-                BancoController banco = new BancoController(getBaseContext());
+                ParceirosController banco = new ParceirosController(getBaseContext());
                 if (banco.insereParceiro(cnpjCpfParceiro.getText().toString() , nomeParceiro.getText().toString(), telefoneParceiro.getText().toString(), datavinculoParceiro.getText().toString(), observacoesParceiro.getText().toString()))
                     message = "Parceiro cadastrado!";
                 else
                     message = "Erro ao gravar parceiro";
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                 finish();
-                //Intent i = new Intent(CadastroParceiros.this, MainActivity.class);
-                //startActivity(i);
             }
         });
 
@@ -87,15 +85,13 @@ public class CadastroParceiros extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String message;
-                BancoController banco = new BancoController(getBaseContext());
+                ParceirosController banco = new ParceirosController(getBaseContext());
                 if (banco.atualizaParceiro(idParceiro.getText().toString(),cnpjCpfParceiro.getText().toString() , nomeParceiro.getText().toString(), telefoneParceiro.getText().toString(), datavinculoParceiro.getText().toString(), observacoesParceiro.getText().toString()))
                     message = "Parceiro atualizado!";
                 else
                     message = "Erro ao atualizar parceiro";
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                 finish();
-                //Intent i = new Intent(CadastroParceiros.this, MainActivity.class);
-                //startActivity(i);
             }
         });
     }
@@ -108,12 +104,9 @@ public class CadastroParceiros extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-
-            //configura opção Up Action na ActionBar
             case android.R.id.home:
                 onBackPressed();
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,11 +15,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/hiddenIdEvento"
+                android:id="@+id/hiddenIdDoacao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="invisible"
                 />
+            <TextView
+                android:id="@+id/hiddenIdParceiroDoacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,58 +32,19 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/labelTituloEvento"
+                android:id="@+id/labelDataDoacao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Título:"
+                android:text="Data:"
                 android:textSize="18sp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"  />
             <TextView
-                android:id="@+id/valueTituloEvento"
+                android:id="@+id/valueDataDoacao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:singleLine="true"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/labelDataInicioEvento"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Início:"
                 android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/valueDataInicioEvento"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="right"
                 android:singleLine="true"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/labelDataFimEvento"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fim:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/valueDataFimEvento"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:singleLine="true"
-                android:textSize="18sp" />
+                android:gravity="right"/>
 
         </LinearLayout>
         <LinearLayout
@@ -86,30 +53,28 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/labelDescricaoEvento"
+                android:id="@+id/labelDescricaoDoacao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Descrição:"
                 android:textSize="18sp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"  />
             <TextView
-                android:id="@+id/valueDescricaoEvento"
+                android:id="@+id/valueDescricaoDoacao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
+                android:textSize="18sp"
                 android:singleLine="true"
-                android:textSize="18sp" />
+                android:gravity="right"/>
 
         </LinearLayout>
-
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btnEditEvento"
+                android:id="@+id/btnEditDoacao"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:textSize="30sp"

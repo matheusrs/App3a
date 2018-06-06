@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bruno.aplicativo3a.R;
-import com.example.bruno.aplicativo3a.banco.BancoController;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

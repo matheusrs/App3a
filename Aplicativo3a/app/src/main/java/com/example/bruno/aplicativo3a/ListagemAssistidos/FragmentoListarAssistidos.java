@@ -18,7 +18,7 @@ import android.widget.SearchView;
 import com.example.bruno.aplicativo3a.CadastroAssistidos.CadastroAssistidos;
 import com.example.bruno.aplicativo3a.CadastroAssistidos.ExibirAssistido;
 import com.example.bruno.aplicativo3a.R;
-import com.example.bruno.aplicativo3a.banco.BancoController;
+import com.example.bruno.aplicativo3a.banco.AssistidosController;
 import com.example.bruno.aplicativo3a.entitiy.AssistidoEntity;
 
 import java.util.List;
@@ -53,10 +53,9 @@ public class FragmentoListarAssistidos extends Fragment implements FragmentoList
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragmento_assistidos, container, false);
         ButterKnife.bind(this,view);
-        searchView.setOnQueryTextListener(new SearchFiltro());
         presenter=new FragmentoListarAssistidosPresenter(this);
 
-        BancoController banco = new BancoController(getActivity().getBaseContext());
+        AssistidosController banco = new AssistidosController(getActivity().getBaseContext());
         Cursor cursorAssistidos = banco.carregaAssistidos();
 
         presenter.listarAssistidos(cursorAssistidos);
@@ -68,8 +67,29 @@ public class FragmentoListarAssistidos extends Fragment implements FragmentoList
             adicionarAssistido.putExtra("assistido_edit_mode", "false");
             startActivity(adicionarAssistido);
             }
-        }
+        });
 
+        searchView.setOnQueryTextListener(
+                new SearchView.OnQueryTextListener(){
+
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        AssistidosController banco = new AssistidosController(getActivity().getBaseContext());
+                        Cursor cursorAssistidos = banco.carregaAssistidos(query);
+                        presenter.listarAssistidos(cursorAssistidos);
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        if (newText.isEmpty()){
+                            AssistidosController banco = new AssistidosController(getActivity().getBaseContext());
+                            Cursor cursorAssistidos = banco.carregaAssistidos();
+                            presenter.listarAssistidos(cursorAssistidos);
+                        }
+                        return true;
+                    }
+                }
         );
 
         return view;
@@ -79,7 +99,7 @@ public class FragmentoListarAssistidos extends Fragment implements FragmentoList
     @Override
     public void onStart() {
         super.onStart();
-        BancoController banco = new BancoController(getActivity().getBaseContext());
+        AssistidosController banco = new AssistidosController(getActivity().getBaseContext());
         Cursor cursorAssistidos = banco.carregaAssistidos();
 
         presenter.listarAssistidos(cursorAssistidos);

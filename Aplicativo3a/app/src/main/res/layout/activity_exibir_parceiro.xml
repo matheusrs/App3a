@@ -125,10 +125,38 @@
                 android:textSize="18sp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelDoacoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Doações:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_doacoes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <Button
+                android:id="@+id/btnAddDoacao"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:textSize="30sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/botao_doacao">
+            </Button>
             <Button
                 android:id="@+id/btnEditParceiro"
                 android:layout_width="70dp"

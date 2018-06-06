@@ -17,7 +17,6 @@ import android.widget.SearchView;
 import com.example.bruno.aplicativo3a.CadastroAvisos.CadastroAvisos;
 import com.example.bruno.aplicativo3a.CadastroAvisos.ExibirAviso;
 import com.example.bruno.aplicativo3a.R;
-import com.example.bruno.aplicativo3a.banco.BancoController;
 import com.example.bruno.aplicativo3a.entitiy.AvisoEntity;
 
 import java.util.List;

@@ -18,7 +18,8 @@ public class FragmentoListarAssistidosPresenter {
     public void listarAssistidos(Cursor cursorAssistidos){
 
         List<AssistidoEntity> assistidos = new ArrayList<>();
-        while(cursorAssistidos.moveToNext())
+        if (cursorAssistidos.getCount() > 0)
+        do
         {
             AssistidoEntity assistido = new AssistidoEntity();
             assistido.setId(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_ID)));
@@ -31,7 +32,7 @@ public class FragmentoListarAssistidosPresenter {
             assistido.setObservacoes(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_OBSERVACOES)));
             assistido.setStatusAtivo(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_STATUSATIVO)));
             assistidos.add(assistido);
-        }
+        } while(cursorAssistidos.moveToNext());
 
         view.updateListAssistidos(assistidos);
     }

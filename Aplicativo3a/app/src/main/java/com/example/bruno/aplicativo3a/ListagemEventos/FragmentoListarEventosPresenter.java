@@ -2,6 +2,12 @@ package com.example.bruno.aplicativo3a.ListagemEventos;
 
 import android.database.Cursor;
 
+import com.example.bruno.aplicativo3a.banco.CriaBD;
+import com.example.bruno.aplicativo3a.entitiy.EventoEntity;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class FragmentoListarEventosPresenter {
     FragmentoListarEventosView view;
 
@@ -11,14 +17,19 @@ public class FragmentoListarEventosPresenter {
 
     public void listarEventos(Cursor cursorEventos){
 
-        //List<EventoEntity> assistidos = new ArrayList<>();
-        //while(cursorEventos.moveToNext())
-        //{
-        //    EventoEntity assistido = new EventoEntity();
-        //    assistido.setId(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABASSISTIDOS_ID)));
-        //    assistidos.add(assistido);
-        //}
+        List<EventoEntity> eventos = new ArrayList<>();
+        do
+        {
+            EventoEntity evento = new EventoEntity();
+            evento.setId(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_ID)));
+            evento.setTitulo(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_TITULO)));
+            evento.setDataInicio(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DATAINICIO)));
+            evento.setDataFim(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DATAFIM)));
+            evento.setDescricao(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DESCRICAO)));
+            eventos.add(evento);
+        } while(cursorEventos.moveToNext());
 
-        //view.updateListEventos(assistidos);
+
+        view.updateListEventos(eventos);
     }
 }

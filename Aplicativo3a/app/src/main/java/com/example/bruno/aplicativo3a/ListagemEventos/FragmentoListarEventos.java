@@ -2,6 +2,7 @@ package com.example.bruno.aplicativo3a.ListagemEventos;
 
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
@@ -16,6 +17,7 @@ import android.widget.SearchView;
 import com.example.bruno.aplicativo3a.CadastroEventos.CadastroEventos;
 import com.example.bruno.aplicativo3a.CadastroEventos.ExibirEvento;
 import com.example.bruno.aplicativo3a.R;
+import com.example.bruno.aplicativo3a.banco.EventosController;
 import com.example.bruno.aplicativo3a.entitiy.EventoEntity;
 
 import java.util.List;
@@ -53,10 +55,10 @@ public class FragmentoListarEventos extends Fragment implements FragmentoListarE
         searchView.setOnQueryTextListener(new SearchFiltro());
         presenter=new FragmentoListarEventosPresenter(this);
 
-        //BancoController banco = new BancoController(getActivity().getBaseContext());
-        //Cursor cursorEventos = banco.carregaEventos();
+        EventosController banco = new EventosController(getActivity().getBaseContext());
+        Cursor cursorEventos = banco.carregaEventos();
 
-        //presenter.listarEventos(cursorEventos);
+        presenter.listarEventos(cursorEventos);
 
         botaoAddEventos.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -65,9 +67,7 @@ public class FragmentoListarEventos extends Fragment implements FragmentoListarE
             adicionarEvento.putExtra("evento_edit_mode", "false");
             startActivity(adicionarEvento);
             }
-        }
-
-        );
+        });
 
         return view;
 
@@ -76,17 +76,15 @@ public class FragmentoListarEventos extends Fragment implements FragmentoListarE
     @Override
     public void onStart() {
         super.onStart();
-        //BancoController banco = new BancoController(getActivity().getBaseContext());
-        //Cursor cursorEventos = banco.carregaEventos();
+        EventosController banco = new EventosController(getActivity().getBaseContext());
+        Cursor cursorEventos = banco.carregaEventos();
 
-        //presenter.listarEventos(cursorEventos);
+        presenter.listarEventos(cursorEventos);
     }
 
 
 
     public void updateListEventos(final List<EventoEntity> eventoEntityList) {
-
-
         FragmentoListarEventosAdapter adapter = new FragmentoListarEventosAdapter(eventoEntityList,getActivity());
         adapter.setOnRecyclerViewSelected(new OnRecyclerViewSelected() {
             @Override
@@ -94,7 +92,10 @@ public class FragmentoListarEventos extends Fragment implements FragmentoListarE
                 EventoEntity objEvento = eventoEntityList.get(position);
                 Intent exibirEvento = new Intent(getActivity(), ExibirEvento.class);
                 exibirEvento.putExtra("evento_id", objEvento.getId());
-
+                exibirEvento.putExtra("evento_titulo", objEvento.getTitulo());
+                exibirEvento.putExtra("evento_datainicio", objEvento.getDataInicio());
+                exibirEvento.putExtra("evento_datafim", objEvento.getDataFim());
+                exibirEvento.putExtra("evento_descricao", objEvento.getDescricao());
                 startActivity(exibirEvento);
             }
         });

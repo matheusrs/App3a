@@ -8,7 +8,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <TextView
             android:id="@+id/hiddenIdEvento"
@@ -16,6 +18,47 @@
             android:layout_height="wrap_content"
             android:visibility="invisible"
             />
+
+        <EditText
+            android:id="@+id/edTxtTituloEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:hint="Título"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edTxtDataInicioEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:hint="Início do evento"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/edTxtDataFimEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Fim do evento"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:inputType="date"/>
+
+        <EditText
+            android:id="@+id/edTxtDescricaoEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descrição"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:inputType="text"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"

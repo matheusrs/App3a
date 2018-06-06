@@ -21,17 +21,17 @@ public class DoacoesController {
         criaBD = new CriaBD(context);
     }
 
-    public boolean insereDoacao(String id_parceiro,String descricao,String dataDoacao){
+    public boolean insereDoacao(String id_parceiro,String dataDoacao,String descricao){
         ContentValues valores;
         long resultado;
 
         db = criaBD.getWritableDatabase();
         valores = new ContentValues();
-        valores.put(CriaBD.TABDOACOES_PARCEIROID, id_parceiro);
+        valores.put(CriaBD.TABDOACOES_PARCEIROID, Integer.valueOf(id_parceiro));
         valores.put(CriaBD.TABDOACOES_DATADOACAO,dataDoacao);
         valores.put(CriaBD.TABDOACOES_DESCRICAO, descricao);
 
-        resultado = db.insert(CriaBD.TABASSISTIDOS, null, valores);
+        resultado = db.insert(CriaBD.TABDOACOES, null, valores);
         db.close();
 
         if (resultado ==-1)
@@ -40,10 +40,42 @@ public class DoacoesController {
             return true;
     }
 
-    public Cursor carregaDoacoes(){
+    public boolean atualizaDoacao(String id_doacao, String id_parceiro, String descricao, String dataDoacao) {
+        ContentValues valores;
+        long resultado;
+
+        db = criaBD.getWritableDatabase();
+        valores = new ContentValues();
+        valores.put(CriaBD.TABDOACOES_PARCEIROID, id_parceiro);
+        valores.put(CriaBD.TABDOACOES_DATADOACAO, dataDoacao);
+        valores.put(CriaBD.TABDOACOES_DESCRICAO, descricao);
+
+        resultado = db.update(CriaBD.TABDOACOES, valores, "_id="+Integer.valueOf(id_doacao), null);
+        db.close();
+
+        if (resultado ==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public Cursor carregaTodasDoacoes(){
         Cursor cursor;
         db = criaBD.getReadableDatabase();
         cursor = db.query(criaBD.TABDOACOES, camposDoacoes, null, null, null, null, null, null);
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
+
+    public Cursor carregaDoacoes(String id_parceiro) {
+        Cursor cursor;
+        db = criaBD.getReadableDatabase();
+        String where = CriaBD.TABDOACOES_PARCEIROID + "=" + id_parceiro;
+        cursor = db.query(criaBD.TABDOACOES, camposDoacoes, where, null, null, null, null, null);
 
         if(cursor!=null){
             cursor.moveToFirst();

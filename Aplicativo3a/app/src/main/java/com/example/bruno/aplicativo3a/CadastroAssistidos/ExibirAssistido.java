@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.bruno.aplicativo3a.Main.MainActivity;
 import com.example.bruno.aplicativo3a.R;
 
 import butterknife.BindView;
@@ -69,7 +70,7 @@ public class ExibirAssistido extends AppCompatActivity {
         if (Boolean.valueOf(extras.getString("assistido_statusativo")))
             labelStatusAssistido.setText("Cadastro Ativo");
         else
-            labelStatusAssistido.setText("CAdastro Inativo");
+            labelStatusAssistido.setText("Cadastro Inativo");
 
         editarAssistido.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -102,7 +103,7 @@ public class ExibirAssistido extends AppCompatActivity {
 
             //configura opção Up Action na ActionBar
             case android.R.id.home:
-                onBackPressed();
+                finish();
                 return true;
 
             default:

@@ -8,12 +8,10 @@
     </item>
     <item android:width="70sp" android:height="70sp" >
         <bitmap
-            android:src="@drawable/transparent"
+            android:src="@drawable/plus"
             android:gravity="center"
             android:dither="true"
             />
     </item>
-
-
 </layer-list>
 

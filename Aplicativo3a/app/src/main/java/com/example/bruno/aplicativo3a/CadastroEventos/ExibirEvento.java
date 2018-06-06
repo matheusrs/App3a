@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.bruno.aplicativo3a.R;
@@ -20,6 +21,15 @@ public class ExibirEvento extends AppCompatActivity {
     Button editarEvento;
     @BindView(R.id.hiddenIdEvento)
     TextView idEvento;
+    @BindView(R.id.valueTituloEvento)
+    TextView tituloEvento;
+    @BindView(R.id.valueDataInicioEvento)
+    TextView dataInicio;
+    @BindView(R.id.valueDataFimEvento)
+    TextView dataFim;
+    @BindView(R.id.valueDescricaoEvento)
+    TextView descricao;
+
 
     public ExibirEvento() {
         // Required empty public constructor
@@ -38,6 +48,10 @@ public class ExibirEvento extends AppCompatActivity {
         getSupportActionBar().setTitle("Detalhes do Evento");
 
         idEvento.setText(extras.getString("evento_id"));
+        tituloEvento.setText(extras.getString("evento_titulo"));
+        dataInicio.setText(extras.getString("evento_datainicio"));
+        dataFim.setText(extras.getString("evento_datafim"));
+        descricao.setText(extras.getString("evento_descricao"));
 
         editarEvento.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -45,6 +59,10 @@ public class ExibirEvento extends AppCompatActivity {
                     Intent editarEvento = new Intent(getBaseContext(), CadastroEventos.class);
                     editarEvento.putExtra("evento_edit_mode", "true");
                     editarEvento.putExtra("evento_id", idEvento.getText());
+                    editarEvento.putExtra("evento_titulo", tituloEvento.getText());
+                    editarEvento.putExtra("evento_datainicio", dataInicio.getText());
+                    editarEvento.putExtra("evento_datafim", dataFim.getText());
+                    editarEvento.putExtra("evento_descricao", descricao.getText());
                     startActivity(editarEvento);
                 }
             }

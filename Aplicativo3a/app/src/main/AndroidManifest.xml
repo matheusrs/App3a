@@ -43,7 +43,11 @@
         <activity
             android:name=".CadastroEventos.ExibirEvento"
             android:theme="@style/Actionbar" />
-        <activity android:name=".CadastroDoacoes.CadastroDoacoes"></activity>
+        <activity android:name=".CadastroDoacoes.CadastroDoacoes"
+            android:theme="@style/Actionbar" />
+        <activity
+            android:name=".CadastroDoacoes.ExibirDoacao"
+            android:theme="@style/Actionbar" />
     </application>
 
 </manifest>

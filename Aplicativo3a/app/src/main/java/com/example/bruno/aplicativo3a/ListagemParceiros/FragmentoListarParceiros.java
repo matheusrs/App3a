@@ -18,7 +18,7 @@ import android.widget.SearchView;
 import com.example.bruno.aplicativo3a.CadastroParceiros.CadastroParceiros;
 import com.example.bruno.aplicativo3a.CadastroParceiros.ExibirParceiro;
 import com.example.bruno.aplicativo3a.R;
-import com.example.bruno.aplicativo3a.banco.BancoController;
+import com.example.bruno.aplicativo3a.banco.ParceirosController;
 import com.example.bruno.aplicativo3a.entitiy.ParceiroEntity;
 
 import java.util.List;
@@ -52,10 +52,9 @@ public class FragmentoListarParceiros extends Fragment  implements FragmentoList
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragmento_parceiros, container, false);
         ButterKnife.bind(this,view);
-        searchView.setOnQueryTextListener(new SearchFiltro());
         presenter=new FragmentoListarParceirosPresenter(this);
 
-        BancoController banco = new BancoController(getActivity().getBaseContext());
+        ParceirosController banco = new ParceirosController(getActivity().getBaseContext());
         Cursor cursorParceiros = banco.carregaParceiros();
 
         presenter.listarParceiros(cursorParceiros);
@@ -67,8 +66,30 @@ public class FragmentoListarParceiros extends Fragment  implements FragmentoList
               adicionarParceiro.putExtra("parceiro_edit_mode", "false");
               startActivity(adicionarParceiro);
           }
-        }
+        });
 
+        searchView.setOnQueryTextListener(
+            new SearchView.OnQueryTextListener(){
+
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    ParceirosController banco = new ParceirosController(getActivity().getBaseContext());
+                    Cursor cursorParceiros = banco.carregaParceiros(query);
+                    presenter.listarParceiros(cursorParceiros);
+                    return true;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    if (newText.isEmpty())
+                    {
+                        ParceirosController banco = new ParceirosController(getActivity().getBaseContext());
+                        Cursor cursorParceiros = banco.carregaParceiros();
+                        presenter.listarParceiros(cursorParceiros);
+                    }
+                    return true;
+                }
+            }
         );
 
         return view;
@@ -78,7 +99,7 @@ public class FragmentoListarParceiros extends Fragment  implements FragmentoList
     @Override
     public void onStart() {
         super.onStart();
-        BancoController banco = new BancoController(getActivity().getBaseContext());
+        ParceirosController banco = new ParceirosController(getActivity().getBaseContext());
         Cursor cursorParceiros = banco.carregaParceiros();
 
         presenter.listarParceiros(cursorParceiros);

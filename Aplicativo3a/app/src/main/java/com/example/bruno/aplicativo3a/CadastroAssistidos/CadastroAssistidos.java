@@ -16,13 +16,12 @@ import android.widget.Toast;
 
 import com.example.bruno.aplicativo3a.Main.MainActivity;
 import com.example.bruno.aplicativo3a.R;
-import com.example.bruno.aplicativo3a.banco.BancoController;
+import com.example.bruno.aplicativo3a.banco.AssistidosController;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CadastroAssistidos extends AppCompatActivity {
-
 
     @BindView(R.id.btnSalvarAssistido)
     Button salvar;
@@ -58,7 +57,7 @@ public class CadastroAssistidos extends AppCompatActivity {
             Bundle extras = getIntent().getExtras();
             boolean edit_mode = Boolean.valueOf(extras.getString("assistido_edit_mode"));
 
-            if (edit_mode == true){
+            if (edit_mode){
                 idAssistido.setText(extras.getString("assistido_id"));
                 cpfAssistido.setText(extras.getString("assistido_cpf"));
                 nomeAssistido.setText(extras.getString("assistido_nome"));
@@ -87,15 +86,13 @@ public class CadastroAssistidos extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     String message;
-                    BancoController banco = new BancoController(getBaseContext());
+                    AssistidosController banco = new AssistidosController(getBaseContext());
                     if (banco.insereAssistido(cpfAssistido.getText().toString() , nomeAssistido.getText().toString(), sobrenomeAssistido.getText().toString(), telefoneAssistido.getText().toString(), datanascimentoAssistido.getText().toString(), deficienciaAssistido.getText().toString(), observacoesAssistido.getText().toString()))
                         message = "Assistido cadastrado!";
                     else
                         message = "Erro ao gravar assistido";
                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     finish();
-                    //Intent i = new Intent(CadastroAssistidos.this, MainActivity.class);
-                    //startActivity(i);
                 }
             });
 
@@ -103,7 +100,7 @@ public class CadastroAssistidos extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     String message;
-                    BancoController banco = new BancoController(getBaseContext());
+                    AssistidosController banco = new AssistidosController(getBaseContext());
                     if (banco.atualizaAssistido(idAssistido.getText().toString(),cpfAssistido.getText().toString(), nomeAssistido.getText().toString(), sobrenomeAssistido.getText().toString(), telefoneAssistido.getText().toString(), datanascimentoAssistido.getText().toString(), deficienciaAssistido.getText().toString(), observacoesAssistido.getText().toString()))
                         message = "Assistido atualizado!";
                     else
@@ -115,7 +112,7 @@ public class CadastroAssistidos extends AppCompatActivity {
 
             switchAtivo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    BancoController banco = new BancoController(getBaseContext());
+                    AssistidosController banco = new AssistidosController(getBaseContext());
                     if (isChecked) {
                         if (banco.atualizaStatusAssistido(Integer.valueOf(idAssistido.getText().toString()), true)) {
                             alteraTextoSwitchAtivo(true);
@@ -139,8 +136,6 @@ public class CadastroAssistidos extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-
-            //configura opção Up Action na ActionBar
             case android.R.id.home:
                 onBackPressed();
                 return true;

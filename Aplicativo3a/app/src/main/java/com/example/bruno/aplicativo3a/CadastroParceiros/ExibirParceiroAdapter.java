@@ -1,4 +1,4 @@
-package com.example.bruno.aplicativo3a.ListagemEventos;
+package com.example.bruno.aplicativo3a.CadastroParceiros;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.bruno.aplicativo3a.R;
-import com.example.bruno.aplicativo3a.entitiy.EventoEntity;
+import com.example.bruno.aplicativo3a.entitiy.AssistidoEntity;
+import com.example.bruno.aplicativo3a.entitiy.DoacaoEntity;
 
 import java.util.List;
 
@@ -16,43 +17,45 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FragmentoListarEventosAdapter extends RecyclerView.Adapter<FragmentoListarEventosAdapter.ViewHolder> {
-    private List<EventoEntity> eventoList;
+public class ExibirParceiroAdapter extends RecyclerView.Adapter<ExibirParceiroAdapter.ViewHolder> {
+    private List<DoacaoEntity> doacaoList;
     OnRecyclerViewSelected onRecyclerViewSelected;
     private Context context;
 
-    FragmentoListarEventosAdapter(List<EventoEntity> list, Context context){
-        this.eventoList=list;
+    ExibirParceiroAdapter(List<DoacaoEntity> list, Context context){
+        this.doacaoList=list;
         this.context = context;
     }
 
     //infla o componente view
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.eventos_item_list, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.doacoes_item_list, parent, false);
+
         return new ViewHolder(v);
     }
 
     //seta os dados nas views
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        EventoEntity eventoEntity = eventoList.get(position);
-        holder.txTituloEvento.setText(eventoEntity.getTitulo());
+        DoacaoEntity doacaoEntity = doacaoList.get(position);
+        holder.txDataDoacao.setText(doacaoEntity.getDataDoacao());
     }
 
     //retorna o tamanho da lista
     @Override
     public int getItemCount() {
-        return eventoList.size();
+        return doacaoList.size();
     }
 
     //mapeamento dos componentes da view
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.titulo_evento)
-        TextView txTituloEvento;
+        @BindView(R.id.data_doacao)
+        TextView txDataDoacao;
 
-        public ViewHolder(View itemView) {
+
+       public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
