@@ -1,116 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android" >
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:focusable="true"
         android:focusableInTouchMode="true">
-
         <TextView
             android:id="@+id/hiddenIdAssistido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="invisible"
             />
+
+        <TextView
+            android:id="@+id/labelCPFAssistido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="CPF:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/edTxtCPFAssistido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="15dp"
-            android:hint="CPF"
+            android:hint="xxx.xxx.xxx-xx"
             android:inputType="text" />
-
+        <TextView
+            android:id="@+id/labelNomeAssistido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
         <EditText
             android:id="@+id/edTxtNomeAssistido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="15dp"
-            android:hint="Nome"
             android:inputType="text" />
+
+        <TextView
+            android:id="@+id/labelSobrenomeAssistido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="Sobrenome:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edTxtSobrenomeAssistido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Sobrenome"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:inputType="text"/>
+            android:inputType="text" />
+        <TextView
+            android:id="@+id/labelTelefoneAssistido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Telefone:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
 
         <EditText
             android:id="@+id/edTxtTelefoneAssistido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Telefone"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:inputType="phone"/>
-
+            android:hint="(xx) xxxxx-xxxx"
+            android:inputType="phone" />
+        <TextView
+            android:id="@+id/labelDataNascimentoAssistido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Data de Nascimento:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
         <EditText
             android:id="@+id/edTxtDataNascimentoAssistido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Data de Nascimento"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:hint="dd/mm/aaaa"
             android:inputType="phone"/>
-
+        <TextView
+            android:id="@+id/labelDeficienciaAssistido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deficiência:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
         <EditText
             android:id="@+id/edTxtDeficienciaAssistido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Deficiência"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
             android:inputType="text"/>
-
-
+        <TextView
+            android:id="@+id/labelObservacoesAssistido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observações:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
         <EditText
             android:id="@+id/edTxtObservacoesAssistido"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:hint="Observações"
             android:lines="10"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
             android:inputType="text"
             android:gravity="top"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:orientation="horizontal">
-            <Button
-                android:id="@+id/btnSalvarAssistido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Salvar"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"/>
-
-            <Button
-                android:id="@+id/btnAtualizarAssistido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Atualizar"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:visibility="invisible"/>
-
             <Switch
                 android:id="@+id/switchAtivo"
                 android:layout_width="wrap_content"
@@ -121,6 +138,22 @@
                 android:gravity="right|center_vertical"
                 android:text="Cadastro ativo"
                 android:visibility="invisible" />
+            <Button
+                android:id="@+id/btnSalvarAssistido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:text="Salvar" />
+            <Button
+                android:id="@+id/btnAtualizarAssistido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:text="Atualizar"
+                android:visibility="invisible" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

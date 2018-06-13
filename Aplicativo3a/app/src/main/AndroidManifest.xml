@@ -20,33 +20,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CadastroAssistidos.CadastroAssistidos"
+            android:name=".Assistidos.InserirAlterar.CadastroAssistidoActivity"
             android:theme="@style/Actionbar" />
         <activity
-            android:name=".CadastroParceiros.CadastroParceiros"
+            android:name=".Parceiros.InserirAlterar.CadastroParceiroActivity"
             android:theme="@style/Actionbar" />
         <activity
-            android:name=".CadastroAvisos.CadastroAvisos"
+            android:name=".Eventos.InserirAlterar.CadastroEventoActivity"
             android:theme="@style/Actionbar" />
         <activity
-            android:name=".CadastroEventos.CadastroEventos"
+            android:name=".Assistidos.Exibir.ExibirAssistidoActivity"
             android:theme="@style/Actionbar" />
         <activity
-            android:name=".CadastroAssistidos.ExibirAssistido"
+            android:name=".Parceiros.Exibir.ExibirParceiroActivity"
             android:theme="@style/Actionbar" />
         <activity
-            android:name=".CadastroParceiros.ExibirParceiro"
+            android:name=".Eventos.Exibir.ExibirEventoActivity"
             android:theme="@style/Actionbar" />
         <activity
-            android:name=".CadastroAvisos.ExibirAviso"
+            android:name=".Parceiros.Doacoes.InserirAlterar.CadastroDoacaoActivity"
             android:theme="@style/Actionbar" />
         <activity
-            android:name=".CadastroEventos.ExibirEvento"
-            android:theme="@style/Actionbar" />
-        <activity android:name=".CadastroDoacoes.CadastroDoacoes"
-            android:theme="@style/Actionbar" />
-        <activity
-            android:name=".CadastroDoacoes.ExibirDoacao"
+            android:name=".Parceiros.Doacoes.Exibir.ExibirDoacaoActivity"
             android:theme="@style/Actionbar" />
     </application>
 

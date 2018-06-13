@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.bruno.aplicativo3a.entitiy.EventoEntity;
+import com.example.bruno.aplicativo3a.Entity.EventoEntity;
 
 public class EventosController {
 

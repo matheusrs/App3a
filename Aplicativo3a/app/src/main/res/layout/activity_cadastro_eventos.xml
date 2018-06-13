@@ -19,67 +19,95 @@
             android:visibility="invisible"
             />
 
+        <TextView
+            android:id="@+id/labelTituloCadastroEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Título:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
+
         <EditText
             android:id="@+id/edTxtTituloEvento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="15dp"
-            android:hint="Título"
             android:inputType="text" />
+
+
+            <TextView
+                android:id="@+id/labelInicioCadastroEvento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="Início:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edTxtDataInicioEvento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="15dp"
-            android:hint="Início do evento"
+            android:hint="dd/mm/aaaa hh:mm"
             android:inputType="date" />
+            <TextView
+                android:id="@+id/labelFimCadastroEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="Fim do evento:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edTxtDataFimEvento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fim do evento"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:inputType="date"/>
+            android:hint="dd/mm/aaaa hh:mm"
+            android:inputType="date" />
+
+            <TextView
+                android:id="@+id/labelDescricaoCadastroEvento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="Descrição:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edTxtDescricaoEvento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Descrição"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:inputType="text"/>
+            android:inputType="text" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/btnSalvarEvento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Salvar"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="30dp"
+                android:text="Salvar" />
 
             <Button
                 android:id="@+id/btnAtualizarEvento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Atualizar"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
-                android:visibility="invisible"/>
+                android:text="Atualizar"
+                android:visibility="invisible" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

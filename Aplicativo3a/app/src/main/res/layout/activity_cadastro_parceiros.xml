@@ -17,80 +17,104 @@
             android:layout_height="wrap_content"
             android:visibility="invisible"
             />
-
+        <TextView
+            android:id="@+id/labelNomeParceiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome/Empresa:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
         <EditText
             android:id="@+id/edTxtNomeParceiro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome/Empresa"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:inputType="text"/>
-
+            android:inputType="text" />
+        <TextView
+            android:id="@+id/labelCnpjCpfParceiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CNPJ/CPF:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
         <EditText
             android:id="@+id/edTxtCnpjCpfParceiro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="CNPJ/CPF"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:inputType="datetime"/>
-
+            android:inputType="datetime" />
+        <TextView
+            android:id="@+id/labelTelefoneParceiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Telefone:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
         <EditText
             android:id="@+id/edTxtTelefoneParceiro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Telefone"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:inputType="phone"/>
-
+            android:hint="(xx) xxxxx-xxxx"
+            android:inputType="phone" />
+        <TextView
+            android:id="@+id/labelDataVinculoParceiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Parceiro desde:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
         <EditText
             android:id="@+id/edTxtDataVinculoParceiro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Parceiro desde"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:inputType="text"/>
-
-
+            android:hint="dd/mm/aaaa"
+            android:inputType="date"
+            />
+        <TextView
+            android:id="@+id/labelObservacoesParceiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observações:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"/>
         <EditText
             android:id="@+id/edTxtObservacoesParceiro"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:hint="Observações"
-            android:lines="10"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
+            android:gravity="top"
             android:inputType="text"
-            android:gravity="top"/>
+            android:lines="10" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:orientation="horizontal">
+
             <Button
                 android:id="@+id/btnSalvarParceiro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Salvar"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="30dp"
+                android:text="Salvar" />
 
             <Button
                 android:id="@+id/btnAtualizarParceiro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Atualizar"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
-                android:visibility="invisible"/>
+                android:text="Atualizar"
+                android:visibility="invisible" />
         </LinearLayout>
 
     </LinearLayout>
