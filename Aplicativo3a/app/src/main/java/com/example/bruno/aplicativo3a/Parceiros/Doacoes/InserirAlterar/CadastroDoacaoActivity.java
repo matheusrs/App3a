@@ -95,7 +95,7 @@ public class CadastroDoacaoActivity extends AppCompatActivity implements Cadastr
         exibirParceiro.putExtra("parceiro_id", idParceiroDoacao);
         exibirParceiro.putExtra("parceiro_edit_mode", true);
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-        //finish();
         startActivity(exibirParceiro);
+        finish();
     }
 }
