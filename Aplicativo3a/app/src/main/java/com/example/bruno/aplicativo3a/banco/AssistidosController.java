@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.bruno.aplicativo3a.Entity.AssistidoEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AssistidosController {
     private SQLiteDatabase db;
     private CriaBD criaBD;
@@ -50,27 +53,60 @@ public class AssistidosController {
             return true;
     }
 
-    public Cursor carregaAssistidos(){
-        Cursor cursor;
+    public List<AssistidoEntity> carregaAssistidos(){
+        Cursor cursorAssistidos;
         db = criaBD.getReadableDatabase();
-        cursor = db.query(criaBD.TABASSISTIDOS, camposAssistidos, null, null, null, null, null, null);
+        cursorAssistidos = db.query(criaBD.TABASSISTIDOS, camposAssistidos, null, null, null, null, null, null);
 
-        if(cursor!=null){
-            cursor.moveToFirst();
-        }
+        if(cursorAssistidos!=null){
+            cursorAssistidos.moveToFirst();
+        } List<AssistidoEntity> assistidos = new ArrayList<>();
+        if (cursorAssistidos.getCount() > 0)
+            do
+            {
+                AssistidoEntity assistido = new AssistidoEntity();
+                assistido.setId(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_ID)));
+                assistido.setCPF(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_CPF)));
+                assistido.setNome(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_NOME)));
+                assistido.setSobrenome(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_SOBRENOME)));
+                assistido.setDataNascimento(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_DATANASCIMENTO)));
+                assistido.setTelefone(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_TELEFONE)));
+                assistido.setDeficiencia(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_DEFICIENCIA)));
+                assistido.setObservacoes(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_OBSERVACOES)));
+                assistido.setStatusAtivo(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_STATUSATIVO)));
+                assistidos.add(assistido);
+            } while(cursorAssistidos.moveToNext());
         db.close();
-        return cursor;
+        cursorAssistidos.close();
+        return assistidos;
     }
 
-    public Cursor carregaAssistidos(String nome) {
-        Cursor cursor;
+    public List<AssistidoEntity> carregaAssistidos(String nome) {
+        Cursor cursorAssistidos;
         String where = "upper(" + CriaBD.TABASSISTIDOS_NOME + ") like '%" + nome.toUpperCase() + "%'";
         db = criaBD.getReadableDatabase();
-        cursor = db.query(criaBD.TABASSISTIDOS,camposAssistidos, where, null,null,null,null,null);
-        if(cursor!=null)
-            cursor.moveToFirst();
+        cursorAssistidos = db.query(criaBD.TABASSISTIDOS,camposAssistidos, where, null,null,null,null,null);
+        if(cursorAssistidos!=null)
+            cursorAssistidos.moveToFirst();
+        List<AssistidoEntity> assistidos = new ArrayList<>();
+        if (cursorAssistidos.getCount() > 0)
+            do
+            {
+                AssistidoEntity assistido = new AssistidoEntity();
+                assistido.setId(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_ID)));
+                assistido.setCPF(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_CPF)));
+                assistido.setNome(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_NOME)));
+                assistido.setSobrenome(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_SOBRENOME)));
+                assistido.setDataNascimento(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_DATANASCIMENTO)));
+                assistido.setTelefone(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_TELEFONE)));
+                assistido.setDeficiencia(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_DEFICIENCIA)));
+                assistido.setObservacoes(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_OBSERVACOES)));
+                assistido.setStatusAtivo(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_STATUSATIVO)));
+                assistidos.add(assistido);
+            } while(cursorAssistidos.moveToNext());
         db.close();
-        return cursor;
+        cursorAssistidos.close();
+        return assistidos;
     }
 
     public AssistidoEntity selectAssistido(int id_assistido) {
@@ -91,6 +127,7 @@ public class AssistidosController {
                 assistido.setDataNascimento(cursorAssistido.getString(cursorAssistido.getColumnIndex(criaBD.TABASSISTIDOS_DATANASCIMENTO)));
                 assistido.setDeficiencia(cursorAssistido.getString(cursorAssistido.getColumnIndex(criaBD.TABASSISTIDOS_DEFICIENCIA)));
                 assistido.setObservacoes(cursorAssistido.getString(cursorAssistido.getColumnIndex(criaBD.TABASSISTIDOS_OBSERVACOES)));
+                assistido.setStatusAtivo(cursorAssistido.getString(cursorAssistido.getColumnIndex(criaBD.TABASSISTIDOS_STATUSATIVO)));
             }
         } finally {
             cursorAssistido.close();

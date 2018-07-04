@@ -22,41 +22,13 @@ public class ListarParceirosPresenter {
 
     public void listarParceiros(String query){
         ParceirosController banco = new ParceirosController(context);
-        Cursor cursorParceiros = banco.carregaParceiros(query);
-        List<ParceiroEntity> parceiros = new ArrayList<>();
-        if (cursorParceiros.getCount() > 0)
-            do
-            {
-                ParceiroEntity parceiro = new ParceiroEntity();
-                parceiro.setId(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_ID)));
-                parceiro.setCnpjCpf(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_CNPJCPF)));
-                parceiro.setNome(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_NOME)));
-                parceiro.setTelefone(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_TELEFONE)));
-                parceiro.setDatavinculo(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_DATAVINCULO)));
-                parceiro.setObservacoes(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_OBSERVACOES)));
-                parceiros.add(parceiro);
-            } while(cursorParceiros.moveToNext());
-
+        List<ParceiroEntity> parceiros =banco.carregaParceiros(query);
         view.updateListParceiros(parceiros);
     }
 
     public void listarParceiros(){
         ParceirosController banco = new ParceirosController(context);
-        Cursor cursorParceiros = banco.carregaParceiros();
-        List<ParceiroEntity> parceiros = new ArrayList<>();
-        if (cursorParceiros.getCount() > 0)
-        do
-        {
-            ParceiroEntity parceiro = new ParceiroEntity();
-            parceiro.setId(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_ID)));
-            parceiro.setCnpjCpf(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_CNPJCPF)));
-            parceiro.setNome(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_NOME)));
-            parceiro.setTelefone(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_TELEFONE)));
-            parceiro.setDatavinculo(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_DATAVINCULO)));
-            parceiro.setObservacoes(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_OBSERVACOES)));
-            parceiros.add(parceiro);
-        } while(cursorParceiros.moveToNext());
-
+        List<ParceiroEntity> parceiros = banco.carregaParceiros();
         view.updateListParceiros(parceiros);
     }
 }

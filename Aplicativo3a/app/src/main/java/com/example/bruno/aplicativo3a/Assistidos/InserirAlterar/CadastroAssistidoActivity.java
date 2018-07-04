@@ -12,6 +12,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bruno.aplicativo3a.Entity.AssistidoEntity;
 import com.example.bruno.aplicativo3a.Mask;
 import com.example.bruno.aplicativo3a.R;
 
@@ -42,6 +43,7 @@ public class CadastroAssistidoActivity extends AppCompatActivity implements Cada
     EditText datanascimentoAssistido;
     @BindView(R.id.switchAtivo)
     Switch switchAtivo;
+    CadastroAssistidoPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,19 +58,22 @@ public class CadastroAssistidoActivity extends AppCompatActivity implements Cada
             telefoneAssistido.addTextChangedListener(Mask.insert(Mask.CELULAR_MASK,telefoneAssistido));
             cpfAssistido.addTextChangedListener(Mask.insert(Mask.CPF_MASK,cpfAssistido));
             datanascimentoAssistido.addTextChangedListener(Mask.insert(Mask.DATA_MASK,datanascimentoAssistido));
-            if (edit_mode){
+            presenter = new CadastroAssistidoPresenter(CadastroAssistidoActivity.this, getBaseContext());
+
+        if (edit_mode){
                 idAssistido.setText(extras.getString("assistido_id"));
-                cpfAssistido.setText(extras.getString("assistido_cpf"));
-                nomeAssistido.setText(extras.getString("assistido_nome"));
-                sobrenomeAssistido.setText(extras.getString("assistido_sobrenome"));
-                telefoneAssistido.setText(extras.getString("assistido_telefone"));
-                datanascimentoAssistido.setText(extras.getString("assistido_datanascimento"));
-                deficienciaAssistido.setText(extras.getString("assistido_deficiencia"));
-                observacoesAssistido.setText(extras.getString("assistido_observacoes"));
+                AssistidoEntity assistido=presenter.carregaAssistido(Integer.parseInt(idAssistido.getText().toString()));
+                cpfAssistido.setText(assistido.getCPF());
+                nomeAssistido.setText(assistido.getNome());
+                sobrenomeAssistido.setText(assistido.getSobrenome());
+                telefoneAssistido.setText(assistido.getTelefone());
+                datanascimentoAssistido.setText(assistido.getDataNascimento());
+                deficienciaAssistido.setText(assistido.getDeficiencia());
+                observacoesAssistido.setText(assistido.getObservacoes());
                 getSupportActionBar().setTitle("Atualizar Assistido");
                 atualizar.setVisibility(View.VISIBLE);
                 switchAtivo.setVisibility(View.VISIBLE);
-                if (Boolean.valueOf(extras.getString("assistido_statusativo"))) {
+                if (Boolean.valueOf(assistido.getStatusAtivo())){
                     alteraTextoSwitchAtivo(true);
                     switchAtivo.setChecked(true);
                 } else {

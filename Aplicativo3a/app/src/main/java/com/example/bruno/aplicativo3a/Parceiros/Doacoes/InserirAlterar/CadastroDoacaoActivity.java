@@ -96,11 +96,7 @@ public class CadastroDoacaoActivity extends AppCompatActivity implements Cadastr
 
     @Override
     public void exibeMensagem(String idParceiroDoacao, String message) {
-        Intent exibirParceiro = new Intent(getBaseContext(), ExibirParceiroActivity.class);
-        exibirParceiro.putExtra("parceiro_id", idParceiroDoacao);
-        exibirParceiro.putExtra("parceiro_edit_mode", true);
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-        startActivity(exibirParceiro);
         finish();
     }
 }

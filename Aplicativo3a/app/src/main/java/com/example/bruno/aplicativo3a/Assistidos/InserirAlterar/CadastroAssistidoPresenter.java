@@ -2,6 +2,7 @@ package com.example.bruno.aplicativo3a.Assistidos.InserirAlterar;
 
 import android.content.Context;
 
+import com.example.bruno.aplicativo3a.Entity.AssistidoEntity;
 import com.example.bruno.aplicativo3a.banco.AssistidosController;
 
 public class CadastroAssistidoPresenter {
@@ -11,6 +12,12 @@ public class CadastroAssistidoPresenter {
     public CadastroAssistidoPresenter(CadastroAssistidoView view, Context context) {
         this.view = view;
         this.context = context;
+    }
+
+    public AssistidoEntity carregaAssistido(int id){
+        AssistidosController banco = new AssistidosController(context);
+        AssistidoEntity assistido = banco.selectAssistido(id);
+        return assistido;
     }
 
     public void salvarAssistido(String cpfAssistido, String nomeAssistido, String sobrenomeAssistido, String telefoneAssistido, String datanascimentoAssistido, String deficienciaAssistido, String observacoesAssistido) {

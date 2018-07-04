@@ -19,6 +19,7 @@ import com.example.bruno.aplicativo3a.Parceiros.InserirAlterar.CadastroParceiroA
 import com.example.bruno.aplicativo3a.R;
 import com.example.bruno.aplicativo3a.Entity.DoacaoEntity;
 import com.example.bruno.aplicativo3a.Entity.ParceiroEntity;
+import com.example.bruno.aplicativo3a.banco.ParceirosController;
 
 import java.util.List;
 
@@ -50,18 +51,23 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
 
     ExibirParceiroPresenter presenter;
 
+    int id;
 
     public ExibirParceiroActivity() {
         // Required empty public constructor
     }
 
     @Override
-    protected void onStart(){
-        super.onStart();
-        Bundle extras = getIntent().getExtras();
-        if(extras.getString("parceiro_id") != null) {
-            Log.i("id", extras.getString("parceiro_id"));
-        }
+    protected void onResume() {
+        super.onResume();
+        ParceiroEntity parceiro = presenter.carregaParceiro(String.valueOf(id));
+        idParceiro.setText(parceiro.getId());
+        cnpjCpfParceiro.setText(parceiro.getCnpjCpf());
+        nomeParceiro.setText(parceiro.getNome());
+        telefoneParceiro.setText(parceiro.getTelefone());
+        dataVinculoParceiro.setText(parceiro.getDatavinculo());
+        observacoesParceiro.setText(parceiro.getObservacoes());
+        presenter.listarDoacoes(String.valueOf(id));
     }
 
     @Override
@@ -74,28 +80,10 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Detalhes do Parceiro");
-        boolean edit_mode = Boolean.valueOf(extras.getString("parceiro_edit_mode"));
-
-        // Inflate the layout for this fragment
         presenter = new ExibirParceiroPresenter(this, getBaseContext());
+        id= Integer.parseInt(extras.getString("parceiro_id"));
 
-        idParceiro.setText(extras.getString("parceiro_id"));
-        if (edit_mode){
-            ParceiroEntity parceiro = presenter.carregaParceiro(extras.getString("parceiro_id"));
-            cnpjCpfParceiro.setText(parceiro.getCnpjCpf());
-            nomeParceiro.setText(parceiro.getNome());
-            telefoneParceiro.setText(parceiro.getTelefone());
-            dataVinculoParceiro.setText(parceiro.getDatavinculo());
-            observacoesParceiro.setText(parceiro.getObservacoes());
-        } else {
-            cnpjCpfParceiro.setText(extras.getString("parceiro_cnpjcpf"));
-            nomeParceiro.setText(extras.getString("parceiro_nome"));
-            telefoneParceiro.setText(extras.getString("parceiro_telefone"));
-            dataVinculoParceiro.setText(extras.getString("parceiro_datavinculo"));
-            observacoesParceiro.setText(extras.getString("parceiro_observacoes"));
-        }
-        presenter.listarDoacoes(extras.getString("parceiro_id"));
-
+        presenter.listarDoacoes(String.valueOf(id));
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
