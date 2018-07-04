@@ -69,6 +69,40 @@
             android:hint="dd/mm/aaaa hh:mm"
             android:inputType="date" />
 
+        <TextView
+            android:id="@+id/labelDespesasEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Despesas:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edTxtDespesasEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="00.00"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/labelReceitasEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="Receitas:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edTxtReceitasEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="00.00"
+            android:inputType="numberDecimal" />
+
             <TextView
                 android:id="@+id/labelDescricaoCadastroEvento"
                 android:layout_width="match_parent"

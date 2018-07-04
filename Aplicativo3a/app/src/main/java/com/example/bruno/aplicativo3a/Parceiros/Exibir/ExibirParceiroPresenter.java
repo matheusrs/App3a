@@ -26,17 +26,16 @@ public class ExibirParceiroPresenter {
         DoacoesController banco = new DoacoesController(context);
         Cursor cursorDoacoes = banco.carregaDoacoes(idParceiro);
         List<DoacaoEntity> doacoesParceiro = new ArrayList<>();
-        if (cursorDoacoes.getCount() > 0)
-        do
-        {
-            DoacaoEntity doacaoParceiro = new DoacaoEntity();
-            doacaoParceiro.setId(cursorDoacoes.getString(cursorDoacoes.getColumnIndex(CriaBD.TABDOACOES_ID)));
-            doacaoParceiro.setIdParceiro(cursorDoacoes.getString(cursorDoacoes.getColumnIndex(CriaBD.TABDOACOES_PARCEIROID)));
-            doacaoParceiro.setDescricao(cursorDoacoes.getString(cursorDoacoes.getColumnIndex(CriaBD.TABDOACOES_DESCRICAO)));
-            doacaoParceiro.setDataDoacao(cursorDoacoes.getString(cursorDoacoes.getColumnIndex(CriaBD.TABDOACOES_DATADOACAO)));
-            doacoesParceiro.add(doacaoParceiro);
-        } while(cursorDoacoes.moveToNext());
-
+        if (cursorDoacoes.getCount() > 0) {
+            do {
+                DoacaoEntity doacaoParceiro = new DoacaoEntity();
+                doacaoParceiro.setId(cursorDoacoes.getString(cursorDoacoes.getColumnIndex(CriaBD.TABDOACOES_ID)));
+                doacaoParceiro.setIdParceiro(cursorDoacoes.getString(cursorDoacoes.getColumnIndex(CriaBD.TABDOACOES_PARCEIROID)));
+                doacaoParceiro.setDescricao(cursorDoacoes.getString(cursorDoacoes.getColumnIndex(CriaBD.TABDOACOES_DESCRICAO)));
+                doacaoParceiro.setDataDoacao(cursorDoacoes.getString(cursorDoacoes.getColumnIndex(CriaBD.TABDOACOES_DATADOACAO)));
+                doacoesParceiro.add(doacaoParceiro);
+            } while (cursorDoacoes.moveToNext());
+        }
         view.updateListDoacoes(doacoesParceiro);
     }
 

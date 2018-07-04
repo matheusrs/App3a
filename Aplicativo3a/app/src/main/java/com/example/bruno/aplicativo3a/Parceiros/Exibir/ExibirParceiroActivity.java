@@ -44,7 +44,8 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
     TextView dataVinculoParceiro;
     @BindView(R.id.valueTelefoneParceiro)
     TextView telefoneParceiro;
-
+    @BindView(R.id.labelDoacoes)
+    TextView labelDoacoes;
     @BindView(R.id.recycler_view_doacoes)
     RecyclerView recyclerView;
 
@@ -62,6 +63,9 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
         if(extras.getString("parceiro_id") != null) {
             Log.i("id", extras.getString("parceiro_id"));
         }
+        presenter = new ExibirParceiroPresenter(this, getBaseContext());
+        presenter.listarDoacoes(extras.getString("parceiro_id"));
+
     }
 
     @Override
@@ -147,18 +151,22 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
     }
 
     public void updateListDoacoes(final List<DoacaoEntity> doacoesEntityList){
-        ExibirParceiroAdapter adapter = new ExibirParceiroAdapter(doacoesEntityList,this);
-        adapter.setOnRecyclerViewSelected(new OnRecyclerViewSelected() {
-            @Override
-            public void onClick(View v, int position) {
-                DoacaoEntity objDoacao = doacoesEntityList.get(position);
-                Intent exibirDoacao = new Intent(getBaseContext(), ExibirDoacaoActivity.class);
-                exibirDoacao.putExtra("doacao_id", objDoacao.getId());
-                exibirDoacao.putExtra("doacao_data", objDoacao.getDataDoacao());
-                exibirDoacao.putExtra("doacao_descricao", objDoacao.getDescricao());
-                startActivity(exibirDoacao);
-            }
-        });
-        recyclerView.setAdapter(adapter);
+        if (doacoesEntityList.isEmpty()) {
+            labelDoacoes.setVisibility(View.INVISIBLE);
+        } else {
+            ExibirParceiroAdapter adapter = new ExibirParceiroAdapter(doacoesEntityList,this);
+            adapter.setOnRecyclerViewSelected(new OnRecyclerViewSelected() {
+                @Override
+                public void onClick(View v, int position) {
+                    DoacaoEntity objDoacao = doacoesEntityList.get(position);
+                    Intent exibirDoacao = new Intent(getBaseContext(), ExibirDoacaoActivity.class);
+                    exibirDoacao.putExtra("doacao_id", objDoacao.getId());
+                    exibirDoacao.putExtra("doacao_data", objDoacao.getDataDoacao());
+                    exibirDoacao.putExtra("doacao_descricao", objDoacao.getDescricao());
+                    startActivity(exibirDoacao);
+                }
+            });
+            recyclerView.setAdapter(adapter);
+        }
     }
 }

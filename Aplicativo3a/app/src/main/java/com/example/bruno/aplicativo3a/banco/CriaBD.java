@@ -38,6 +38,8 @@ public class CriaBD extends SQLiteOpenHelper {
     public static final String TABEVENTOS_ID = "_id";
     public static final String TABEVENTOS_TITULO = "titulo";
     public static final String TABEVENTOS_DESCRICAO = "descricao";
+    public static final String TABEVENTOS_DESPESAS = "despesas";
+    public static final String TABEVENTOS_RECEITAS = "receitas";
     public static final String TABEVENTOS_DATAINICIO = "data_inicio";
     public static final String TABEVENTOS_DATAFIM = "data_fim";
 
@@ -80,7 +82,9 @@ public class CriaBD extends SQLiteOpenHelper {
                 + TABEVENTOS_TITULO + " text,"
                 + TABEVENTOS_DATAINICIO + " text,"
                 + TABEVENTOS_DATAFIM + " text,"
-                + TABEVENTOS_DESCRICAO + " text"
+                + TABEVENTOS_DESCRICAO + " text,"
+                + TABEVENTOS_DESPESAS + " text,"
+                + TABEVENTOS_RECEITAS + " text"
                 +"); ";
         db.execSQL(table_assistidos);
         db.execSQL(table_parceiros);
@@ -127,16 +131,16 @@ public class CriaBD extends SQLiteOpenHelper {
         values = "VALUES ('47.960.950/0449-27','Magazine Luiza ','(11)4589-7456','15/03/2000','')";
         db.execSQL(insertParceiros.concat(values));
 
-        String insertEventos = "INSERT INTO " + TABEVENTOS + "(" + TABEVENTOS_TITULO + ", " + TABEVENTOS_DATAINICIO + ", " + TABEVENTOS_DATAFIM + ", " + TABEVENTOS_DESCRICAO + ") ";
-        values = "VALUES ('Festa Junina','15/06/2018 16:00', '15/06/2018 22:00', 'Realização no salão de eventos')";
+        String insertEventos = "INSERT INTO " + TABEVENTOS + "(" + TABEVENTOS_TITULO + ", " + TABEVENTOS_DATAINICIO + ", " + TABEVENTOS_DATAFIM + ", " + TABEVENTOS_DESCRICAO + ", " + TABEVENTOS_DESPESAS + ", " + TABEVENTOS_RECEITAS + ") ";
+        values = "VALUES ('Festa Junina','15/06/2018 16:00', '15/06/2018 22:00', 'Realização no salão de eventos', '0', '0')";
         db.execSQL(insertEventos.concat(values));
-        values = "VALUES ('Semana dos Esportes','03/07/2018 08:00', '06/07/2018 16:00', 'Realização nas quadras esportivas')";
+        values = "VALUES ('Semana dos Esportes','03/07/2018 08:00', '06/07/2018 16:00', 'Realização nas quadras esportivas', '0', '0')";
         db.execSQL(insertEventos.concat(values));
-        values = "VALUES ('Bazar','12/06/2018 08:00', '12/06/2018 18:00', 'Realização no galpão')";
+        values = "VALUES ('Bazar','12/06/2018 08:00', '12/06/2018 18:00', 'Realização no galpão', '0', '0')";
         db.execSQL(insertEventos.concat(values));
-        values = "VALUES ('Festa de Fim de Ano','10/12/2018 14:00', '10/12/2018 20:00', 'Realização no salão de eventos')";
+        values = "VALUES ('Festa de Fim de Ano','10/12/2018 14:00', '10/12/2018 20:00', 'Realização no salão de eventos', '0', '0')";
         db.execSQL(insertEventos.concat(values));
-        values = "VALUES ('Concurso Criativo','01/11/2018 08:00', '02/11/2018 18:00', 'Realização na sala oval')";
+        values = "VALUES ('Concurso Criativo','01/11/2018 08:00', '02/11/2018 18:00', 'Realização na sala oval', '0', '0')";
         db.execSQL(insertEventos.concat(values));
     }
 
