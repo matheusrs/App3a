@@ -97,9 +97,7 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
         presenter.listarDoacoes(extras.getString("parceiro_id"));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,layoutManager.getOrientation());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(dividerItemDecoration);
 
         editarParceiro.setOnClickListener(new View.OnClickListener() {
             @Override

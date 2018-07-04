@@ -55,7 +55,7 @@ public class ExibirAssistidoActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
-        getSupportActionBar().setTitle("Detalhes do Assistido");
+        getSupportActionBar().setTitle("Acorde Administrativo");
 
         idAssistido.setText(extras.getString("assistido_id"));
         statusAssistido.setText(extras.getString("assistido_statusativo"));

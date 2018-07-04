@@ -12,6 +12,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bruno.aplicativo3a.Mask;
 import com.example.bruno.aplicativo3a.R;
 
 import butterknife.BindView;
@@ -52,7 +53,9 @@ public class CadastroAssistidoActivity extends AppCompatActivity implements Cada
             getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
             Bundle extras = getIntent().getExtras();
             boolean edit_mode = Boolean.valueOf(extras.getString("assistido_edit_mode"));
-
+            telefoneAssistido.addTextChangedListener(Mask.insert(Mask.CELULAR_MASK,telefoneAssistido));
+            cpfAssistido.addTextChangedListener(Mask.insert(Mask.CPF_MASK,cpfAssistido));
+            datanascimentoAssistido.addTextChangedListener(Mask.insert(Mask.DATA_MASK,datanascimentoAssistido));
             if (edit_mode){
                 idAssistido.setText(extras.getString("assistido_id"));
                 cpfAssistido.setText(extras.getString("assistido_cpf"));
@@ -75,6 +78,8 @@ public class CadastroAssistidoActivity extends AppCompatActivity implements Cada
                 salvar.setVisibility(View.GONE);
             }
             else {
+                switchAtivo.setVisibility(View.GONE);
+                atualizar.setVisibility(View.GONE);
                 getSupportActionBar().setTitle("Novo Assistido");
             }
 

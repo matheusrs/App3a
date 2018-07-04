@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bruno.aplicativo3a.Mask;
 import com.example.bruno.aplicativo3a.R;
 
 import butterknife.BindView;
@@ -46,6 +47,10 @@ public class CadastroParceiroActivity extends AppCompatActivity implements Cadas
         Bundle extras = getIntent().getExtras();
         boolean edit_mode = Boolean.valueOf(extras.getString("parceiro_edit_mode"));
 
+
+
+        telefoneParceiro.addTextChangedListener(Mask.insert(Mask.CELULAR_MASK,telefoneParceiro));
+        datavinculoParceiro.addTextChangedListener(Mask.insert(Mask.DATA_MASK,datavinculoParceiro));
         if (edit_mode){
             idParceiro.setText(extras.getString("parceiro_id"));
             cnpjCpfParceiro.setText(extras.getString("parceiro_cnpjcpf"));
