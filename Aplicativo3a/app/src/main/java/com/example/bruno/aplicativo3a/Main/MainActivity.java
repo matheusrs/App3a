@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
 import com.example.bruno.aplicativo3a.Assistidos.Listagem.ListarAssistidosFragment;
+import com.example.bruno.aplicativo3a.Escalas.EscalaFuncionariosFragment;
 import com.example.bruno.aplicativo3a.Eventos.ListagemEventos.ListarEventosFragment;
 import com.example.bruno.aplicativo3a.Parceiros.Listagem.ListarParceirosFragment;
 import com.example.bruno.aplicativo3a.R;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        //adapter.addFragment(new FragmentoListarAvisos(), "Avisos");
+        adapter.addFragment(new EscalaFuncionariosFragment(), "Escala");
         adapter.addFragment(new ListarAssistidosFragment(), "Assistidos");
         adapter.addFragment(new ListarParceirosFragment(), "Parceiros");
         adapter.addFragment(new ListarEventosFragment(), "Eventos");
