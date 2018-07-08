@@ -7,7 +7,6 @@ import java.util.List;
 
 
 interface EstatisticasAssistidosView {
-    void updateEstatisticaAssistidos(final List<AssistidoEntity> assistidoEntityList);
-
+    void updateEstatisticaAssistidos( List<AssistidoEntity> assistidoEntityList);
     void gerarGrafico(List<Integer> idadeAssistidos);
 }

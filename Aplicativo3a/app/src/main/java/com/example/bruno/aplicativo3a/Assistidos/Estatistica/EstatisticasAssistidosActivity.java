@@ -49,7 +49,12 @@ public class EstatisticasAssistidosActivity extends AppCompatActivity implements
 
     }
 
-    public void gerarGrafico(){
+
+    public void updateEstatisticaAssistidos(List<AssistidoEntity> assistidoEntityList){
+
+    }
+
+    public void gerarGrafico(List<Integer> idadeAssistidos){
         //TODO criar gráfico
     }
 }

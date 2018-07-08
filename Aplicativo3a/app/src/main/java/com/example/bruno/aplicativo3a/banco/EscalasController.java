@@ -49,7 +49,7 @@ public class EscalasController {
     public List<EscalaEntity> carregaEscalas(String dia,String turno){
         Cursor cursor;
         db = criaBD.getReadableDatabase();
-        String where = CriaBD.TABESCALAS_DIA + "=" + dia + " AND " + CriaBD.TABESCALAS_TURNO + " = " +turno;
+        String where = CriaBD.TABESCALAS_DIA + "='" + dia + "' AND " + CriaBD.TABESCALAS_TURNO + " = '" +turno+"'";
         cursor = db.query(criaBD.TABESCALAS, camposEscalas, where, null, null, null, null, null);
 
         if(cursor!=null){

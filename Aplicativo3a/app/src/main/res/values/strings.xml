@@ -9,6 +9,18 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_main2">Main2Activity</string>
 
+    <string-array name="dias">
+        <item>Segunda</item>
+        <item>Terça</item>
+        <item>Quarta</item>
+        <item>Quinta</item>
+        <item>Sexta</item>
+    </string-array>
+    <string-array name="turnos">
+        <item>Manhã</item>
+        <item>Almoço</item>
+        <item>Tarde</item>
+    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

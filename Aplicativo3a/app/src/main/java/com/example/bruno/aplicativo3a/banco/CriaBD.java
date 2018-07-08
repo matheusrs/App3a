@@ -156,6 +156,31 @@ public class CriaBD extends SQLiteOpenHelper {
         db.execSQL(insertEventos.concat(values));
         values = "VALUES ('Concurso Criativo','01/11/2018 08:00', '02/11/2018 18:00', 'Realização na sala oval')";
         db.execSQL(insertEventos.concat(values));
+
+        String insertEscalas = "INSERT INTO " + TABESCALAS + "(" + TABESCALAS_DIA + ","  + TABESCALAS_TURNO + ", "
+                + TABESCALAS_NOMEFUNCIONARIO + "," + TABESCALAS_ESPECIALIDADE + ")";
+        values = "VALUES ('segunda','manha','Renata Moura','Psicologa')";
+        db.execSQL(insertEscalas.concat(values));
+        values = "VALUES ('segunda','almoco','Maria das Dores','Recepcionista')";
+        db.execSQL(insertEscalas.concat(values));
+        values = "VALUES ('segunda','manha','Edilaine Ferreira','Psiquiatra')";
+        db.execSQL(insertEscalas.concat(values));
+        values = "VALUES ('terca','manha','Marcelo Padro','Fisioterapeuta')";
+        db.execSQL(insertEscalas.concat(values));
+        values = "VALUES ('terca','tarde','Silvia Paraiba','Pedagoga')";
+        db.execSQL(insertEscalas.concat(values));
+        values = "VALUES ('quarta','almoco','Renan Medeiros','Educação Especial')";
+        db.execSQL(insertEscalas.concat(values));
+        values = "VALUES ('quarta','tarde','Patricia','Educadora física')";
+        db.execSQL(insertEscalas.concat(values));
+        values = "VALUES ('quinta','almoco','Marcelo Padro','Fisioterapeuta')";
+        db.execSQL(insertEscalas.concat(values));
+        values = "VALUES ('quinta','tarde','Patricia','Educadora física')";
+        db.execSQL(insertEscalas.concat(values));
+        values = "VALUES ('sexta','manha','Maria das Dores','Recepcionista')";
+        db.execSQL(insertEscalas.concat(values));
+        values = "VALUES ('sexta','tarde','Edilaine Ferreira','Psiquiatra')";
+        db.execSQL(insertEscalas.concat(values));
     }
 
 }

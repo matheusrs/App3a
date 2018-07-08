@@ -43,6 +43,8 @@
         <activity
             android:name=".Parceiros.Doacoes.Exibir.ExibirDoacaoActivity"
             android:theme="@style/Actionbar" />
+        <activity android:name=".Escalas.InserirAlterar.CadastroEscalaActivity"
+            android:theme="@style/Actionbar"/>
     </application>
 
 </manifest>
