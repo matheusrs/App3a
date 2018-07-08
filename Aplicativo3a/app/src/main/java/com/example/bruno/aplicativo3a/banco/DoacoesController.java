@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.bruno.aplicativo3a.Entity.DoacaoEntity;
+
 public class DoacoesController {
 
     private SQLiteDatabase db;
@@ -40,7 +42,7 @@ public class DoacoesController {
             return true;
     }
 
-    public boolean atualizaDoacao(String id_doacao, String id_parceiro, String descricao, String dataDoacao) {
+    public boolean atualizaDoacao(String id_doacao, String id_parceiro, String dataDoacao, String descricao) {
         ContentValues valores;
         long resultado;
 
@@ -50,7 +52,7 @@ public class DoacoesController {
         valores.put(CriaBD.TABDOACOES_DATADOACAO, dataDoacao);
         valores.put(CriaBD.TABDOACOES_DESCRICAO, descricao);
 
-        resultado = db.update(CriaBD.TABDOACOES, valores, "_id="+Integer.valueOf(id_doacao), null);
+        resultado = db.update(CriaBD.TABDOACOES, valores, "_id="+id_doacao, null);
         db.close();
 
         if (resultado ==-1)
@@ -59,23 +61,36 @@ public class DoacoesController {
             return true;
     }
 
-    public Cursor carregaTodasDoacoes(){
+    public DoacaoEntity carregaDoacao(String id_doacao){
         Cursor cursor;
-        db = criaBD.getReadableDatabase();
-        cursor = db.query(criaBD.TABDOACOES, camposDoacoes, null, null, null, null, null, null);
+        DoacaoEntity doacao = new DoacaoEntity();
 
-        if(cursor!=null){
-            cursor.moveToFirst();
+        db = criaBD.getReadableDatabase();
+        String where = CriaBD.TABDOACOES_ID + "=" + id_doacao;
+        cursor = db.query(criaBD.TABDOACOES, camposDoacoes, where, null, null, null, null, null);
+
+        try {
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                doacao.setId(cursor.getString(cursor.getColumnIndex(criaBD.TABDOACOES_ID)));
+                doacao.setIdParceiro(cursor.getString(cursor.getColumnIndex(criaBD.TABDOACOES_PARCEIROID)));
+                doacao.setDataDoacao(cursor.getString(cursor.getColumnIndex(criaBD.TABDOACOES_DATADOACAO)));
+                doacao.setDescricao(cursor.getString(cursor.getColumnIndex(criaBD.TABDOACOES_DESCRICAO)));
+            }
+        } finally {
+            cursor.close();
+            db.close();
         }
         db.close();
-        return cursor;
+        return doacao;
     }
 
     public Cursor carregaDoacoes(String id_parceiro) {
         Cursor cursor;
         db = criaBD.getReadableDatabase();
         String where = CriaBD.TABDOACOES_PARCEIROID + "=" + id_parceiro;
-        cursor = db.query(criaBD.TABDOACOES, camposDoacoes, where, null, null, null, null, null);
+        String order = CriaBD.TABDOACOES_ID+ " desc";
+        cursor = db.query(criaBD.TABDOACOES, camposDoacoes, where, null, null, null, order, null);
 
         if(cursor!=null){
             cursor.moveToFirst();

@@ -1,4 +1,5 @@
-package com.example.bruno.aplicativo3a.Escalas.Dias;
+package com.example.bruno.aplicativo3a.Escalas.Dias.Sexta;
+
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,19 +10,19 @@ import android.view.ViewGroup;
 import com.example.bruno.aplicativo3a.R;
 
 
-public class SegFragment extends Fragment {
+public class SexFragment extends Fragment {
 
 
-    public SegFragment() {
+    public SexFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_seg, container, false);
-        return view;
+        return inflater.inflate(R.layout.fragment_sex, container, false);
     }
 
 }

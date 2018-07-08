@@ -2,6 +2,7 @@ package com.example.bruno.aplicativo3a.Eventos.InserirAlterar;
 
 import android.content.Context;
 
+import com.example.bruno.aplicativo3a.Entity.EventoEntity;
 import com.example.bruno.aplicativo3a.banco.EventosController;
 
 public class CadastroEventoPresenter {
@@ -12,6 +13,13 @@ public class CadastroEventoPresenter {
     public CadastroEventoPresenter(CadastroEventoView view, Context context) {
         this.view = view;
         this.context = context;
+    }
+
+
+    public EventoEntity carregaEvento(int id){
+        EventosController banco = new EventosController(context);
+        EventoEntity eventoEntity=banco.selectEvento(id);
+        return eventoEntity;
     }
 
     public void salvarEvento(String tituloEvento, String dataInicioEvento, String dataFimEvento, String descricaoEvento) {

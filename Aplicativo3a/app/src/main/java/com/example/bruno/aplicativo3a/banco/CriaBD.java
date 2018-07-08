@@ -41,6 +41,15 @@ public class CriaBD extends SQLiteOpenHelper {
     public static final String TABEVENTOS_DATAINICIO = "data_inicio";
     public static final String TABEVENTOS_DATAFIM = "data_fim";
 
+    public static final String TABESCALAS = "escalas";
+    // PK poderá ser IDfuncionario+dia+turno futuramente.
+    public static final String TABESCALAS_ID = "_id";
+    public static final String TABESCALAS_DIA = "dia";
+    public static final String TABESCALAS_TURNO = "turno";
+    public static final String TABESCALAS_NOMEFUNCIONARIO = "funcionario"; // após integração de apps será FK para id de Funcionario
+    public static final String TABESCALAS_ESPECIALIDADE = "especialidade";
+
+
     public static final int VERSAO = 1;
 
     public CriaBD(Context context){
@@ -82,10 +91,19 @@ public class CriaBD extends SQLiteOpenHelper {
                 + TABEVENTOS_DATAFIM + " text,"
                 + TABEVENTOS_DESCRICAO + " text"
                 +"); ";
+        String table_escalas = "CREATE TABLE " + TABESCALAS + "("
+                + TABESCALAS_ID + " integer primary key autoincrement,"
+                + TABESCALAS_DIA + " text,"
+                + TABESCALAS_TURNO + " text,"
+                + TABESCALAS_NOMEFUNCIONARIO + " text,"
+                +  TABESCALAS_ESPECIALIDADE + " text"
+                + "); ";
+
         db.execSQL(table_assistidos);
         db.execSQL(table_parceiros);
         db.execSQL(table_doacoes);
         db.execSQL(table_eventos);
+        db.execSQL(table_escalas);
 
         preencheMockups(db);
     }

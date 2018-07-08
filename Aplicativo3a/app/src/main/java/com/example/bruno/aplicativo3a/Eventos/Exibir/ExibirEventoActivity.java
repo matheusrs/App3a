@@ -9,13 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.bruno.aplicativo3a.Entity.EventoEntity;
 import com.example.bruno.aplicativo3a.Eventos.InserirAlterar.CadastroEventoActivity;
 import com.example.bruno.aplicativo3a.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ExibirEventoActivity extends AppCompatActivity {
+public class ExibirEventoActivity extends AppCompatActivity implements ExibirEventoView {
 
     @BindView(R.id.btnEditEvento)
     Button editarEvento;
@@ -30,11 +31,23 @@ public class ExibirEventoActivity extends AppCompatActivity {
     @BindView(R.id.valueDescricaoEvento)
     TextView descricao;
 
+    int idEventoVal;
+    ExibirEventoPresenter presenter;
 
     public ExibirEventoActivity() {
         // Required empty public constructor
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EventoEntity evento = presenter.carregaEvento(idEventoVal);
+        idEvento.setText(evento.getId());
+        tituloEvento.setText(evento.getTitulo());
+        dataInicio.setText(evento.getDataInicio());
+        dataFim.setText(evento.getDataFim());
+        descricao.setText(evento.getDescricao());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +60,8 @@ public class ExibirEventoActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Detalhes do Evento");
 
-        idEvento.setText(extras.getString("evento_id"));
-        tituloEvento.setText(extras.getString("evento_titulo"));
-        dataInicio.setText(extras.getString("evento_datainicio"));
-        dataFim.setText(extras.getString("evento_datafim"));
-        descricao.setText(extras.getString("evento_descricao"));
+        presenter = new ExibirEventoPresenter(this,this);
+        idEventoVal=Integer.parseInt(extras.getString("evento_id"));
 
         editarEvento.setOnClickListener(new View.OnClickListener() {
                 @Override

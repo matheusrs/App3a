@@ -56,7 +56,8 @@ public class AssistidosController {
     public List<AssistidoEntity> carregaAssistidos(){
         Cursor cursorAssistidos;
         db = criaBD.getReadableDatabase();
-        cursorAssistidos = db.query(criaBD.TABASSISTIDOS, camposAssistidos, null, null, null, null, null, null);
+        String order = CriaBD.TABASSISTIDOS_NOME+","+CriaBD.TABASSISTIDOS_SOBRENOME + " asc";
+        cursorAssistidos = db.query(criaBD.TABASSISTIDOS, camposAssistidos, null, null, null, null, order, null);
 
         if(cursorAssistidos!=null){
             cursorAssistidos.moveToFirst();

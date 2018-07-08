@@ -51,7 +51,8 @@ public class ParceirosController {
     public List<ParceiroEntity> carregaParceiros(){
         Cursor cursorParceiros;
         db = criaBD.getReadableDatabase();
-        cursorParceiros = db.query(criaBD.TABPARCEIROS, camposParceiros, null, null, null, null, null, null);
+        String order = CriaBD.TABPARCEIROS_NOME+ " asc";
+        cursorParceiros = db.query(criaBD.TABPARCEIROS, camposParceiros, null, null, null, null, order, null);
 
         if(cursorParceiros!=null){
             cursorParceiros.moveToFirst();
@@ -78,7 +79,8 @@ public class ParceirosController {
         Cursor cursorParceiros;
         String where = "upper(" + CriaBD.TABPARCEIROS_NOME + ") like '%" + nome.toUpperCase() + "%'";
         db = criaBD.getReadableDatabase();
-        cursorParceiros = db.query(criaBD.TABPARCEIROS, camposParceiros, where, null, null, null, null, null);
+        String order = CriaBD.TABPARCEIROS_NOME+ " asc";
+        cursorParceiros = db.query(criaBD.TABPARCEIROS, camposParceiros, where, null, null, null, order, null);
 
         if(cursorParceiros!=null){
             cursorParceiros.moveToFirst();

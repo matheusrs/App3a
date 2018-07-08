@@ -18,7 +18,7 @@ import com.example.bruno.aplicativo3a.banco.AssistidosController;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ExibirAssistidoActivity extends AppCompatActivity {
+public class ExibirAssistidoActivity extends AppCompatActivity implements ExibirAssitidoView {
 
     @BindView(R.id.btnEditAssistido)
     Button editarAssistido;
@@ -44,6 +44,7 @@ public class ExibirAssistidoActivity extends AppCompatActivity {
     TextView labelStatusAssistido;
 
     int id;
+    ExibirAssitidoPresenter presenter;
 
     public ExibirAssistidoActivity() {
         // Required empty public constructor
@@ -52,8 +53,7 @@ public class ExibirAssistidoActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        AssistidosController banco = new AssistidosController(this);
-        AssistidoEntity assistidoEntity = banco.selectAssistido(id);
+        AssistidoEntity assistidoEntity = presenter.carregaAssistido(id);
         idAssistido.setText(assistidoEntity.getId());
         statusAssistido.setText(assistidoEntity.getStatusAtivo());
         cpfAssistido.setText(assistidoEntity.getCPF());
@@ -84,6 +84,7 @@ public class ExibirAssistidoActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Acorde Administrativo");
 
+        presenter=new ExibirAssitidoPresenter(this,this);
         id = Integer.parseInt(extras.getString("assistido_id"));
 
         editarAssistido.setOnClickListener(new View.OnClickListener() {

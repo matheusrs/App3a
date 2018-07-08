@@ -46,7 +46,7 @@
             android:id="@+id/edTxtCnpjCpfParceiro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="datetime"
+            android:inputType="phone"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
         <TextView
@@ -62,7 +62,7 @@
             android:id="@+id/edTxtTelefoneParceiro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="(xx) xxxxx-xxxx"
+            android:hint="(xx) xxxx-xxxx"
             android:inputType="phone"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp" />
@@ -98,10 +98,10 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="top"
-            android:inputType="text"
-            android:lines="10"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"/>
 
             <Button
                 android:id="@+id/btnSalvarParceiro"

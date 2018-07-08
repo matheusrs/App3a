@@ -18,125 +18,79 @@
 
         <TextView
             android:id="@+id/labelCPFAssistido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:text="CPF:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/edTxtCPFAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSizeEditText"
             android:hint="xxx.xxx.xxx-xx"
-            android:inputType="number"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:inputType="number" />
         <TextView
             android:id="@+id/labelNomeAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:text="Nome:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:textStyle="bold"/>
         <EditText
             android:id="@+id/edTxtNomeAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            style="@style/MargensSizeEditText"
+            android:inputType="text"/>
 
         <TextView
             android:id="@+id/labelSobrenomeAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            style="@style/MargensSize"
             android:text="Sobrenome:"
-            android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edTxtSobrenomeAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            style="@style/MargensSizeEditText"
+            android:inputType="text"/>
         <TextView
             android:id="@+id/labelTelefoneAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:text="Telefone:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/edTxtTelefoneAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="(xx) xxxxx-xxxx"
-            android:inputType="phone"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            style="@style/MargensSizeEditText"
+            android:hint="(xx) xxxx-xxxx"
+            android:inputType="phone"/>
         <TextView
             android:id="@+id/labelDataNascimentoAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:text="Data de Nascimento:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:textStyle="bold"/>
         <EditText
             android:id="@+id/edTxtDataNascimentoAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSizeEditText"
             android:hint="dd/mm/aaaa"
-            android:inputType="phone"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:inputType="phone"/>
         <TextView
             android:id="@+id/labelDeficienciaAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:text="Deficiência:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:textStyle="bold"/>
         <EditText
             android:id="@+id/edTxtDeficienciaAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            style="@style/MargensSizeEditText"
+            android:inputType="text"/>
         <TextView
             android:id="@+id/labelObservacoesAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:text="Observações:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:textStyle="bold"/>
         <EditText
             android:id="@+id/edTxtObservacoesAssistido"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:lines="10"
-            android:inputType="text"
             android:gravity="top"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

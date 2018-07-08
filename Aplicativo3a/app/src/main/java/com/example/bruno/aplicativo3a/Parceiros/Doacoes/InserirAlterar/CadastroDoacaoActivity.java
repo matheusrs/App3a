@@ -1,6 +1,5 @@
 package com.example.bruno.aplicativo3a.Parceiros.Doacoes.InserirAlterar;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -11,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bruno.aplicativo3a.Entity.DoacaoEntity;
 import com.example.bruno.aplicativo3a.Mask;
 import com.example.bruno.aplicativo3a.Parceiros.Exibir.ExibirParceiroActivity;
 import com.example.bruno.aplicativo3a.R;
@@ -33,6 +33,8 @@ public class CadastroDoacaoActivity extends AppCompatActivity implements Cadastr
     @BindView(R.id.edTxtDataDoacao)
     EditText dataDoacao;
 
+    CadastroDoacaoPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,21 +43,24 @@ public class CadastroDoacaoActivity extends AppCompatActivity implements Cadastr
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         Bundle extras = getIntent().getExtras();
-        boolean insert_edit_mode = Boolean.valueOf(extras.getString("doacao_edit_mode")) ||
-                Boolean.valueOf(extras.getString("doacao_insert_mode"));
-        idParceiroDoacao.setText(extras.getString("doacao_id_parceiro"));
+        boolean edit_mode = Boolean.valueOf(extras.getString("doacao_edit_mode"));
+        presenter = new CadastroDoacaoPresenter(this, this);
+        String idParc = extras.getString("doacao_id_parceiro");
+        if (idParc != null)
+            idParceiroDoacao.setText(idParc);
 
-        dataDoacao.addTextChangedListener(Mask.insert(Mask.DATA_MASK,dataDoacao));
+        dataDoacao.addTextChangedListener(Mask.insert(Mask.DATA_MASK, dataDoacao));
 
-        if (insert_edit_mode){
-            idDoacao.setText(extras.getString("doacao_id"));
-            dataDoacao.setText(extras.getString("doacao_data"));
-            descricaoDoacao.setText(extras.getString("doacao_descricao"));
+        if (edit_mode) {
+            DoacaoEntity doacao = presenter.carregaDoacao(extras.getString("doacao_id"));
+            idDoacao.setText(doacao.getId());
+            dataDoacao.setText(doacao.getDataDoacao());
+            descricaoDoacao.setText(doacao.getDescricao());
+            idParceiroDoacao.setText(doacao.getIdParceiro());
             atualizar.setVisibility(View.VISIBLE);
             salvar.setVisibility(View.GONE);
             getSupportActionBar().setTitle("Atualizar Doação");
-        }
-        else {
+        } else {
             getSupportActionBar().setTitle("Nova Doação");
         }
 

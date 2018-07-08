@@ -83,7 +83,6 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
         presenter = new ExibirParceiroPresenter(this, getBaseContext());
         id= Integer.parseInt(extras.getString("parceiro_id"));
 
-        presenter.listarDoacoes(String.valueOf(id));
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 

@@ -38,7 +38,7 @@ public class ListarAssistidosAdapter extends RecyclerView.Adapter<ListarAssistid
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         AssistidoEntity assistidoEntity = assistidoList.get(position);
-        holder.txNomeAssistido.setText("Nome: "+assistidoEntity.getNome());
+        holder.txNomeAssistido.setText("Nome: "+assistidoEntity.getNome()+ " " + assistidoEntity.getSobrenome());
         holder.txTelAssisitdo.setText("Telefone: "+assistidoEntity.getTelefone());
     }
 

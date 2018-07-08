@@ -21,75 +21,54 @@
 
         <TextView
             android:id="@+id/labelTituloCadastroEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:text="Título:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"/>
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/edTxtTituloEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSizeEditText"
             android:inputType="text" />
 
 
             <TextView
                 android:id="@+id/labelInicioCadastroEvento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
+                style="@style/MargensSize"
                 android:text="Início:"
-                android:textSize="18sp"
                 android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edTxtDataInicioEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSizeEditText"
             android:hint="dd/mm/aaaa hh:mm"
             android:inputType="date" />
             <TextView
                 android:id="@+id/labelFimCadastroEvento"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
+                style="@style/MargensSize"
                 android:text="Fim do evento:"
-                android:textSize="18sp"
                 android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edTxtDataFimEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSizeEditText"
             android:hint="dd/mm/aaaa hh:mm"
             android:inputType="date" />
 
             <TextView
                 android:id="@+id/labelDescricaoCadastroEvento"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
+                style="@style/MargensSize"
                 android:text="Descrição:"
-                android:textSize="18sp"
                 android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edTxtDescricaoEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSizeEditText"
             android:inputType="text" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
             android:orientation="horizontal">
 
             <Button

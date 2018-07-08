@@ -40,7 +40,9 @@
                         android:textAlignment="center"
                         android:textColor="#00CED1"
                         android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp" />
 
                     <View
                         android:id="@+id/Divisor1"
@@ -58,94 +60,64 @@
 
                     <TextView
                         android:id="@+id/labelNomeParceiro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        style="@style/MargensSize"
                         android:layout_marginTop="10dp"
                         android:text="Nome:"
-                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/valueNomeParceiro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
+                        style="@style/MargensSize"
                         android:gravity="right"
-                        android:singleLine="true"
-                        android:textSize="18sp" />
+                        android:singleLine="true" />
 
                     <TextView
                         android:id="@+id/labelCnpjCpf"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        style="@style/MargensSize"
                         android:text="CNPJ/CPF:"
-                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/valueCnpjCpfParceiro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
+                        style="@style/MargensSize"
                         android:gravity="right"
-                        android:singleLine="true"
-                        android:textSize="18sp" />
+                        android:singleLine="true" />
 
                     <TextView
                         android:id="@+id/labelTelefoneParceiro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        style="@style/MargensSize"
                         android:text="Telefone:"
-                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/valueTelefoneParceiro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
+                        style="@style/MargensSize"
                         android:gravity="right"
-                        android:singleLine="true"
-                        android:textSize="18sp" />
+                        android:singleLine="true" />
 
                     <TextView
                         android:id="@+id/labelDataVinculoParceiro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        style="@style/MargensSize"
                         android:text="Parceiro desde:"
-                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/valueDataVinculoParceiro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
+                        style="@style/MargensSize"
                         android:gravity="right"
-                        android:singleLine="true"
-                        android:textSize="18sp" />
+                        android:singleLine="true" />
 
                     <TextView
                         android:id="@+id/labelObservacoesParceiro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        style="@style/MargensSize"
                         android:text="Observações:"
-                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/valueObservacoesParceiro"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:gravity="right"
-                        android:singleLine="true"
-                        android:textSize="18sp" />
+                        style="@style/MargensSize"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="right" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -174,7 +146,9 @@
                         android:textAlignment="center"
                         android:textColor="#00CED1"
                         android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"/>
 
                     <View
                         android:id="@+id/Divisor2"
@@ -189,7 +163,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"/>
 
                 </LinearLayout>
 

@@ -10,7 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.bruno.aplicativo3a.Escalas.Dias.SegFragment;
+import com.example.bruno.aplicativo3a.Escalas.Dias.Quarta.QuaFragment;
+import com.example.bruno.aplicativo3a.Escalas.Dias.Quinta.QuiFragment;
+import com.example.bruno.aplicativo3a.Escalas.Dias.Segunda.SegFragment;
+import com.example.bruno.aplicativo3a.Escalas.Dias.Sexta.SexFragment;
+import com.example.bruno.aplicativo3a.Escalas.Dias.Terca.TerFragment;
 import com.example.bruno.aplicativo3a.Main.SectionsPagerAdapter;
 import com.example.bruno.aplicativo3a.R;
 
@@ -50,10 +54,10 @@ public class EscalaFuncionariosFragment extends Fragment {
     private void setupViewPager(ViewPager viewPager) {
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(context.getSupportFragmentManager());
         adapter.addFragment(new SegFragment(), "Seg");
-        adapter.addFragment(new SegFragment(), "Ter");
-        adapter.addFragment(new SegFragment(), "Qua");
-        adapter.addFragment(new SegFragment(), "Qui");
-        adapter.addFragment(new SegFragment(), "Sex");
+        adapter.addFragment(new TerFragment(), "Ter");
+        adapter.addFragment(new QuaFragment(), "Qua");
+        adapter.addFragment(new QuiFragment(), "Qui");
+        adapter.addFragment(new SexFragment(), "Sex");
         viewPager.setAdapter(adapter);
     }
 

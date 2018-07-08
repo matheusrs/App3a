@@ -55,10 +55,7 @@ public class ListarEventosFragment extends Fragment implements ListarEventosView
         presenter.listarEventos();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(),layoutManager.getOrientation());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(dividerItemDecoration);
-
         botaoAddEventos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
