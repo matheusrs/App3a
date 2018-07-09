@@ -9,13 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.bruno.aplicativo3a.Entity.EventoEntity;
 import com.example.bruno.aplicativo3a.Eventos.InserirAlterar.CadastroEventoActivity;
 import com.example.bruno.aplicativo3a.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ExibirEventoActivity extends AppCompatActivity {
+public class ExibirEventoActivity extends AppCompatActivity implements ExibirEventoView {
 
     @BindView(R.id.btnEditEvento)
     Button editarEvento;
@@ -34,11 +35,25 @@ public class ExibirEventoActivity extends AppCompatActivity {
     @BindView(R.id.valueReceitasEvento)
     TextView receitas;
 
+    ExibirEventoPresenter presenter;
 
     public ExibirEventoActivity() {
         // Required empty public constructor
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        EventoEntity evento = presenter.carregaEvento(Integer.valueOf(idEvento.getText().toString()));
+        idEvento.setText(evento.getId());
+        tituloEvento.setText(evento.getTitulo());
+        dataInicio.setText(evento.getDataInicio());
+        dataFim.setText(evento.getDataFim());
+        descricao.setText(evento.getDescricao());
+	    despesas.setText(evento.getDespesas());
+        receitas.setText(evento.getReceitas());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,19 +73,20 @@ public class ExibirEventoActivity extends AppCompatActivity {
         descricao.setText(extras.getString("evento_descricao"));
         despesas.setText(extras.getString("evento_despesas"));
         receitas.setText(extras.getString("evento_receitas"));
+        presenter = new ExibirEventoPresenter(this, getBaseContext());
 
         editarEvento.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent editarEvento = new Intent(getBaseContext(), CadastroEventoActivity.class);
                     editarEvento.putExtra("evento_edit_mode", "true");
-                    editarEvento.putExtra("evento_id", idEvento.getText());
-                    editarEvento.putExtra("evento_titulo", tituloEvento.getText());
-                    editarEvento.putExtra("evento_datainicio", dataInicio.getText());
-                    editarEvento.putExtra("evento_datafim", dataFim.getText());
-                    editarEvento.putExtra("evento_descricao", descricao.getText());
-                    editarEvento.putExtra("evento_despesas", despesas.getText());
-                    editarEvento.putExtra("evento_receitas", receitas.getText());
+                    editarEvento.putExtra("evento_id", idEvento.getText().toString());
+                    editarEvento.putExtra("evento_titulo", tituloEvento.getText().toString());
+                    editarEvento.putExtra("evento_datainicio", dataInicio.getText().toString());
+                    editarEvento.putExtra("evento_datafim", dataFim.getText().toString());
+                    editarEvento.putExtra("evento_descricao", descricao.getText().toString());
+                    editarEvento.putExtra("evento_despesas", despesas.getText().toString());
+                    editarEvento.putExtra("evento_receitas", receitas.getText().toString());
                     startActivity(editarEvento);
                 }
             }

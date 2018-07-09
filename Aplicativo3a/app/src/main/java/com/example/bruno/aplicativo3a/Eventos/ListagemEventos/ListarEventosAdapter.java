@@ -38,6 +38,7 @@ public class ListarEventosAdapter extends RecyclerView.Adapter<ListarEventosAdap
     public void onBindViewHolder(ViewHolder holder, int position) {
         EventoEntity eventoEntity = eventoList.get(position);
         holder.txTituloEvento.setText(eventoEntity.getTitulo());
+        holder.txDataEvento.setText("Data: "+eventoEntity.getDataInicio()+"h");
     }
 
     //retorna o tamanho da lista
@@ -51,6 +52,9 @@ public class ListarEventosAdapter extends RecyclerView.Adapter<ListarEventosAdap
 
         @BindView(R.id.titulo_evento)
         TextView txTituloEvento;
+
+        @BindView(R.id.data_evento)
+        TextView txDataEvento;
 
         public ViewHolder(View itemView) {
             super(itemView);

@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.bruno.aplicativo3a.Entity.DoacaoEntity;
 import com.example.bruno.aplicativo3a.Parceiros.Doacoes.InserirAlterar.CadastroDoacaoActivity;
 import com.example.bruno.aplicativo3a.R;
+import com.example.bruno.aplicativo3a.banco.DoacoesController;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,17 +32,21 @@ public class ExibirDoacaoActivity extends AppCompatActivity {
     @BindView(R.id.valueDataDoacao)
     TextView dataDoacao;
 
+    int idDoacaoVal;
+
     public ExibirDoacaoActivity() {
         // Required empty public constructor
     }
 
     @Override
-    protected void onStart(){
-        super.onStart();
-        Bundle extras = getIntent().getExtras();
-        if(extras.getString("doacao_id") != null) {
-            Log.i("id", extras.getString("doacao_id"));
-        }
+    protected void onResume() {
+        super.onResume();
+        DoacoesController banco = new DoacoesController(this);
+        DoacaoEntity doacao = banco.carregaDoacao(String.valueOf(idDoacaoVal));
+        idDoacao.setText(doacao.getId());
+        dataDoacao.setText(doacao.getDataDoacao());
+        idParceiroDoacao.setText(doacao.getIdParceiro());
+        descricaoDoacao.setText(doacao.getDescricao());
     }
 
     @Override
@@ -53,10 +59,7 @@ public class ExibirDoacaoActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Detalhes da Doação:");
 
-        idDoacao.setText(extras.getString("doacao_id"));
-        dataDoacao.setText(extras.getString("doacao_data"));;
-        idParceiroDoacao.setText(extras.getString("doacao_id_parceiro"));;
-        descricaoDoacao.setText(extras.getString("doacao_descricao"));
+        idDoacaoVal = Integer.parseInt(extras.getString("doacao_id"));
 
         editarDoacao.setOnClickListener(new View.OnClickListener() {
                   @Override
@@ -64,9 +67,6 @@ public class ExibirDoacaoActivity extends AppCompatActivity {
             Intent editarDoacao = new Intent(getBaseContext(), CadastroDoacaoActivity.class);
             editarDoacao.putExtra("doacao_edit_mode", "true");
             editarDoacao.putExtra("doacao_id", idDoacao.getText());
-            editarDoacao.putExtra("doacao_id_parceiro",idParceiroDoacao.getText());
-            editarDoacao.putExtra("doacao_descricao",descricaoDoacao.getText());
-            editarDoacao.putExtra("doacao_data", dataDoacao.getText());
             startActivity(editarDoacao);
         }
         });

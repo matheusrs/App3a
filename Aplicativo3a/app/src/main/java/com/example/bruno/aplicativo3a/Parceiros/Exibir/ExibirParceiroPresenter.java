@@ -41,16 +41,7 @@ public class ExibirParceiroPresenter {
 
     public ParceiroEntity carregaParceiro(String idParceiro) {
         ParceirosController bancoParceiros = new ParceirosController(context);
-        Cursor cursorParceiros = bancoParceiros.carregaParceiro(idParceiro);
-        ParceiroEntity parceiroDoacao = new ParceiroEntity();
-        if(cursorParceiros.getCount() > 0 && cursorParceiros.moveToFirst()){
-            parceiroDoacao.setId(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_ID)));
-            parceiroDoacao.setCnpjCpf(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_CNPJCPF)));
-            parceiroDoacao.setNome(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_NOME)));
-            parceiroDoacao.setDatavinculo(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_DATAVINCULO)));
-            parceiroDoacao.setObservacoes(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_OBSERVACOES)));
-            parceiroDoacao.setTelefone(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_TELEFONE)));
-        }
+        ParceiroEntity parceiroDoacao = bancoParceiros.carregaParceiro(idParceiro);
         return parceiroDoacao;
     }
 }

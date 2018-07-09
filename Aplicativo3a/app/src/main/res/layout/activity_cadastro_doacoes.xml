@@ -3,63 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Parceiros.Doacoes.Doacoes.InserirAlterar.CadastroDoacoes">
+    tools:context=".Parceiros.Doacoes.InserirAlterar.CadastroDoacaoActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtParceiroDoacao"/>
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/hiddenIdParceiroDoacao"
             android:visibility="invisible"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:id="@+id/hiddenIdDoacao"
             android:visibility="invisible"/>
         <TextView
             android:id="@+id/labelDataDoacao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:text="Data da Doação:"
-            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"/>
+            android:layout_marginTop="10dp"/>
         <EditText
             android:id="@+id/edTxtDataDoacao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSizeEditText"
             android:hint="dd/mm/aaaa"
             android:inputType="date" />
         <TextView
             android:id="@+id/labelDescricaoDoacao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:text="Descrição:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"/>
+            android:textStyle="bold"/>
         <EditText
             android:id="@+id/edTxtDescricaoDoacao"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="top"
-            android:inputType="text"
-            android:lines="10" />
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="right">
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnAdicionarDoacao"

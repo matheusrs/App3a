@@ -19,6 +19,7 @@ import com.example.bruno.aplicativo3a.Parceiros.InserirAlterar.CadastroParceiroA
 import com.example.bruno.aplicativo3a.R;
 import com.example.bruno.aplicativo3a.Entity.DoacaoEntity;
 import com.example.bruno.aplicativo3a.Entity.ParceiroEntity;
+import com.example.bruno.aplicativo3a.banco.ParceirosController;
 
 import java.util.List;
 
@@ -51,21 +52,21 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
 
     ExibirParceiroPresenter presenter;
 
-
     public ExibirParceiroActivity() {
         // Required empty public constructor
     }
 
     @Override
-    protected void onStart(){
-        super.onStart();
-        Bundle extras = getIntent().getExtras();
-        if(extras.getString("parceiro_id") != null) {
-            Log.i("id", extras.getString("parceiro_id"));
-        }
-        presenter = new ExibirParceiroPresenter(this, getBaseContext());
-        presenter.listarDoacoes(extras.getString("parceiro_id"));
-
+    protected void onResume() {
+        super.onResume();
+        ParceiroEntity parceiro = presenter.carregaParceiro(idParceiro.getText().toString());
+        idParceiro.setText(parceiro.getId());
+        cnpjCpfParceiro.setText(parceiro.getCnpjCpf());
+        nomeParceiro.setText(parceiro.getNome());
+        telefoneParceiro.setText(parceiro.getTelefone());
+        dataVinculoParceiro.setText(parceiro.getDatavinculo());
+        observacoesParceiro.setText(parceiro.getObservacoes());
+        presenter.listarDoacoes(idParceiro.getText().toString());
     }
 
     @Override
@@ -82,7 +83,6 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
 
         // Inflate the layout for this fragment
         presenter = new ExibirParceiroPresenter(this, getBaseContext());
-
         idParceiro.setText(extras.getString("parceiro_id"));
         if (edit_mode){
             ParceiroEntity parceiro = presenter.carregaParceiro(extras.getString("parceiro_id"));
@@ -101,9 +101,7 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
         presenter.listarDoacoes(extras.getString("parceiro_id"));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,layoutManager.getOrientation());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(dividerItemDecoration);
 
         editarParceiro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,19 +152,19 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
         if (doacoesEntityList.isEmpty()) {
             labelDoacoes.setVisibility(View.INVISIBLE);
         } else {
-            ExibirParceiroAdapter adapter = new ExibirParceiroAdapter(doacoesEntityList,this);
-            adapter.setOnRecyclerViewSelected(new OnRecyclerViewSelected() {
-                @Override
-                public void onClick(View v, int position) {
-                    DoacaoEntity objDoacao = doacoesEntityList.get(position);
-                    Intent exibirDoacao = new Intent(getBaseContext(), ExibirDoacaoActivity.class);
-                    exibirDoacao.putExtra("doacao_id", objDoacao.getId());
-                    exibirDoacao.putExtra("doacao_data", objDoacao.getDataDoacao());
-                    exibirDoacao.putExtra("doacao_descricao", objDoacao.getDescricao());
-                    startActivity(exibirDoacao);
-                }
-            });
-            recyclerView.setAdapter(adapter);
+        ExibirParceiroAdapter adapter = new ExibirParceiroAdapter(doacoesEntityList,this);
+        adapter.setOnRecyclerViewSelected(new OnRecyclerViewSelected() {
+            @Override
+            public void onClick(View v, int position) {
+                DoacaoEntity objDoacao = doacoesEntityList.get(position);
+                Intent exibirDoacao = new Intent(getBaseContext(), ExibirDoacaoActivity.class);
+                exibirDoacao.putExtra("doacao_id", objDoacao.getId());
+                exibirDoacao.putExtra("doacao_data", objDoacao.getDataDoacao());
+                exibirDoacao.putExtra("doacao_descricao", objDoacao.getDescricao());
+                startActivity(exibirDoacao);
+            }
+        });
+        recyclerView.setAdapter(adapter);
         }
     }
 }

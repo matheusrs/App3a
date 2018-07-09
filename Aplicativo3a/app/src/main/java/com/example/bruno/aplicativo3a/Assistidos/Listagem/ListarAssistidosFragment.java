@@ -54,9 +54,7 @@ public class ListarAssistidosFragment extends Fragment implements ListarAssistid
         presenter.listarAssistidos();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(),layoutManager.getOrientation());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(dividerItemDecoration);
 
         botaoAddAssistidos.setOnClickListener(new View.OnClickListener() {
                 @Override

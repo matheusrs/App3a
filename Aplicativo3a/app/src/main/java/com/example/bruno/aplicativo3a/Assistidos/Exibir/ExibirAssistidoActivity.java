@@ -1,6 +1,7 @@
 package com.example.bruno.aplicativo3a.Assistidos.Exibir;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -10,12 +11,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.bruno.aplicativo3a.Assistidos.InserirAlterar.CadastroAssistidoActivity;
+import com.example.bruno.aplicativo3a.Entity.AssistidoEntity;
 import com.example.bruno.aplicativo3a.R;
+import com.example.bruno.aplicativo3a.banco.AssistidosController;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ExibirAssistidoActivity extends AppCompatActivity {
+public class ExibirAssistidoActivity extends AppCompatActivity implements ExibirAssitidoView {
 
     @BindView(R.id.btnEditAssistido)
     Button editarAssistido;
@@ -40,11 +43,35 @@ public class ExibirAssistidoActivity extends AppCompatActivity {
     @BindView(R.id.labelStatusAtivo)
     TextView labelStatusAssistido;
 
+    int id;
+    ExibirAssitidoPresenter presenter;
 
     public ExibirAssistidoActivity() {
         // Required empty public constructor
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AssistidoEntity assistidoEntity = presenter.carregaAssistido(id);
+        idAssistido.setText(assistidoEntity.getId());
+        statusAssistido.setText(assistidoEntity.getStatusAtivo());
+        cpfAssistido.setText(assistidoEntity.getCPF());
+        nomeAssistido.setText(assistidoEntity.getNome());
+        sobrenomeAssistido.setText(assistidoEntity.getSobrenome());
+        telefoneAssistido.setText(assistidoEntity.getTelefone());
+        datanascimentoAssistido.setText(assistidoEntity.getDataNascimento());
+        deficienciaAssistido.setText(assistidoEntity.getDeficiencia());
+        observacoesAssistido.setText(assistidoEntity.getObservacoes());
+        if (Boolean.valueOf(assistidoEntity.getStatusAtivo())){
+            labelStatusAssistido.setText("Cadastro Ativo");
+            labelStatusAssistido.setTextColor(Color.parseColor("#00FF00"));
+        }
+        else{
+            labelStatusAssistido.setText("Cadastro Inativo");
+            labelStatusAssistido.setTextColor(Color.parseColor("#FF0000"));
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,21 +82,10 @@ public class ExibirAssistidoActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
-        getSupportActionBar().setTitle("Detalhes do Assistido");
+        getSupportActionBar().setTitle("Acorde Administrativo");
 
-        idAssistido.setText(extras.getString("assistido_id"));
-        statusAssistido.setText(extras.getString("assistido_statusativo"));
-        cpfAssistido.setText(extras.getString("assistido_cpf"));
-        nomeAssistido.setText(extras.getString("assistido_nome"));
-        sobrenomeAssistido.setText(extras.getString("assistido_sobrenome"));
-        telefoneAssistido.setText(extras.getString("assistido_telefone"));
-        datanascimentoAssistido.setText(extras.getString("assistido_datanascimento"));
-        deficienciaAssistido.setText(extras.getString("assistido_deficiencia"));
-        observacoesAssistido.setText(extras.getString("assistido_observacoes"));
-        if (Boolean.valueOf(extras.getString("assistido_statusativo")))
-            labelStatusAssistido.setText("Cadastro Ativo");
-        else
-            labelStatusAssistido.setText("Cadastro Inativo");
+        presenter=new ExibirAssitidoPresenter(this,this);
+        id = Integer.parseInt(extras.getString("assistido_id"));
 
         editarAssistido.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -77,14 +93,6 @@ public class ExibirAssistidoActivity extends AppCompatActivity {
                     Intent editarAssistido = new Intent(getBaseContext(), CadastroAssistidoActivity.class);
                     editarAssistido.putExtra("assistido_edit_mode", "true");
                     editarAssistido.putExtra("assistido_id", idAssistido.getText());
-                    editarAssistido.putExtra("assistido_cpf", cpfAssistido.getText());
-                    editarAssistido.putExtra("assistido_nome", nomeAssistido.getText());
-                    editarAssistido.putExtra("assistido_sobrenome", sobrenomeAssistido.getText());
-                    editarAssistido.putExtra("assistido_telefone", telefoneAssistido.getText());
-                    editarAssistido.putExtra("assistido_datanascimento", datanascimentoAssistido.getText());
-                    editarAssistido.putExtra("assistido_deficiencia", deficienciaAssistido.getText());
-                    editarAssistido.putExtra("assistido_observacoes", observacoesAssistido.getText());
-                    editarAssistido.putExtra("assistido_statusativo", statusAssistido.getText());
                     startActivity(editarAssistido);
                 }
             }

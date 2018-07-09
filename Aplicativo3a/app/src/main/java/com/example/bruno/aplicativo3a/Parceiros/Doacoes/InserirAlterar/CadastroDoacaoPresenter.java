@@ -2,6 +2,7 @@ package com.example.bruno.aplicativo3a.Parceiros.Doacoes.InserirAlterar;
 
 import android.content.Context;
 
+import com.example.bruno.aplicativo3a.Entity.DoacaoEntity;
 import com.example.bruno.aplicativo3a.banco.DoacoesController;
 
 public class CadastroDoacaoPresenter {
@@ -32,5 +33,11 @@ public class CadastroDoacaoPresenter {
         else
             message = "Erro ao atualizar doação";
         view.exibeMensagem(idParceiroDoacao, message);
+    }
+
+    public DoacaoEntity carregaDoacao(String idDoacao){
+        DoacoesController banco = new DoacoesController(context);
+        DoacaoEntity doacao = banco.carregaDoacao(idDoacao);
+        return doacao;
     }
 }

@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bruno.aplicativo3a.Entity.EventoEntity;
+import com.example.bruno.aplicativo3a.Mask;
 import com.example.bruno.aplicativo3a.R;
 
 import butterknife.BindView;
@@ -36,6 +38,7 @@ public class CadastroEventoActivity extends AppCompatActivity implements Cadastr
     @BindView(R.id.edTxtDespesasEvento)
     EditText despesasEvento;
 
+    CadastroEventoPresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -46,15 +49,19 @@ public class CadastroEventoActivity extends AppCompatActivity implements Cadastr
             getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
             Bundle extras = getIntent().getExtras();
             boolean edit_mode = Boolean.valueOf(extras.getString("evento_edit_mode"));
+            presenter=new CadastroEventoPresenter(this,this);
 
+            dataInicioEvento.addTextChangedListener(Mask.insert(Mask.DATE_TIME,dataInicioEvento));
+            dataFimEvento.addTextChangedListener(Mask.insert(Mask.DATE_TIME,dataFimEvento));
             if (edit_mode == true){
-                idEvento.setText(extras.getString("evento_id"));
-                tituloEvento.setText(extras.getString("evento_titulo"));
-                dataInicioEvento.setText(extras.getString("evento_datainicio"));
-                dataFimEvento.setText(extras.getString("evento_datafim"));
-                descricaoEvento.setText(extras.getString("evento_descricao"));
-                receitasEvento.setText(extras.getString("evento_receitas"));
-                despesasEvento.setText(extras.getString("evento_despesas"));
+                EventoEntity eventoEntity=presenter.carregaEvento(Integer.parseInt(extras.getString("evento_id")));
+                idEvento.setText(eventoEntity.getId());
+                tituloEvento.setText(eventoEntity.getTitulo());
+                dataInicioEvento.setText(eventoEntity.getDataInicio());
+                dataFimEvento.setText(eventoEntity.getDataFim());
+                descricaoEvento.setText(eventoEntity.getDescricao());
+                receitasEvento.setText(eventoEntity.getReceitas());
+                despesasEvento.setText(eventoEntity.getDespesas());
                 getSupportActionBar().setTitle("Atualizar Evento");
                 atualizar.setVisibility(View.VISIBLE);
                 salvar.setVisibility(View.GONE);

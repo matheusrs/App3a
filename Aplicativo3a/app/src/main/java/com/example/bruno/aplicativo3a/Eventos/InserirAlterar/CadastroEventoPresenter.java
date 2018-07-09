@@ -2,6 +2,7 @@ package com.example.bruno.aplicativo3a.Eventos.InserirAlterar;
 
 import android.content.Context;
 
+import com.example.bruno.aplicativo3a.Entity.EventoEntity;
 import com.example.bruno.aplicativo3a.banco.EventosController;
 
 public class CadastroEventoPresenter {
@@ -33,5 +34,11 @@ public class CadastroEventoPresenter {
             message = "Erro ao atualizar evento";
         view.exibeMensagem(message);
 
+    }
+
+    public EventoEntity carregaEvento(int id){
+        EventosController banco = new EventosController(context);
+        EventoEntity eventoEntity=banco.selectEvento(id);
+        return eventoEntity;
     }
 }
