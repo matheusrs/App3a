@@ -54,9 +54,7 @@ public class ListarParceirosFragment extends Fragment  implements ListarParceiro
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(),layoutManager.getOrientation());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addItemDecoration(dividerItemDecoration);
 
         botaoAddParceiro.setOnClickListener(new View.OnClickListener() {
           @Override

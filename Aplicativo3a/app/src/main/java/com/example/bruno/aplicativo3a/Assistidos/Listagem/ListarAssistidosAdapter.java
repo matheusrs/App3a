@@ -38,7 +38,7 @@ public class ListarAssistidosAdapter extends RecyclerView.Adapter<ListarAssistid
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         AssistidoEntity assistidoEntity = assistidoList.get(position);
-        holder.txNomeAssistido.setText(assistidoEntity.getNome());
+        holder.txNomeAssistido.setText("Nome: "+assistidoEntity.getNomeCompleto());
     }
 
     //retorna o tamanho da lista
@@ -52,7 +52,6 @@ public class ListarAssistidosAdapter extends RecyclerView.Adapter<ListarAssistid
 
         @BindView(R.id.nome_assistido)
         TextView txNomeAssistido;
-
 
        public ViewHolder(View itemView) {
             super(itemView);

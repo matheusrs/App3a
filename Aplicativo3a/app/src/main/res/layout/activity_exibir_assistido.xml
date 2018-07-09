@@ -2,195 +2,332 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
+    android:layout_height="match_parent"
+    android:background="#DDDADA">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card_view:cardCornerRadius="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp">
+
+                <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Detalhes do Assistido"
+                        android:textAlignment="center"
+                        android:textSize="25sp"
+                        android:layout_marginTop="15dp"
+                        android:textColor="#00CED1"
+                        android:textStyle="bold"/>
+
+                <View
+                    android:id="@+id/Divisor1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dip"
+                    android:background="#00CED1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+
+                    <TextView
+                        android:id="@+id/hiddenIdAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:visibility="invisible"/>
+
+                    <TextView
+                        android:id="@+id/hiddenStatusAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:visibility="invisible"/>
+                    <TextView
+                        android:id="@+id/labelNomeAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nome:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"/>
+                    <TextView
+                        android:id="@+id/valueNomeAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:textSize="18sp"
+                        android:layout_marginRight="20dp" />
+
+                    <TextView
+                        android:id="@+id/labelCPFAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CPF:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp"/>
+
+                    <TextView
+                        android:id="@+id/valueCPFAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:textSize="18sp"
+                        android:layout_marginRight="20dp"/>
+
+                    <TextView
+                        android:id="@+id/labelRgAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="RG:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp"/>
+
+                    <TextView
+                        android:id="@+id/valueRgAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:textSize="18sp"
+                        android:layout_marginRight="20dp"/>
+
+                    <TextView
+                        android:id="@+id/labelDataNascimentoAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Data de Nascimento:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp" />
+                    <TextView
+                        android:id="@+id/valueDataNascimentoAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:singleLine="true"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"/>
+
+                    <TextView
+                        android:id="@+id/labelTamanhoCalcadoAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tamanho do calçado:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp" />
+                    <TextView
+                        android:id="@+id/valueTamanhoCalcadoAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:singleLine="true"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"/>
+
+                    <TextView
+                        android:id="@+id/labelTamanhoRoupaAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tamanho da roupa:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp" />
+                    <TextView
+                        android:id="@+id/valueTamanhoRoupaAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:singleLine="true"
+                        android:gravity="right"
+                        android:layout_marginRight="20dp"/>
+
+                    <TextView
+                        android:id="@+id/labelDatasPresentesAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Datas preferenciais para presentes:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp" />
+                    <TextView
+                        android:id="@+id/valueDatasPresentesAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:textSize="18sp"
+                        android:layout_marginRight="20dp"/>
+
+                    <TextView
+                        android:id="@+id/labelMeioTransporteAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Meio de Transporte:"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp" />
+                    <TextView
+                        android:id="@+id/valueMeioTransporteAssistido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:textSize="18sp"
+                        android:layout_marginRight="20dp"/>
+
+                    <TextView
+                        android:id="@+id/labelStatusAtivo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#00FF00"
+                        android:layout_marginBottom="10dp"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_responsaveis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="70dp"
+                card_view:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/labelResponsaveis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Responsáveis"
+                        android:textAlignment="center"
+                        android:textColor="#00CED1"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/Divisor2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dip"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#00CED1" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_view_responsaveis"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view_medicamentos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="70dp"
+                card_view:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/labelMedicamentos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="Medicamentos"
+                        android:textAlignment="center"
+                        android:textColor="#00CED1"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/Divisor4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dip"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#00CED1" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_view_medicamentos"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+        </ScrollView>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/hiddenIdAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                />
-            <TextView
-                android:id="@+id/hiddenStatusAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            />
-
+            android:orientation="vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true">
+            <Button
+                android:id="@+id/btnAddResponsavel"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/botao_pessoa"
+                android:textSize="30sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="20dp"/>
+            <Button
+                android:id="@+id/btnAddMedicamento"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/botao_medicamento"
+                android:textSize="30sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="20dp"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/labelCPFAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="CPF:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/valueCPFAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:singleLine="true"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/labelNomeAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nome:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/valueNomeAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:singleLine="true"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/labelSobrenomeAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sobrenome:"
-                android:textSize="18sp"
-                android:textStyle="bold"  />
-            <TextView
-                android:id="@+id/valueSobrenomeAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:singleLine="true"
-                android:gravity="right"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/labelTelefoneAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Telefone:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/valueTelefoneAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:singleLine="true"
-                android:gravity="right"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/labelDataNascimentoAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Data de Nascimento:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/valueDataNascimentoAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:singleLine="true"
-                android:gravity="right"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/labelDeficienciaAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Deficiência:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/valueDeficienciaAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:singleLine="true"
-                android:gravity="right"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/labelObservacoesAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Observações:"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/valueObservacoesAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:singleLine="true"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/labelStatusAtivo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/btnEditAssistido"
@@ -199,10 +336,10 @@
                 android:textSize="30sp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/botao_edit">
+                android:background="@drawable/botao_edit"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="20dp">
             </Button>
 
-        </RelativeLayout>
-    </LinearLayout>
-
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

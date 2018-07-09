@@ -33,8 +33,8 @@ public class CadastroEventoActivity extends AppCompatActivity implements Cadastr
     EditText descricaoEvento;
     @BindView(R.id.edTxtReceitasEvento)
     EditText receitasEvento;
-    @BindView(R.id.edTxtDespesasEvento)
-    EditText despesasEvento;
+    @BindView(R.id.edTxtGastosEvento)
+    EditText gastosEvento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class CadastroEventoActivity extends AppCompatActivity implements Cadastr
                 dataFimEvento.setText(extras.getString("evento_datafim"));
                 descricaoEvento.setText(extras.getString("evento_descricao"));
                 receitasEvento.setText(extras.getString("evento_receitas"));
-                despesasEvento.setText(extras.getString("evento_despesas"));
+                gastosEvento.setText(extras.getString("evento_gastos"));
                 getSupportActionBar().setTitle("Atualizar Evento");
                 atualizar.setVisibility(View.VISIBLE);
                 salvar.setVisibility(View.GONE);
@@ -67,7 +67,7 @@ public class CadastroEventoActivity extends AppCompatActivity implements Cadastr
                 @Override
                 public void onClick(View v) {
                     CadastroEventoPresenter presenter = new CadastroEventoPresenter(CadastroEventoActivity.this, getBaseContext());
-                    presenter.salvarEvento(tituloEvento.getText().toString() , dataInicioEvento.getText().toString(), dataFimEvento.getText().toString(), descricaoEvento.getText().toString(), despesasEvento.getText().toString(), receitasEvento.getText().toString());
+                    presenter.salvarEvento(tituloEvento.getText().toString() , dataInicioEvento.getText().toString(), dataFimEvento.getText().toString(), descricaoEvento.getText().toString(), gastosEvento.getText().toString(), receitasEvento.getText().toString());
                 }
             });
 
@@ -75,7 +75,7 @@ public class CadastroEventoActivity extends AppCompatActivity implements Cadastr
                 @Override
                 public void onClick(View v) {
                     CadastroEventoPresenter presenter = new CadastroEventoPresenter(CadastroEventoActivity.this, getBaseContext());
-                    presenter.atualizarEvento(idEvento.getText().toString(), tituloEvento.getText().toString() , dataInicioEvento.getText().toString(), dataFimEvento.getText().toString(), descricaoEvento.getText().toString(), despesasEvento.getText().toString(), receitasEvento.getText().toString());
+                    presenter.atualizarEvento(idEvento.getText().toString(), tituloEvento.getText().toString() , dataInicioEvento.getText().toString(), dataFimEvento.getText().toString(), descricaoEvento.getText().toString(), gastosEvento.getText().toString(), receitasEvento.getText().toString());
                 }
             });
     }

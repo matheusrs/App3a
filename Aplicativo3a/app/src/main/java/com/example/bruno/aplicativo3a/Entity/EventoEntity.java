@@ -1,7 +1,7 @@
 package com.example.bruno.aplicativo3a.Entity;
 
 public class EventoEntity {
-    String id,titulo,descricao, dataInicio, dataFim, despesas, receitas;
+    String id,titulo,descricao, dataInicio, dataFim, gastos, receitas;
 
     public String getId() {
         return id;
@@ -43,12 +43,12 @@ public class EventoEntity {
         this.dataFim = dataFim;
     }
 
-    public String getDespesas() {
-        return despesas;
+    public String getGastos() {
+        return gastos;
     }
 
-    public void setDespesas(String despesas) {
-        this.despesas = despesas;
+    public void setGastos(String gastos) {
+        this.gastos = gastos;
     }
 
     public String getReceitas() {

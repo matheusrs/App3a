@@ -13,20 +13,20 @@ public class CadastroAssistidoPresenter {
         this.context = context;
     }
 
-    public void salvarAssistido(String cpfAssistido, String nomeAssistido, String sobrenomeAssistido, String telefoneAssistido, String datanascimentoAssistido, String deficienciaAssistido, String observacoesAssistido) {
+    public void salvarAssistido(String cpfAssistido, String rgAssistido, String nomeAssistido, String dataNascimentoAssistido, String tamanhoCalcadoAssistido, String tamanhoRoupaAssistido, String datasPresenteAssistido, String meioTransporteAssistido) {
         String message;
         AssistidosController banco = new AssistidosController(context);
-        if (banco.insereAssistido(cpfAssistido, nomeAssistido, sobrenomeAssistido, telefoneAssistido, datanascimentoAssistido, deficienciaAssistido, observacoesAssistido))
+        if (banco.insereAssistido(cpfAssistido, rgAssistido, nomeAssistido, dataNascimentoAssistido, tamanhoCalcadoAssistido, tamanhoRoupaAssistido, datasPresenteAssistido, meioTransporteAssistido))
             message = "Assistido cadastrado!";
         else
             message = "Erro ao gravar assistido";
         view.exibeMensagem(message);
     }
 
-    public void atualizarAssistido(String idAssistido, String cpfAssistido, String nomeAssistido, String sobrenomeAssistido, String telefoneAssistido, String datanascimentoAssistido, String deficienciaAssistido, String observacoesAssistido) {
+    public void atualizarAssistido(String idAssistido, String cpfAssistido, String rgAssistido, String nomeAssistido, String dataNascimentoAssistido, String tamanhoCalcadoAssistido, String tamanhoRoupaAssistido, String datasPresenteAssistido, String meioTransporteAssistido) {
         String message;
         AssistidosController banco = new AssistidosController(context);
-        if (banco.atualizaAssistido(idAssistido, cpfAssistido, nomeAssistido, sobrenomeAssistido, telefoneAssistido, datanascimentoAssistido, deficienciaAssistido, observacoesAssistido))
+        if (banco.atualizaAssistido(idAssistido, cpfAssistido, rgAssistido, nomeAssistido, dataNascimentoAssistido, tamanhoCalcadoAssistido, tamanhoRoupaAssistido, datasPresenteAssistido, meioTransporteAssistido))
             message = "Assistido atualizado!";
         else
             message = "Erro ao atualizar assistido";

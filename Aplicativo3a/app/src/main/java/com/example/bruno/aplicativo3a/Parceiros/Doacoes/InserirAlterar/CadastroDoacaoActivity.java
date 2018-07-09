@@ -7,9 +7,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bruno.aplicativo3a.Mask;
 import com.example.bruno.aplicativo3a.Parceiros.Exibir.ExibirParceiroActivity;
 import com.example.bruno.aplicativo3a.R;
 
@@ -27,9 +29,9 @@ public class CadastroDoacaoActivity extends AppCompatActivity implements Cadastr
     @BindView(R.id.hiddenIdParceiroDoacao)
     TextView idParceiroDoacao;
     @BindView(R.id.edTxtDescricaoDoacao)
-    TextView descricaoDoacao;
+    EditText descricaoDoacao;
     @BindView(R.id.edTxtDataDoacao)
-    TextView dataDoacao;
+    EditText dataDoacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,9 @@ public class CadastroDoacaoActivity extends AppCompatActivity implements Cadastr
         boolean insert_edit_mode = Boolean.valueOf(extras.getString("doacao_edit_mode")) ||
                 Boolean.valueOf(extras.getString("doacao_insert_mode"));
         idParceiroDoacao.setText(extras.getString("doacao_id_parceiro"));
+
+        dataDoacao.addTextChangedListener(Mask.insert(Mask.DATA_MASK,dataDoacao));
+
         if (insert_edit_mode){
             idDoacao.setText(extras.getString("doacao_id"));
             dataDoacao.setText(extras.getString("doacao_data"));

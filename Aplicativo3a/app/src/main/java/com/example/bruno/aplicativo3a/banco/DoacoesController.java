@@ -59,18 +59,6 @@ public class DoacoesController {
             return true;
     }
 
-    public Cursor carregaTodasDoacoes(){
-        Cursor cursor;
-        db = criaBD.getReadableDatabase();
-        cursor = db.query(criaBD.TABDOACOES, camposDoacoes, null, null, null, null, null, null);
-
-        if(cursor!=null){
-            cursor.moveToFirst();
-        }
-        db.close();
-        return cursor;
-    }
-
     public Cursor carregaDoacoes(String id_parceiro) {
         Cursor cursor;
         db = criaBD.getReadableDatabase();

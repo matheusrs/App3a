@@ -17,7 +17,7 @@ public class EventosController {
             criaBD.TABEVENTOS_DESCRICAO,
             criaBD.TABEVENTOS_DATAINICIO,
             criaBD.TABEVENTOS_DATAFIM,
-            criaBD.TABEVENTOS_DESPESAS,
+            criaBD.TABEVENTOS_GASTOS,
             criaBD.TABEVENTOS_RECEITAS
     };
 
@@ -26,7 +26,7 @@ public class EventosController {
     }
 
 
-    public boolean insereEvento(String titulo,String dataInicio, String dataFim, String descricao, String despesas, String receitas){
+    public boolean insereEvento(String titulo,String dataInicio, String dataFim, String descricao, String gastos, String receitas){
         ContentValues valores;
         long resultado;
 
@@ -36,7 +36,7 @@ public class EventosController {
         valores.put(CriaBD.TABEVENTOS_DESCRICAO, descricao);
         valores.put(CriaBD.TABEVENTOS_DATAINICIO, dataInicio);
         valores.put(CriaBD.TABEVENTOS_DATAFIM, dataFim);
-        valores.put(CriaBD.TABEVENTOS_DESPESAS, despesas);
+        valores.put(CriaBD.TABEVENTOS_GASTOS, gastos);
         valores.put(CriaBD.TABEVENTOS_RECEITAS, receitas);
 
         resultado = db.insert(CriaBD.TABEVENTOS, null, valores);
@@ -86,7 +86,7 @@ public class EventosController {
                 evento.setDataInicio(cursorEvento.getString(cursorEvento.getColumnIndex(criaBD.TABEVENTOS_DATAINICIO)));
                 evento.setDataFim(cursorEvento.getString(cursorEvento.getColumnIndex(criaBD.TABEVENTOS_DATAFIM)));
                 evento.setDescricao(cursorEvento.getString(cursorEvento.getColumnIndex(criaBD.TABEVENTOS_DESCRICAO)));
-                evento.setDespesas(cursorEvento.getString(cursorEvento.getColumnIndex(criaBD.TABEVENTOS_DESPESAS)));
+                evento.setGastos(cursorEvento.getString(cursorEvento.getColumnIndex(criaBD.TABEVENTOS_GASTOS)));
                 evento.setReceitas(cursorEvento.getString(cursorEvento.getColumnIndex(criaBD.TABEVENTOS_RECEITAS)));
             }
         } finally {
@@ -96,7 +96,7 @@ public class EventosController {
         return evento;
     }
 
-    public boolean atualizaEvento(String id, String titulo, String dataInicio, String dataFim, String descricao, String despesas, String receitas){
+    public boolean atualizaEvento(String id, String titulo, String dataInicio, String dataFim, String descricao, String gastos, String receitas){
         ContentValues valores;
         long resultado;
 
@@ -106,7 +106,7 @@ public class EventosController {
         valores.put(CriaBD.TABEVENTOS_DESCRICAO, descricao);
         valores.put(CriaBD.TABEVENTOS_DATAINICIO, dataInicio);
         valores.put(CriaBD.TABEVENTOS_DATAFIM, dataFim);
-        valores.put(CriaBD.TABEVENTOS_DESPESAS, despesas);
+        valores.put(CriaBD.TABEVENTOS_GASTOS, gastos);
         valores.put(CriaBD.TABEVENTOS_RECEITAS, receitas);
 
         resultado = db.update(CriaBD.TABEVENTOS, valores, "_id="+id, null);

@@ -74,11 +74,11 @@ public class ParceirosController {
 
         db = criaBD.getWritableDatabase();
         valores = new ContentValues();
-        valores.put(CriaBD.TABASSISTIDOS_CPF, cnpjcpf);
-        valores.put(CriaBD.TABASSISTIDOS_NOME, nome);
-        valores.put(CriaBD.TABASSISTIDOS_TELEFONE, telefone);
-        valores.put(CriaBD.TABASSISTIDOS_DATANASCIMENTO, data_vinculo);
-        valores.put(CriaBD.TABASSISTIDOS_OBSERVACOES, observacoes);
+        valores.put(CriaBD.TABPARCEIROS_CNPJCPF, cnpjcpf);
+        valores.put(CriaBD.TABPARCEIROS_NOME, nome);
+        valores.put(CriaBD.TABPARCEIROS_TELEFONE, telefone);
+        valores.put(CriaBD.TABPARCEIROS_DATAVINCULO, data_vinculo);
+        valores.put(CriaBD.TABPARCEIROS_OBSERVACOES, observacoes);
 
         resultado = db.update(CriaBD.TABASSISTIDOS, valores, "_id="+id, null);
         db.close();

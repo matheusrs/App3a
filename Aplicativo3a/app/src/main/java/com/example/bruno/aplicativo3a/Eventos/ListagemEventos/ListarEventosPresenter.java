@@ -32,7 +32,7 @@ public class ListarEventosPresenter {
             evento.setDataInicio(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DATAINICIO)));
             evento.setDataFim(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DATAFIM)));
             evento.setDescricao(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DESCRICAO)));
-            evento.setDespesas(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DESPESAS)));
+            evento.setGastos(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_GASTOS)));
             evento.setReceitas(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_RECEITAS)));
             eventos.add(evento);
         } while(cursorEventos.moveToNext());
@@ -53,7 +53,7 @@ public class ListarEventosPresenter {
             evento.setDataInicio(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DATAINICIO)));
             evento.setDataFim(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DATAFIM)));
             evento.setDescricao(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DESCRICAO)));
-            evento.setDespesas(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_DESPESAS)));
+            evento.setGastos(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_GASTOS)));
             evento.setReceitas(cursorEventos.getString(cursorEventos.getColumnIndex(CriaBD.TABEVENTOS_RECEITAS)));
             eventos.add(evento);
         } while(cursorEventos.moveToNext());

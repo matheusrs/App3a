@@ -19,7 +19,9 @@
             android:id="@+id/tabsEscala"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabGravity="fill"
+            android:background="@color/colorWhite"
+            app:tabSelectedTextColor="#000000"
+            app:tabTextColor="#696969"
             >
 
 

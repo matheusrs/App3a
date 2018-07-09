@@ -29,8 +29,8 @@ public class ExibirEventoActivity extends AppCompatActivity {
     TextView dataFim;
     @BindView(R.id.valueDescricaoEvento)
     TextView descricao;
-    @BindView(R.id.valueDespesasEvento)
-    TextView despesas;
+    @BindView(R.id.valueGastosEvento)
+    TextView gastos;
     @BindView(R.id.valueReceitasEvento)
     TextView receitas;
 
@@ -56,7 +56,7 @@ public class ExibirEventoActivity extends AppCompatActivity {
         dataInicio.setText(extras.getString("evento_datainicio"));
         dataFim.setText(extras.getString("evento_datafim"));
         descricao.setText(extras.getString("evento_descricao"));
-        despesas.setText(extras.getString("evento_despesas"));
+        gastos.setText(extras.getString("evento_gastos"));
         receitas.setText(extras.getString("evento_receitas"));
 
         editarEvento.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +69,7 @@ public class ExibirEventoActivity extends AppCompatActivity {
                     editarEvento.putExtra("evento_datainicio", dataInicio.getText());
                     editarEvento.putExtra("evento_datafim", dataFim.getText());
                     editarEvento.putExtra("evento_descricao", descricao.getText());
-                    editarEvento.putExtra("evento_despesas", despesas.getText());
+                    editarEvento.putExtra("evento_gastos", gastos.getText());
                     editarEvento.putExtra("evento_receitas", receitas.getText());
                     startActivity(editarEvento);
                 }

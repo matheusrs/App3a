@@ -12,6 +12,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bruno.aplicativo3a.Mask;
 import com.example.bruno.aplicativo3a.R;
 
 import butterknife.BindView;
@@ -27,18 +28,20 @@ public class CadastroAssistidoActivity extends AppCompatActivity implements Cada
     TextView idAssistido;
     @BindView(R.id.edTxtCPFAssistido)
     EditText cpfAssistido;
+    @BindView(R.id.edTxtRgAssistido)
+    EditText rgAssistido;
     @BindView(R.id.edTxtNomeAssistido)
     EditText nomeAssistido;
-    @BindView(R.id.edTxtDeficienciaAssistido)
-    EditText deficienciaAssistido;
-    @BindView(R.id.edTxtObservacoesAssistido)
-    EditText observacoesAssistido;
-    @BindView(R.id.edTxtSobrenomeAssistido)
-    EditText sobrenomeAssistido;
-    @BindView(R.id.edTxtTelefoneAssistido)
-    EditText telefoneAssistido;
     @BindView(R.id.edTxtDataNascimentoAssistido)
     EditText datanascimentoAssistido;
+    @BindView(R.id.edTxtTamanhoCalcadoAssistido)
+    EditText tamanhoCalcadoAssistido;
+    @BindView(R.id.edTxtTamanhoRoupaAssistido)
+    EditText tamanhoRoupaAssistido;
+    @BindView(R.id.edTxtDatasPresentesAssistido)
+    EditText datasPresentesAssistido;
+    @BindView(R.id.edTxtMeioTransporteAssistido)
+    EditText meioTransporteAssistido;
     @BindView(R.id.switchAtivo)
     Switch switchAtivo;
 
@@ -52,16 +55,18 @@ public class CadastroAssistidoActivity extends AppCompatActivity implements Cada
             getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
             Bundle extras = getIntent().getExtras();
             boolean edit_mode = Boolean.valueOf(extras.getString("assistido_edit_mode"));
-
+            cpfAssistido.addTextChangedListener(Mask.insert(Mask.CPF_MASK,cpfAssistido));
+            datanascimentoAssistido.addTextChangedListener(Mask.insert(Mask.DATA_MASK,datanascimentoAssistido));
             if (edit_mode){
                 idAssistido.setText(extras.getString("assistido_id"));
                 cpfAssistido.setText(extras.getString("assistido_cpf"));
+                rgAssistido.setText(extras.getString("assistido_rg"));
                 nomeAssistido.setText(extras.getString("assistido_nome"));
-                sobrenomeAssistido.setText(extras.getString("assistido_sobrenome"));
-                telefoneAssistido.setText(extras.getString("assistido_telefone"));
                 datanascimentoAssistido.setText(extras.getString("assistido_datanascimento"));
-                deficienciaAssistido.setText(extras.getString("assistido_deficiencia"));
-                observacoesAssistido.setText(extras.getString("assistido_observacoes"));
+                tamanhoCalcadoAssistido.setText(extras.getString("assistido_tamanho_calcado"));
+                tamanhoRoupaAssistido.setText(extras.getString("assistido_tamanho_roupa"));
+                datasPresentesAssistido.setText(extras.getString("assistido_datas_presentes"));
+                meioTransporteAssistido.setText(extras.getString("assistido_meio_transporte"));
                 getSupportActionBar().setTitle("Atualizar Assistido");
                 atualizar.setVisibility(View.VISIBLE);
                 switchAtivo.setVisibility(View.VISIBLE);
@@ -75,6 +80,8 @@ public class CadastroAssistidoActivity extends AppCompatActivity implements Cada
                 salvar.setVisibility(View.GONE);
             }
             else {
+                switchAtivo.setVisibility(View.GONE);
+                atualizar.setVisibility(View.GONE);
                 getSupportActionBar().setTitle("Novo Assistido");
             }
 
@@ -82,7 +89,7 @@ public class CadastroAssistidoActivity extends AppCompatActivity implements Cada
                 @Override
                 public void onClick(View v) {
                    CadastroAssistidoPresenter presenter = new CadastroAssistidoPresenter(CadastroAssistidoActivity.this, getBaseContext());
-                   presenter.salvarAssistido(cpfAssistido.getText().toString() , nomeAssistido.getText().toString(), sobrenomeAssistido.getText().toString(), telefoneAssistido.getText().toString(), datanascimentoAssistido.getText().toString(), deficienciaAssistido.getText().toString(), observacoesAssistido.getText().toString());
+                   presenter.salvarAssistido(cpfAssistido.getText().toString(), rgAssistido.getText().toString() , nomeAssistido.getText().toString(), datanascimentoAssistido.getText().toString(), tamanhoCalcadoAssistido.getText().toString(), tamanhoRoupaAssistido.getText().toString(), datasPresentesAssistido.getText().toString(), meioTransporteAssistido.getText().toString());
                 }
             });
 
@@ -90,7 +97,7 @@ public class CadastroAssistidoActivity extends AppCompatActivity implements Cada
                 @Override
                 public void onClick(View v) {
                     CadastroAssistidoPresenter presenter = new CadastroAssistidoPresenter(CadastroAssistidoActivity.this, getBaseContext());
-                    presenter.atualizarAssistido(idAssistido.getText().toString(), cpfAssistido.getText().toString() , nomeAssistido.getText().toString(), sobrenomeAssistido.getText().toString(), telefoneAssistido.getText().toString(), datanascimentoAssistido.getText().toString(), deficienciaAssistido.getText().toString(), observacoesAssistido.getText().toString());
+                    presenter.atualizarAssistido(idAssistido.getText().toString(), cpfAssistido.getText().toString(), rgAssistido.getText().toString() , nomeAssistido.getText().toString(), datanascimentoAssistido.getText().toString(), tamanhoCalcadoAssistido.getText().toString(), tamanhoRoupaAssistido.getText().toString(), datasPresentesAssistido.getText().toString(), meioTransporteAssistido.getText().toString());
                 }
             });
 

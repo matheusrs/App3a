@@ -70,17 +70,17 @@
             android:inputType="date" />
 
         <TextView
-            android:id="@+id/labelDespesasEvento"
+            android:id="@+id/labelGastosEvento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:text="Despesas:"
+            android:text="Gastos:"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edTxtDespesasEvento"
+            android:id="@+id/edTxtGastosEvento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="00.00"
