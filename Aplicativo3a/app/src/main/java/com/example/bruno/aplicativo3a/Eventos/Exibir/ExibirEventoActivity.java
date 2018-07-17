@@ -30,8 +30,8 @@ public class ExibirEventoActivity extends AppCompatActivity implements ExibirEve
     TextView dataFim;
     @BindView(R.id.valueDescricaoEvento)
     TextView descricao;
-    @BindView(R.id.valueDespesasEvento)
-    TextView despesas;
+    @BindView(R.id.valueGastosEvento)
+    TextView gastos;
     @BindView(R.id.valueReceitasEvento)
     TextView receitas;
 
@@ -41,8 +41,8 @@ public class ExibirEventoActivity extends AppCompatActivity implements ExibirEve
         // Required empty public constructor
     }
 
-    @Override
-    protected void onResume() {
+    /*@Override
+    //protected void onResume() {
         super.onResume();
 
         EventoEntity evento = presenter.carregaEvento(Integer.valueOf(idEvento.getText().toString()));
@@ -51,10 +51,10 @@ public class ExibirEventoActivity extends AppCompatActivity implements ExibirEve
         dataInicio.setText(evento.getDataInicio());
         dataFim.setText(evento.getDataFim());
         descricao.setText(evento.getDescricao());
-	    despesas.setText(evento.getDespesas());
+	    gastos.setText(evento.getGastos());
         receitas.setText(evento.getReceitas());
     }
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -71,7 +71,7 @@ public class ExibirEventoActivity extends AppCompatActivity implements ExibirEve
         dataInicio.setText(extras.getString("evento_datainicio"));
         dataFim.setText(extras.getString("evento_datafim"));
         descricao.setText(extras.getString("evento_descricao"));
-        despesas.setText(extras.getString("evento_despesas"));
+        gastos.setText(extras.getString("evento_gastos"));
         receitas.setText(extras.getString("evento_receitas"));
         presenter = new ExibirEventoPresenter(this, getBaseContext());
 
@@ -85,7 +85,7 @@ public class ExibirEventoActivity extends AppCompatActivity implements ExibirEve
                     editarEvento.putExtra("evento_datainicio", dataInicio.getText().toString());
                     editarEvento.putExtra("evento_datafim", dataFim.getText().toString());
                     editarEvento.putExtra("evento_descricao", descricao.getText().toString());
-                    editarEvento.putExtra("evento_despesas", despesas.getText().toString());
+                    editarEvento.putExtra("evento_gastos", gastos.getText().toString());
                     editarEvento.putExtra("evento_receitas", receitas.getText().toString());
                     startActivity(editarEvento);
                 }

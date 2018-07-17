@@ -52,7 +52,7 @@ public class DoacoesController {
         valores.put(CriaBD.TABDOACOES_DATADOACAO, dataDoacao);
         valores.put(CriaBD.TABDOACOES_DESCRICAO, descricao);
 
-        resultado = db.update(CriaBD.TABDOACOES, valores, "_id="+id_doacao, null);
+        resultado = db.update(CriaBD.TABDOACOES, valores, "_id="+Integer.valueOf(id_doacao), null);
         db.close();
 
         if (resultado ==-1)
@@ -84,8 +84,8 @@ public class DoacoesController {
         db.close();
         return doacao;
     }
-
-    public Cursor carregaDoacoes(String id_parceiro) {
+  
+    public Cursor carregaDoacoes(int id_parceiro) {
         Cursor cursor;
         db = criaBD.getReadableDatabase();
         String where = CriaBD.TABDOACOES_PARCEIROID + "=" + id_parceiro;

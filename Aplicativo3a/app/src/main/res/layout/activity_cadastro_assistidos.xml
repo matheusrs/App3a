@@ -11,99 +11,119 @@
         android:focusableInTouchMode="true">
         <TextView
             android:id="@+id/hiddenIdAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            />
-
-        <TextView
-            android:id="@+id/labelCPFAssistido"
+            android:visibility="gone"
             style="@style/MargensSize"
-            android:text="CPF:"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/edTxtCPFAssistido"
-            style="@style/MargensSizeEditText"
-            android:hint="xxx.xxx.xxx-xx"
-            android:inputType="number" />
+            />
         <TextView
             android:id="@+id/labelNomeAssistido"
-            style="@style/MargensSize"
             android:text="Nome:"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            style="@style/MargensSize"/>
         <EditText
             android:id="@+id/edTxtNomeAssistido"
             style="@style/MargensSizeEditText"
             android:inputType="text"/>
-
         <TextView
-            android:id="@+id/labelSobrenomeAssistido"
+            android:id="@+id/labelCPFAssistido"
             style="@style/MargensSize"
-            android:text="Sobrenome:"
-            android:textStyle="bold" />
+            android:text="CPF:"
+            android:textStyle="bold"
+            />
 
         <EditText
-            android:id="@+id/edTxtSobrenomeAssistido"
+            android:id="@+id/edTxtCPFAssistido"
             style="@style/MargensSizeEditText"
-            android:inputType="text"/>
+            android:inputType="number"
+            android:hint="xxx.xxx.xxx-xx" />
+
         <TextView
-            android:id="@+id/labelTelefoneAssistido"
+            android:id="@+id/labelRgAssistido"
             style="@style/MargensSize"
-            android:text="Telefone:"
-            android:textStyle="bold"/>
+            android:text="RG:"
+            android:textStyle="bold"
+            />
 
         <EditText
-            android:id="@+id/edTxtTelefoneAssistido"
-            style="@style/MargensSizeEditText"
-            android:hint="(xx) xxxx-xxxx"
-            android:inputType="phone"/>
+            android:id="@+id/edTxtRgAssistido"
+            android:hint="xx.xxx.xxx-x"
+            android:inputType="number"
+            style="@style/MargensSizeEditText" />
+
         <TextView
             android:id="@+id/labelDataNascimentoAssistido"
             style="@style/MargensSize"
             android:text="Data de Nascimento:"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/edTxtDataNascimentoAssistido"
-            style="@style/MargensSizeEditText"
             android:hint="dd/mm/aaaa"
-            android:inputType="phone"/>
+            android:inputType="date"
+            style="@style/MargensSizeEditText"/>
+
         <TextView
-            android:id="@+id/labelDeficienciaAssistido"
+            android:id="@+id/labelTamanhoCalcadoAssistido"
             style="@style/MargensSize"
-            android:text="Deficiência:"
-            android:textStyle="bold"/>
+            android:text="Tamanho do Calçado:"
+            android:textStyle="bold" />
+
         <EditText
-            android:id="@+id/edTxtDeficienciaAssistido"
+            android:id="@+id/edTxtTamanhoCalcadoAssistido"
             style="@style/MargensSizeEditText"
             android:inputType="text"/>
+
         <TextView
-            android:id="@+id/labelObservacoesAssistido"
+            android:id="@+id/labelTamanhoRoupaAssistido"
             style="@style/MargensSize"
-            android:text="Observações:"
+            android:text="Tamanho da Roupa:"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edTxtTamanhoRoupaAssistido"
+            style="@style/MargensSizeEditText"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/labelDatasPresentesAssistido"
+            android:text="Datas preferenciais para presentes:"
+            android:textStyle="bold"
+            style="@style/MargensSize"/>
+        <EditText
+            android:id="@+id/edTxtDatasPresentesAssistido"
+            android:lines="10"
+            android:inputType="text"
+            android:gravity="top"
+            style="@style/MargensSizeEditText"
+            />
+        <TextView
+            android:id="@+id/labelMeioTransporteAssistido"
+            style="@style/MargensSize"
+            android:text="Meio de Transporte:"
             android:textStyle="bold"/>
         <EditText
-            android:id="@+id/edTxtObservacoesAssistido"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:id="@+id/edTxtMeioTransporteAssistido"
             android:gravity="top"
             android:inputType="textMultiLine"
             android:maxLines="10"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"/>
+            style="@style/MargensSize"
+            />
+        <Switch
+            android:id="@+id/switchAtivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:checked="true"
+            android:gravity="right|center_vertical"
+            android:text="Cadastro ativo"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <Switch
-                android:id="@+id/switchAtivo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:checked="true"
-                android:gravity="right|center_vertical"
-                android:text="Cadastro ativo"/>
+            android:orientation="horizontal"
+            android:gravity="top|center"
+            >
+
             <Button
                 android:id="@+id/btnSalvarAssistido"
                 android:layout_width="wrap_content"

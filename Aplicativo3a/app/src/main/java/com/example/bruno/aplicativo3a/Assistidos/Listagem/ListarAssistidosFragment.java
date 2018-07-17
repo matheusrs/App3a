@@ -104,17 +104,19 @@ public class ListarAssistidosFragment extends Fragment implements ListarAssistid
                 AssistidoEntity objAssistido = assistidoEntityList.get(position);
                 Intent exibirAssistido = new Intent(getActivity(), ExibirAssistidoActivity.class);
                 exibirAssistido.putExtra("assistido_id", objAssistido.getId());
-                exibirAssistido.putExtra("assistido_cpf", objAssistido.getCPF());
-                exibirAssistido.putExtra("assistido_nome", objAssistido.getNome());
-                exibirAssistido.putExtra("assistido_sobrenome", objAssistido.getSobrenome());
-                exibirAssistido.putExtra("assistido_telefone", objAssistido.getTelefone());
+                exibirAssistido.putExtra("assistido_cpf", objAssistido.getCpf());
+                exibirAssistido.putExtra("assistido_rg", objAssistido.getRg());
+                exibirAssistido.putExtra("assistido_nome", objAssistido.getNomeCompleto());
                 exibirAssistido.putExtra("assistido_datanascimento", objAssistido.getDataNascimento());
-                exibirAssistido.putExtra("assistido_deficiencia", objAssistido.getDeficiencia());
-                exibirAssistido.putExtra("assistido_observacoes", objAssistido.getObservacoes());
+                exibirAssistido.putExtra("assistido_tamanho_calcado", objAssistido.getTamanhoCalcado());
+                exibirAssistido.putExtra("assistido_tamanho_roupa", objAssistido.getTamanhoRoupa());
+                exibirAssistido.putExtra("assistido_datas_presentes", objAssistido.getDatasPresentes());
+                exibirAssistido.putExtra("assistido_meio_transporte", objAssistido.getMeioTransporte());
                 exibirAssistido.putExtra("assistido_statusativo", objAssistido.getStatusAtivo());
                 startActivity(exibirAssistido);
             }
         });
         recyclerView.setAdapter(adapter);
+        recyclerView.setNestedScrollingEnabled(false);
     }
 }

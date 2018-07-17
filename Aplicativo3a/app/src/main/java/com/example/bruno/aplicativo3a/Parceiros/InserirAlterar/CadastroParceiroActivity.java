@@ -20,9 +20,9 @@ import butterknife.ButterKnife;
 public class CadastroParceiroActivity extends AppCompatActivity implements CadastroParceiroView {
 
     @BindView(R.id.btnSalvarParceiro)
-    Button salvarParceiro;
+    Button salvar;
     @BindView(R.id.btnAtualizarParceiro)
-    Button atualizarParceiro;
+    Button atualizar;
     @BindView(R.id.hiddenIdParceiro)
     TextView idParceiro;
     @BindView(R.id.edTxtCnpjCpfParceiro)
@@ -59,10 +59,10 @@ public class CadastroParceiroActivity extends AppCompatActivity implements Cadas
             datavinculoParceiro.setText(extras.getString("parceiro_datavinculo"));
             observacoesParceiro.setText(extras.getString("parceiro_observacoes"));
             getSupportActionBar().setTitle("Atualizar Parceiro");
-            atualizarParceiro.setVisibility(View.VISIBLE);
-            salvarParceiro.setVisibility(View.GONE);
+            salvar.setVisibility(View.GONE);
         }
         else {
+            atualizar.setVisibility(View.GONE);
             getSupportActionBar().setTitle("Novo Parceiro");
         }
     /* Implementação do DatePicker
@@ -93,7 +93,7 @@ public class CadastroParceiroActivity extends AppCompatActivity implements Cadas
             }
         }); */
 
-        salvarParceiro.setOnClickListener(new View.OnClickListener() {
+        salvar.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v)  {
                CadastroParceiroPresenter presenter = new CadastroParceiroPresenter(CadastroParceiroActivity.this, getBaseContext());
@@ -101,7 +101,7 @@ public class CadastroParceiroActivity extends AppCompatActivity implements Cadas
             }
         });
 
-        atualizarParceiro.setOnClickListener(new View.OnClickListener() {
+        atualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CadastroParceiroPresenter presenter = new CadastroParceiroPresenter(CadastroParceiroActivity.this, getBaseContext());

@@ -3,46 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DDDADA"
     tools:context=".Parceiros.Listagem.ListarParceirosFragment">
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:layout_height="match_parent">
 
-        <SearchView
-            android:id="@+id/searchViewParceiros"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:queryHint="Buscar Parceiro"
-            android:iconifiedByDefault="false"
-            android:layout_marginBottom="15dp"
-            />
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view_parceiros"
-                android:scrollbars="vertical"
+            <SearchView
+                android:id="@+id/searchViewParceiros"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="9"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"/>
-            <Button
-                android:id="@+id/buttonAddParceiro"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="50dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/botao_plus"
-                android:textSize="30sp" />
-        </RelativeLayout>
-    </LinearLayout>
+                android:layout_marginBottom="15dp"
+                android:background="#FFFFFF"
+                android:iconifiedByDefault="false"
+                android:queryHint="Buscar Parceiro" />
 
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_parceiros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="9"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonAddParceiro"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/botao_plus"
+            android:textSize="30sp" />
+    </RelativeLayout>
 </FrameLayout>

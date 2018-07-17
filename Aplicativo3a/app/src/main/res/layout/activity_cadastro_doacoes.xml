@@ -10,14 +10,16 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:id="@+id/hiddenIdParceiroDoacao"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             style="@style/MargensSize"
             android:id="@+id/hiddenIdDoacao"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
         <TextView
             android:id="@+id/labelDataDoacao"
             style="@style/MargensSize"
@@ -46,25 +48,24 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|center"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnAdicionarDoacao"
+                android:id="@+id/btnSalvarDoacao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:text="Salvar" />
 
             <Button
                 android:id="@+id/btnAtualizarDoacao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:text="Atualizar"
-                android:visibility="invisible" />
+                android:layout_marginTop="10dp"
+                android:text="Atualizar" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -14,7 +14,7 @@
             android:id="@+id/hiddenIdAviso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
+            android:visibility="gone"
             />
 
         <LinearLayout
@@ -36,7 +36,7 @@
                 android:text="Atualizar"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
-                android:visibility="invisible"/>
+                android:visibility="gone"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

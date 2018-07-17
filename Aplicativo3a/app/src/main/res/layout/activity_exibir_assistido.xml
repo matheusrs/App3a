@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DDDADA">
@@ -9,149 +8,308 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_viewAssistido"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        card_view:cardCornerRadius="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="15dp">
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    card_view:cardCornerRadius="13dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="Detalhes do Assistido"
+                            android:textAlignment="center"
+                            android:textColor="#00CED1"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/Divisor1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="2dip"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="#00CED1" />
+
+                        <TextView
+                            android:id="@+id/hiddenIdAssistido"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/hiddenStatusAssistido"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/labelNomeAssistido"
+                            style="@style/MargensSize"
+                            android:layout_marginTop="10dp"
+                            android:text="Nome:"
+
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/valueNomeAssistido"
+                            style="@style/MargensSize"
+                            android:gravity="right"
+                            android:singleLine="true" />
+
+                        <TextView
+                            android:id="@+id/labelCPFAssistido"
+                            style="@style/MargensSize"
+                            android:text="CPF:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/valueCPFAssistido"
+                            style="@style/MargensSize"
+                            android:gravity="right"
+                            android:singleLine="true" />
+
+                        <TextView
+                            android:id="@+id/labelRgAssistido"
+                            style="@style/MargensSize"
+                            android:text="RG:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/valueRgAssistido"
+                            style="@style/MargensSize"
+                            android:gravity="right" />
+
+                        <TextView
+                            android:id="@+id/labelDataNascimentoAssistido"
+                            style="@style/MargensSize"
+                            android:text="Data de Nascimento:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/valueDataNascimentoAssistido"
+                            style="@style/MargensSize"
+                            android:gravity="right"
+                            android:singleLine="true" />
+
+                        <TextView
+                            android:id="@+id/labelTamanhoCalcadoAssistido"
+                            style="@style/MargensSize"
+                            android:text="Tamanho do calçado:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/valueTamanhoCalcadoAssistido"
+                            style="@style/MargensSize"
+                            android:gravity="right"
+                            android:singleLine="true" />
+
+                        <TextView
+                            android:id="@+id/labelTamanhoRoupaAssistido"
+                            style="@style/MargensSize"
+                            android:text="Tamanho da roupa:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/valueTamanhoRoupaAssistido"
+                            style="@style/MargensSize"
+                            android:gravity="right"
+                            android:singleLine="true" />
+
+                        <TextView
+                            android:id="@+id/labelDatasPresentesAssistido"
+                            style="@style/MargensSize"
+                            android:text="Datas preferenciais para presentes:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/valueDatasPresentesAssistido"
+                            style="@style/MargensSize"
+                            android:gravity="right"
+                            android:singleLine="true" />
+
+                        <TextView
+                            android:id="@+id/labelMeioTransporteAssistido"
+                            style="@style/MargensSize"
+                            android:text="Meio de Transporte:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/valueMeioTransporteAssistido"
+                            style="@style/MargensSize"
+                            android:gravity="right"
+                            android:singleLine="true" />
+
+                        <TextView
+                            android:id="@+id/labelStatusAtivo"
+                            style="@style/MargensSize"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#00FF00"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_responsaveis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="15dp"
+                    card_view:cardCornerRadius="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/labelResponsaveis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="Responsáveis"
+                            android:textAlignment="center"
+                            android:textColor="#00CED1"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/Divisor2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="2dip"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="#00CED1" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/recycler_view_responsaveis"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="10dp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_view_medicamentos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="85dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    card_view:cardCornerRadius="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/labelMedicamentos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="Medicamentos"
+                            android:textAlignment="center"
+                            android:textColor="#00CED1"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:id="@+id/Divisor4"
+                            android:layout_width="fill_parent"
+                            android:layout_height="2dip"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="#00CED1" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/recycler_view_medicamentos"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="10dp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Detalhes do Assistido"
-                android:textAlignment="center"
-                android:textColor="#00CED1"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/Divisor1"
-                android:layout_width="fill_parent"
-                android:layout_height="2dip"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="#00CED1" />
-
-            <TextView
-                android:id="@+id/hiddenIdAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:visibility="invisible"/>
-
-            <TextView
-                android:id="@+id/hiddenStatusAssistido"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:visibility="invisible"/>
-            <TextView
-                android:id="@+id/labelNomeAssistido"
-                style="@style/MargensSize"
-                android:text="Nome:"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"/>
-
-            <TextView
-                android:id="@+id/valueNomeAssistido"
-                style="@style/MargensSize"
-                android:gravity="right"
-                android:singleLine="true" />
-
-            <TextView
-                android:id="@+id/labelSobrenomeAssistido"
-                style="@style/MargensSize"
-                android:text="Sobrenome:"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/valueSobrenomeAssistido"
-                style="@style/MargensSize"
-                android:singleLine="true"
-                android:gravity="right"/>
-
-            <TextView
-                android:id="@+id/labelCPFAssistido"
-                style="@style/MargensSize"
-                android:text="CPF:"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/valueCPFAssistido"
-                style="@style/MargensSize"
-                android:gravity="right"
-                android:singleLine="true"/>
-
-
-
-            <TextView
-                android:id="@+id/labelTelefoneAssistido"
-                style="@style/MargensSize"
-                android:text="Telefone:"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/valueTelefoneAssistido"
-                style="@style/MargensSize"
-                android:singleLine="true"
-                android:gravity="right"/>
-            <TextView
-                android:id="@+id/labelDataNascimentoAssistido"
-                style="@style/MargensSize"
-                android:text="Data de Nascimento:"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/valueDataNascimentoAssistido"
-                style="@style/MargensSize"
-                android:singleLine="true"
-                android:gravity="right"/>
-            <TextView
-                android:id="@+id/labelDeficienciaAssistido"
-                style="@style/MargensSize"
-                android:text="Deficiência:"
-                android:textStyle="bold"/>
-            <TextView
-                android:id="@+id/valueDeficienciaAssistido"
-                style="@style/MargensSize"
-                android:singleLine="true"
-                android:gravity="right"/>
-            <TextView
-                android:id="@+id/labelObservacoesAssistido"
-                style="@style/MargensSize"
-                android:text="Observações:"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/valueObservacoesAssistido"
-                style="@style/MargensSize"
-                android:gravity="right"/>
-            <TextView
-                android:id="@+id/labelStatusAtivo"
-                style="@style/MargensSize"
-                android:textStyle="bold"
-                android:layout_marginBottom="10dp"/>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnEditAssistido"
+                android:id="@+id/btnAddResponsavel"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:textSize="30sp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/botao_edit"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="20dp"
-                />
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/botao_pessoa"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btnAddMedicamento"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/botao_medicamento"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnEditAssistido"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/botao_edit"
+            android:textSize="30sp" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

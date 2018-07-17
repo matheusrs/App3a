@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="70dp">
@@ -14,29 +12,16 @@
         android:layout_height="match_parent"
         card_view:cardCornerRadius="13dp"
         android:layout_marginBottom="5dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-            <TextView
-                android:id="@+id/nome_assistido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left|center"
-                android:text="Nome: "
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:singleLine="true"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="15dp"/>
+
         <TextView
-            android:id="@+id/tel_assistido"
+            android:id="@+id/nome_assistido"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="Telefone: "
-            android:layout_marginLeft="15dp"
-            />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:gravity="left|center"
+            android:text="Nome assistido"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:layout_marginLeft="15dp"/>
     </android.support.v7.widget.CardView>
 </RelativeLayout>

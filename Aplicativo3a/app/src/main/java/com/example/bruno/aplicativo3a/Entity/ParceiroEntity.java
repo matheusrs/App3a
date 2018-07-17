@@ -1,13 +1,14 @@
 package com.example.bruno.aplicativo3a.Entity;
 
 public class ParceiroEntity {
-    String id,cpfcnpj,nome,telefone,datavinculo,observacoes;
+    int id;
+    String cpfcnpj,nome,telefone,datavinculo,observacoes;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

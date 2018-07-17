@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDDADA">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/hiddenIdResponsavel"
+                style="@style/MargensSize"
+                android:visibility="gone"
+                />
+            <TextView
+                android:id="@+id/hiddenIdAssistidoResponsavel"
+                style="@style/MargensSize"
+                android:visibility="gone"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelNomeResponsavel"
+                style="@style/MargensSize"
+                android:text="Nome:"
+                android:textStyle="bold"  />
+            <TextView
+                android:id="@+id/valueNomeResponsavel"
+                style="@style/MargensSize"
+                android:singleLine="true"
+                android:gravity="right"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelCpfResponsavel"
+                style="@style/MargensSize"
+                android:text="Cpf:"
+                android:textStyle="bold"  />
+            <TextView
+                android:id="@+id/valueCpfResponsavel"
+                style="@style/MargensSize"
+                android:singleLine="true"
+                android:gravity="right"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelRgResponsavel"
+                style="@style/MargensSize"
+                android:text="Rg:"
+                android:textStyle="bold"  />
+            <TextView
+                android:id="@+id/valueRgResponsavel"
+                style="@style/MargensSize"
+                android:singleLine="true"
+                android:gravity="right"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelEnderecoResponsavel"
+                style="@style/MargensSize"
+                android:text="Endereço:"
+                android:textStyle="bold"  />
+            <TextView
+                android:id="@+id/valueEnderecoResponsavel"
+                style="@style/MargensSize"
+                android:singleLine="true"
+                android:gravity="right"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelBairroResponsavel"
+                style="@style/MargensSize"
+                android:text="Bairro:"
+                android:textStyle="bold"  />
+            <TextView
+                android:id="@+id/valueBairroResponsavel"
+                style="@style/MargensSize"
+                android:singleLine="true"
+                android:gravity="right"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelTelefoneResponsavel"
+                style="@style/MargensSize"
+                android:text="Grau de Parentesco:"
+                android:textStyle="bold"  />
+            <TextView
+                android:id="@+id/valueTelefoneResponsavel"
+                style="@style/MargensSize"
+                android:singleLine="true"
+                android:gravity="right"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelGrauParentescoResponsavel"
+                style="@style/MargensSize"
+                android:text="Grau de Parentesco:"
+                android:textStyle="bold"  />
+            <TextView
+                android:id="@+id/valueGrauParentescoResponsavel"
+                style="@style/MargensSize"
+                android:singleLine="true"
+                android:gravity="right"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelEmailResponsavel"
+                style="@style/MargensSize"
+                android:text="Email:"
+                android:textStyle="bold"  />
+            <TextView
+                android:id="@+id/valueEmailResponsavel"
+                style="@style/MargensSize"
+                android:singleLine="true"
+                android:gravity="right"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelAutorizadoRetirarResponsavel"
+                style="@style/MargensSize"
+                android:text="Email:"
+                android:textStyle="bold"  />
+            <TextView
+                android:id="@+id/valueAutorizadoRetirarResponsavel"
+                style="@style/MargensSize"
+                android:singleLine="true"
+                android:gravity="right"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnEditResponsavel"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:textSize="30sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/botao_edit">
+            </Button>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

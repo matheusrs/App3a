@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Eventos.InserirAlterar.CadastroEventoActivity">
 
 <ScrollView
     android:layout_width="match_parent"
@@ -15,8 +21,8 @@
         <TextView
             android:id="@+id/hiddenIdEvento"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
+            android:layout_height="match_parent"
+            android:visibility="gone"
             />
 
         <TextView
@@ -55,36 +61,26 @@
             android:inputType="date" />
 
         <TextView
-            android:id="@+id/labelDespesasEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:text="Despesas:"
-            android:textSize="18sp"
+            android:id="@+id/labelGastosEvento"
+            style="@style/MargensSize"
+            android:text="Gastos:"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/edTxtDespesasEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/edTxtGastosEvento"
+            style="@style/MargensSizeEditText"
             android:hint="00.00"
             android:inputType="numberDecimal" />
 
         <TextView
             android:id="@+id/labelReceitasEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
+            style="@style/MargensSize"
             android:text="Receitas:"
-            android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edTxtReceitasEvento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSizeEditText"
             android:hint="00.00"
             android:inputType="numberDecimal" />
 
@@ -99,28 +95,27 @@
             style="@style/MargensSizeEditText"
             android:inputType="text" />
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="top|center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnSalvarEvento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:text="Salvar" />
 
             <Button
                 android:id="@+id/btnAtualizarEvento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:text="Atualizar"
-                android:visibility="invisible" />
+                android:layout_marginTop="10dp"
+                android:text="Atualizar" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
+</android.support.constraint.ConstraintLayout>

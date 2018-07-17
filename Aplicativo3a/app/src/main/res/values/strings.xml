@@ -4,7 +4,7 @@
     <string name="opc_calendario">Calendário</string>
     <string name="opc_assistidos">Assistidos</string>
     <string name="opc_parceiros">Parceiros</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Acorde Administrativo</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_main2">Main2Activity</string>

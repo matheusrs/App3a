@@ -1,5 +1,6 @@
 package com.example.bruno.aplicativo3a.Parceiros.Doacoes.InserirAlterar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
 
 public class CadastroDoacaoActivity extends AppCompatActivity implements CadastroDoacaoView {
 
-    @BindView(R.id.btnAdicionarDoacao)
+    @BindView(R.id.btnSalvarDoacao)
     Button salvar;
     @BindView(R.id.btnAtualizarDoacao)
     Button atualizar;
@@ -43,24 +44,23 @@ public class CadastroDoacaoActivity extends AppCompatActivity implements Cadastr
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         Bundle extras = getIntent().getExtras();
-        boolean edit_mode = Boolean.valueOf(extras.getString("doacao_edit_mode"));
+        boolean insert_edit_mode = Boolean.valueOf(extras.getString("doacao_edit_mode")) ||
+                Boolean.valueOf(extras.getString("doacao_insert_mode"));
         presenter = new CadastroDoacaoPresenter(this, this);
-        String idParc = extras.getString("doacao_id_parceiro");
-        if (idParc != null)
-            idParceiroDoacao.setText(idParc);
+        idParceiroDoacao.setText(extras.getString("doacao_id_parceiro"));
 
-        dataDoacao.addTextChangedListener(Mask.insert(Mask.DATA_MASK, dataDoacao));
+        dataDoacao.addTextChangedListener(Mask.insert(Mask.DATA_MASK,dataDoacao));
 
-        if (edit_mode) {
+        if (insert_edit_mode){
             DoacaoEntity doacao = presenter.carregaDoacao(extras.getString("doacao_id"));
             idDoacao.setText(doacao.getId());
             dataDoacao.setText(doacao.getDataDoacao());
             descricaoDoacao.setText(doacao.getDescricao());
             idParceiroDoacao.setText(doacao.getIdParceiro());
-            atualizar.setVisibility(View.VISIBLE);
             salvar.setVisibility(View.GONE);
             getSupportActionBar().setTitle("Atualizar Doação");
         } else {
+            atualizar.setVisibility(View.GONE);
             getSupportActionBar().setTitle("Nova Doação");
         }
 

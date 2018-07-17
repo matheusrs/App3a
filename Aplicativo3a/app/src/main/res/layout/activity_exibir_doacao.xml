@@ -47,13 +47,13 @@
                 android:id="@+id/hiddenIdDoacao"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:visibility="invisible"
+                android:visibility="gone"
                 />
             <TextView
                 android:id="@+id/hiddenIdParceiroDoacao"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:visibility="invisible"/>
+                android:visibility="gone"/>
             <TextView
                 android:id="@+id/labelDataDoacao"
                 style="@style/MargensSize"

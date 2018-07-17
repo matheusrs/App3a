@@ -3,6 +3,7 @@ package com.example.bruno.aplicativo3a.Parceiros.Exibir;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,8 +46,10 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
     TextView dataVinculoParceiro;
     @BindView(R.id.valueTelefoneParceiro)
     TextView telefoneParceiro;
-    @BindView(R.id.labelDoacoes)
-    TextView labelDoacoes;
+    //@BindView(R.id.labelDoacoes)
+    //TextView labelDoacoes;
+    @BindView(R.id.card_view_doacoes)
+    CardView cardDoacoes;
     @BindView(R.id.recycler_view_doacoes)
     RecyclerView recyclerView;
 
@@ -55,19 +58,19 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
     public ExibirParceiroActivity() {
         // Required empty public constructor
     }
-
+/*
     @Override
     protected void onResume() {
         super.onResume();
-        ParceiroEntity parceiro = presenter.carregaParceiro(idParceiro.getText().toString());
+        ParceiroEntity parceiro = presenter.carregaParceiro(Integer.valueOf(idParceiro.getText().toString()));
         idParceiro.setText(parceiro.getId());
         cnpjCpfParceiro.setText(parceiro.getCnpjCpf());
         nomeParceiro.setText(parceiro.getNome());
         telefoneParceiro.setText(parceiro.getTelefone());
         dataVinculoParceiro.setText(parceiro.getDatavinculo());
         observacoesParceiro.setText(parceiro.getObservacoes());
-        presenter.listarDoacoes(idParceiro.getText().toString());
-    }
+        presenter.listarDoacoes(Integer.valueOf(idParceiro.getText().toString()));
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,9 +86,9 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
 
         // Inflate the layout for this fragment
         presenter = new ExibirParceiroPresenter(this, getBaseContext());
-        idParceiro.setText(extras.getString("parceiro_id"));
+        idParceiro.setText(extras.get("parceiro_id").toString());
         if (edit_mode){
-            ParceiroEntity parceiro = presenter.carregaParceiro(extras.getString("parceiro_id"));
+            ParceiroEntity parceiro = presenter.carregaParceiro(Integer.valueOf(extras.get("parceiro_id").toString()));
             cnpjCpfParceiro.setText(parceiro.getCnpjCpf());
             nomeParceiro.setText(parceiro.getNome());
             telefoneParceiro.setText(parceiro.getTelefone());
@@ -98,7 +101,7 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
             dataVinculoParceiro.setText(extras.getString("parceiro_datavinculo"));
             observacoesParceiro.setText(extras.getString("parceiro_observacoes"));
         }
-        presenter.listarDoacoes(extras.getString("parceiro_id"));
+        presenter.listarDoacoes(Integer.valueOf(extras.get("parceiro_id").toString()));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -150,7 +153,7 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
 
     public void updateListDoacoes(final List<DoacaoEntity> doacoesEntityList){
         if (doacoesEntityList.isEmpty()) {
-            labelDoacoes.setVisibility(View.INVISIBLE);
+            cardDoacoes.setVisibility(View.GONE);
         } else {
         ExibirParceiroAdapter adapter = new ExibirParceiroAdapter(doacoesEntityList,this);
         adapter.setOnRecyclerViewSelected(new OnRecyclerViewSelected() {
@@ -165,6 +168,7 @@ public class ExibirParceiroActivity extends AppCompatActivity implements ExibirP
             }
         });
         recyclerView.setAdapter(adapter);
+        recyclerView.setNestedScrollingEnabled(false);
         }
     }
 }

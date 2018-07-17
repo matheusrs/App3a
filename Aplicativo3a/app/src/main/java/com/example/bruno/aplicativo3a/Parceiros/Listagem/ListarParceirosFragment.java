@@ -112,6 +112,8 @@ public class ListarParceirosFragment extends Fragment  implements ListarParceiro
             }
         });
         recyclerView.setAdapter(adapter);
+        recyclerView.setNestedScrollingEnabled(false);
+
     }
 
 }

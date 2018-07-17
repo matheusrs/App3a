@@ -48,58 +48,29 @@ public class ParceirosController {
             return true;
     }
 
-    public List<ParceiroEntity> carregaParceiros(){
-        Cursor cursorParceiros;
+    public Cursor carregaParceiros(){
+        Cursor cursor;
         db = criaBD.getReadableDatabase();
-        String order = CriaBD.TABPARCEIROS_NOME+ " asc";
-        cursorParceiros = db.query(criaBD.TABPARCEIROS, camposParceiros, null, null, null, null, order, null);
+        cursor = db.query(criaBD.TABPARCEIROS, camposParceiros, null, null, null, null, null, null);
 
-        if(cursorParceiros!=null){
-            cursorParceiros.moveToFirst();
+        if(cursor!=null){
+            cursor.moveToFirst();
         }
-        List<ParceiroEntity> parceiros = new ArrayList<>();
-        if (cursorParceiros.getCount() > 0)
-            do
-            {
-                ParceiroEntity parceiro = new ParceiroEntity();
-                parceiro.setId(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_ID)));
-                parceiro.setCnpjCpf(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_CNPJCPF)));
-                parceiro.setNome(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_NOME)));
-                parceiro.setTelefone(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_TELEFONE)));
-                parceiro.setDatavinculo(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_DATAVINCULO)));
-                parceiro.setObservacoes(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_OBSERVACOES)));
-                parceiros.add(parceiro);
-            } while(cursorParceiros.moveToNext());
         db.close();
-        cursorParceiros.close();
-        return parceiros;
+        return cursor;
     }
 
-    public List<ParceiroEntity> carregaParceiros(String nome){
-        Cursor cursorParceiros;
+    public Cursor carregaParceiros(String nome){
+        Cursor cursor;
         String where = "upper(" + CriaBD.TABPARCEIROS_NOME + ") like '%" + nome.toUpperCase() + "%'";
         db = criaBD.getReadableDatabase();
-        String order = CriaBD.TABPARCEIROS_NOME+ " asc";
-        cursorParceiros = db.query(criaBD.TABPARCEIROS, camposParceiros, where, null, null, null, order, null);
+        cursor = db.query(criaBD.TABPARCEIROS, camposParceiros, where, null, null, null, null, null);
 
-        if(cursorParceiros!=null){
-            cursorParceiros.moveToFirst();
-        } List<ParceiroEntity> parceiros = new ArrayList<>();
-        if (cursorParceiros.getCount() > 0)
-            do
-            {
-                ParceiroEntity parceiro = new ParceiroEntity();
-                parceiro.setId(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_ID)));
-                parceiro.setCnpjCpf(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_CNPJCPF)));
-                parceiro.setNome(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_NOME)));
-                parceiro.setTelefone(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_TELEFONE)));
-                parceiro.setDatavinculo(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_DATAVINCULO)));
-                parceiro.setObservacoes(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_OBSERVACOES)));
-                parceiros.add(parceiro);
-            } while(cursorParceiros.moveToNext());
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
         db.close();
-        cursorParceiros.close();
-        return parceiros;
+        return cursor;
     }
 
     public boolean atualizaParceiro(String id, String cnpjcpf, String nome,String telefone, String data_vinculo,String observacoes){
@@ -123,27 +94,16 @@ public class ParceirosController {
             return true;
     }
 
-    public ParceiroEntity carregaParceiro(String id_parceiro) {
+    public Cursor carregaParceiro(int id_parceiro) {
         Cursor cursor;
-        ParceiroEntity parceiroEntity=new ParceiroEntity();
-
         String where = CriaBD.TABPARCEIROS_ID+ " = " + id_parceiro;
         db = criaBD.getReadableDatabase();
         cursor = db.query(criaBD.TABPARCEIROS, camposParceiros, where, null, null, null, null, null);
-        try {
-            if (cursor.getCount() > 0) {
-                cursor.moveToFirst();
-                parceiroEntity.setId(cursor.getString(cursor.getColumnIndex(criaBD.TABPARCEIROS_ID)));
-                parceiroEntity.setCnpjCpf(cursor.getString(cursor.getColumnIndex(criaBD.TABPARCEIROS_CNPJCPF)));
-                parceiroEntity.setNome(cursor.getString(cursor.getColumnIndex(criaBD.TABPARCEIROS_NOME)));
-                parceiroEntity.setDatavinculo(cursor.getString(cursor.getColumnIndex(criaBD.TABPARCEIROS_DATAVINCULO)));
-                parceiroEntity.setObservacoes(cursor.getString(cursor.getColumnIndex(criaBD.TABPARCEIROS_OBSERVACOES)));
-                parceiroEntity.setTelefone(cursor.getString(cursor.getColumnIndex(criaBD.TABPARCEIROS_TELEFONE)));
-                }
-        } finally {
-            cursor.close();
-            db.close();
+
+        if(cursor!=null){
+            cursor.moveToFirst();
         }
-        return parceiroEntity;
+        db.close();
+        return cursor;
     }
 }

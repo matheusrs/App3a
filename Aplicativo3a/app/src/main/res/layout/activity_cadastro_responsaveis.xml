@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Assistidos.Responsaveis.InserirAlterar.CadastroResponsavelActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hiddenIdAssistidoResponsavel"
+            android:visibility="gone"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hiddenIdResponsavel"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/labelNomeResponsavel"
+            style="@style/MargensSize"
+            android:text="Nome do Responsável:"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edTxtNomeResponsavel"
+            style="@style/MargensSizeEditText"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/labelCpfResponsavel"
+            style="@style/MargensSize"
+            android:text="CPF:"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edTxtCpfResponsavel"
+            style="@style/MargensSizeEditText"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/labelRgResponsavel"
+            style="@style/MargensSize"
+            android:text="RG:"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edTxtRgResponsavel"
+            style="@style/MargensSizeEditText"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/labelEnderecoResponsavel"
+            style="@style/MargensSize"
+            android:text="Endereço:"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edTxtEnderecoResponsavel"
+            style="@style/MargensSizeEditText"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/labelBairroResponsavel"
+            style="@style/MargensSize"
+            android:text="Bairro:"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edTxtBairroResponsavel"
+            style="@style/MargensSizeEditText"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/labelTelefoneResponsavel"
+            style="@style/MargensSize"
+            android:text="Telefone:"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edTxtTelefoneResponsavel"
+            style="@style/MargensSizeEditText"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/labelGrauParentescoResponsavel"
+            style="@style/MargensSize"
+            android:text="Grau de Parentesco:"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edTxtGrauParentescoResponsavel"
+            style="@style/MargensSizeEditText"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/labelEmailResponsavel"
+            style="@style/MargensSize"
+            android:text="Email:"
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/edTxtEmailResponsavel"
+            style="@style/MargensSizeEditText"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/labelAutorizadoRetirarResponsavel"
+            style="@style/MargensSize"
+            android:text="Autorizado a retirar o assistido?"
+            android:textStyle="bold"/>
+        <Switch
+            android:id="@+id/switchAutorizadoRetirar"
+            style="@style/MargensSize"
+            android:checked="true"
+            android:gravity="right|center_vertical"
+            android:text="Sim"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSalvarResponsavel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Salvar" />
+
+            <Button
+                android:id="@+id/btnAtualizarResponsavel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Atualizar" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

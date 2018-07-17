@@ -14,94 +14,71 @@
         <TextView
             android:id="@+id/hiddenIdParceiro"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
+            android:layout_height="match_parent"
+            android:visibility="gone"
             />
         <TextView
             android:id="@+id/labelNomeParceiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/MargensSize"
             android:text="Nome/Empresa:"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:textStyle="bold"/>
         <EditText
             android:id="@+id/edTxtNomeParceiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            style="@style/MargensSizeEditText"
+            android:inputType="text" />
         <TextView
             android:id="@+id/labelCnpjCpfParceiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="CNPJ/CPF:"
-            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            style="@style/MargensSize"
+            />
         <EditText
             android:id="@+id/edTxtCnpjCpfParceiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:inputType="number"
+            style="@style/MargensSize"
+            />
         <TextView
             android:id="@+id/labelTelefoneParceiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Telefone:"
-            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            style="@style/MargensSize"
+            />
         <EditText
             android:id="@+id/edTxtTelefoneParceiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="(xx) xxxx-xxxx"
+            android:hint="(xx) xxxxx-xxxx"
             android:inputType="phone"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            style="@style/MargensSize" />
         <TextView
             android:id="@+id/labelDataVinculoParceiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Parceiro desde:"
-            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            style="@style/MargensSize"
+            />
         <EditText
             android:id="@+id/edTxtDataVinculoParceiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:hint="dd/mm/aaaa"
             android:inputType="date"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            style="@style/MargensSize"
             />
         <TextView
             android:id="@+id/labelObservacoesParceiro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="Observações:"
-            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            style="@style/MargensSize"
+            />
         <EditText
             android:id="@+id/edTxtObservacoesParceiro"
-            android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="top"
             android:inputType="textMultiLine"
             android:maxLines="10"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"/>
+            style="@style/MargensSize" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|center"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnSalvarParceiro"
@@ -116,9 +93,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="30dp"
-                android:text="Atualizar"
-                android:visibility="invisible" />
+                android:text="Atualizar" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

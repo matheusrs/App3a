@@ -2,6 +2,7 @@ package com.example.bruno.aplicativo3a.Parceiros.Exibir;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.example.bruno.aplicativo3a.banco.CriaBD;
 import com.example.bruno.aplicativo3a.banco.DoacoesController;
@@ -21,7 +22,7 @@ public class ExibirParceiroPresenter {
         this.context = context;
     }
 
-    public void listarDoacoes(String idParceiro){
+    public void listarDoacoes(int idParceiro){
 
         DoacoesController banco = new DoacoesController(context);
         Cursor cursorDoacoes = banco.carregaDoacoes(idParceiro);
@@ -39,9 +40,18 @@ public class ExibirParceiroPresenter {
         view.updateListDoacoes(doacoesParceiro);
     }
 
-    public ParceiroEntity carregaParceiro(String idParceiro) {
+    public ParceiroEntity carregaParceiro(int idParceiro) {
         ParceirosController bancoParceiros = new ParceirosController(context);
-        ParceiroEntity parceiroDoacao = bancoParceiros.carregaParceiro(idParceiro);
-        return parceiroDoacao;
+        Cursor cursorParceiros = bancoParceiros.carregaParceiro(idParceiro);
+        ParceiroEntity parceiro = new ParceiroEntity();
+        if(cursorParceiros.getCount() > 0 && cursorParceiros.moveToFirst()) {
+            parceiro.setId(cursorParceiros.getInt(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_ID)));
+            parceiro.setNome(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_NOME)));
+            parceiro.setCnpjCpf(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_CNPJCPF)));
+            parceiro.setTelefone(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_TELEFONE)));
+            parceiro.setDatavinculo(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_DATAVINCULO)));
+            parceiro.setObservacoes(cursorParceiros.getString(cursorParceiros.getColumnIndex(CriaBD.TABPARCEIROS_OBSERVACOES)));
+        }
+        return parceiro;
     }
 }

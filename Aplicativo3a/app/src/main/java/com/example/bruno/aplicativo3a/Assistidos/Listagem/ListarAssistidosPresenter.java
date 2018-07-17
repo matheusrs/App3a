@@ -21,14 +21,49 @@ public class ListarAssistidosPresenter {
 
     public void listarAssistidos(){
         AssistidosController banco = new AssistidosController(context);
-        List<AssistidoEntity> assistidos = banco.carregaAssistidos();
+        Cursor cursorAssistidos = banco.carregaAssistidos();
+        List<AssistidoEntity> assistidos = new ArrayList<>();
+        if (cursorAssistidos.getCount() > 0)
+        do
+        {
+            AssistidoEntity assistido = new AssistidoEntity();
+            assistido.setId(Integer.valueOf(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_ID))));
+            assistido.setCpf(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_CPF)));
+            assistido.setRg(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_RG)));
+            assistido.setNomeCompleto(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_NOME_COMPLETO)));
+            assistido.setDataNascimento(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_DATANASCIMENTO)));
+            assistido.setTamanhoCalcado(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_TAMANHO_CALCADO)));
+            assistido.setTamanhoRoupa(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_TAMANHO_ROUPA)));
+            assistido.setDatasPresentes(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_DATAS_PRESENTES)));
+            assistido.setMeioTransporte(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_MEIOTRANSPORTE)));
+            assistido.setStatusAtivo(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_STATUSATIVO)));
+            assistidos.add(assistido);
+        } while(cursorAssistidos.moveToNext());
 
         view.updateListAssistidos(assistidos);
     }
 
     public void listarAssistidos(String query){
         AssistidosController banco = new AssistidosController(context);
-        List<AssistidoEntity> assistidos =  banco.carregaAssistidos(query);
+        Cursor cursorAssistidos = banco.carregaAssistidos(query);
+        List<AssistidoEntity> assistidos = new ArrayList<>();
+        if (cursorAssistidos.getCount() > 0)
+            do
+            {
+                AssistidoEntity assistido = new AssistidoEntity();
+                assistido.setId(Integer.valueOf(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_ID))));
+                assistido.setCpf(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_CPF)));
+                assistido.setRg(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_RG)));
+                assistido.setNomeCompleto(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_NOME_COMPLETO)));
+                assistido.setDataNascimento(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_DATANASCIMENTO)));
+                assistido.setTamanhoCalcado(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_TAMANHO_CALCADO)));
+                assistido.setTamanhoRoupa(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_TAMANHO_ROUPA)));
+                assistido.setDatasPresentes(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_DATAS_PRESENTES)));
+                assistido.setMeioTransporte(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_MEIOTRANSPORTE)));
+                assistido.setStatusAtivo(cursorAssistidos.getString(cursorAssistidos.getColumnIndex(CriaBD.TABASSISTIDOS_STATUSATIVO)));
+                assistidos.add(assistido);
+            } while(cursorAssistidos.moveToNext());
+
         view.updateListAssistidos(assistidos);
     }
 }
